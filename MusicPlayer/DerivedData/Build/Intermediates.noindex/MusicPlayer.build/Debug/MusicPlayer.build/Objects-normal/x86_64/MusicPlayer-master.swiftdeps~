@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)"
+options: "8f0a1b18e8fb2540eb96730d7ed96c7dee9e2e11a6e66498969786e24414d752"
+build_start_time: [1663692068, 128895998]
+build_end_time: [1663692068, 331725120]
+inputs:
+  "/Users/Silverhand/Developer/MusicPlayer-macOS/MusicPlayer/MusicPlayer/ContentView.swift": !private [1663690146, 538488626]
+  "/Users/Silverhand/Developer/MusicPlayer-macOS/MusicPlayer/MusicPlayer/MusicPlayerApp.swift": !private [1663687106, 416074991]

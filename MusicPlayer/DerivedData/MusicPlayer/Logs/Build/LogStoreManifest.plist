@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>10F53353-669A-4648-A7E8-9F604CD43891</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>10F53353-669A-4648-A7E8-9F604CD43891.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384863.34249103</real>
+			<key>timeStoppedRecording</key>
+			<real>685384863.47865701</real>
+			<key>title</key>
+			<string>Clean MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>10F53353-669A-4648-A7E8-9F604CD43891</string>
+		</dict>
+		<key>1C85C596-289A-48D9-82D9-C2E3022202A4</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1C85C596-289A-48D9-82D9-C2E3022202A4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384531.22726297</real>
+			<key>timeStoppedRecording</key>
+			<real>685384531.44205105</real>
+			<key>title</key>
+			<string>Clean MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>1C85C596-289A-48D9-82D9-C2E3022202A4</string>
+		</dict>
+		<key>22DA22B1-06F2-45BC-A924-8393492CAB8B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>22DA22B1-06F2-45BC-A924-8393492CAB8B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Clean MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384385.39311099</real>
+			<key>timeStoppedRecording</key>
+			<real>685384385.86216104</real>
+			<key>title</key>
+			<string>Clean MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>22DA22B1-06F2-45BC-A924-8393492CAB8B</string>
+		</dict>
+		<key>775138CA-D689-459C-ABE6-6B78B67FFECD</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>775138CA-D689-459C-ABE6-6B78B67FFECD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384550.06202495</real>
+			<key>timeStoppedRecording</key>
+			<real>685384554.73645401</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>775138CA-D689-459C-ABE6-6B78B67FFECD</string>
+		</dict>
+		<key>D5C4FD7F-2874-4F4F-8E71-F93DF7D77232</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D5C4FD7F-2874-4F4F-8E71-F93DF7D77232.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384848.10810399</real>
+			<key>timeStoppedRecording</key>
+			<real>685384853.47365701</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>D5C4FD7F-2874-4F4F-8E71-F93DF7D77232</string>
+		</dict>
+		<key>E165A83E-EA0A-4B19-8CDD-2B4321BB0787</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E165A83E-EA0A-4B19-8CDD-2B4321BB0787.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384406.11845899</real>
+			<key>timeStoppedRecording</key>
+			<real>685384411.66862798</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>E165A83E-EA0A-4B19-8CDD-2B4321BB0787</string>
+		</dict>
+		<key>E76DDDEF-D669-4ACD-929C-A3F1E92A8B40</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E76DDDEF-D669-4ACD-929C-A3F1E92A8B40.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685384867.39380801</real>
+			<key>timeStoppedRecording</key>
+			<real>685384871.09397602</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>E76DDDEF-D669-4ACD-929C-A3F1E92A8B40</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
