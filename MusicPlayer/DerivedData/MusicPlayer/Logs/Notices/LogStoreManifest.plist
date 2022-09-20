@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>11F2F866-F2F8-4FCC-A3F4-BE8E9E5EAAE7</key>
+		<key>04CF04A6-6CC9-41E3-BEA2-8D06051250DD</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,203 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>11F2F866-F2F8-4FCC-A3F4-BE8E9E5EAAE7.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
-			<key>timeStartedRecording</key>
-			<real>685384406.11845899</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Build MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>11F2F866-F2F8-4FCC-A3F4-BE8E9E5EAAE7</string>
-		</dict>
-		<key>28F84F99-DBF8-4643-975F-97D93E17446D</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>28F84F99-DBF8-4643-975F-97D93E17446D.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBjbGVhbiJ9</string>
-			<key>timeStartedRecording</key>
-			<real>685384385.39311099</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Clean MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>28F84F99-DBF8-4643-975F-97D93E17446D</string>
-		</dict>
-		<key>2A6139A8-D40B-4974-8A13-7CC2F677A804</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>2A6139A8-D40B-4974-8A13-7CC2F677A804.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
-			<key>timeStartedRecording</key>
-			<real>685384867.39380801</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Build MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>2A6139A8-D40B-4974-8A13-7CC2F677A804</string>
-		</dict>
-		<key>2F82438B-C2EA-487D-8061-128021052ECF</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>2F82438B-C2EA-487D-8061-128021052ECF.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBjbGVhbiJ9</string>
-			<key>timeStartedRecording</key>
-			<real>685384385.39311099</real>
-			<key>timeStoppedRecording</key>
-			<real>685384385.86216104</real>
-			<key>title</key>
-			<string>Clean MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>2F82438B-C2EA-487D-8061-128021052ECF</string>
-		</dict>
-		<key>3D8564B2-36E1-4919-A954-6CA128E3B8B5</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>3D8564B2-36E1-4919-A954-6CA128E3B8B5.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
-			<key>timeStartedRecording</key>
-			<real>685384550.06202495</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Build MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>3D8564B2-36E1-4919-A954-6CA128E3B8B5</string>
-		</dict>
-		<key>4851F134-5DEF-4FA3-8062-966A2583656D</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>4851F134-5DEF-4FA3-8062-966A2583656D.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
-			<key>timeStartedRecording</key>
-			<real>685384867.39380801</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Build MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>4851F134-5DEF-4FA3-8062-966A2583656D</string>
-		</dict>
-		<key>4CE1DCE8-5A12-43D2-9136-CA8E17E9F090</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>4CE1DCE8-5A12-43D2-9136-CA8E17E9F090.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBjbGVhbiJ9</string>
-			<key>timeStartedRecording</key>
-			<real>685384531.22726297</real>
-			<key>timeStoppedRecording</key>
-			<real>685384531.44205105</real>
-			<key>title</key>
-			<string>Clean MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>4CE1DCE8-5A12-43D2-9136-CA8E17E9F090</string>
-		</dict>
-		<key>509191A2-2897-4891-9683-999830BA9546</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>509191A2-2897-4891-9683-999830BA9546.xcactivitylog</string>
+			<string>04CF04A6-6CC9-41E3-BEA2-8D06051250DD.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -222,15 +26,15 @@
 			<key>signature</key>
 			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
 			<key>timeStartedRecording</key>
-			<real>685384406.11845899</real>
+			<real>685387465.67102301</real>
 			<key>timeStoppedRecording</key>
 			<real>63113904000</real>
 			<key>title</key>
 			<string>Build MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>509191A2-2897-4891-9683-999830BA9546</string>
+			<string>04CF04A6-6CC9-41E3-BEA2-8D06051250DD</string>
 		</dict>
-		<key>67EC8CA1-1A5E-4969-995C-374C62033FBF</key>
+		<key>0B214D9B-7CEA-49D0-B301-0C848CE74647</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -239,7 +43,63 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>67EC8CA1-1A5E-4969-995C-374C62033FBF.xcactivitylog</string>
+			<string>0B214D9B-7CEA-49D0-B301-0C848CE74647.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
+			<key>timeStartedRecording</key>
+			<real>685386077.14607704</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>0B214D9B-7CEA-49D0-B301-0C848CE74647</string>
+		</dict>
+		<key>26ACD44F-3782-420C-8EDB-0BEBA42082C3</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>26ACD44F-3782-420C-8EDB-0BEBA42082C3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
+			<key>timeStartedRecording</key>
+			<real>685384867.39380801</real>
+			<key>timeStoppedRecording</key>
+			<real>685384871.09397602</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>26ACD44F-3782-420C-8EDB-0BEBA42082C3</string>
+		</dict>
+		<key>26E109C9-161E-4B3A-83B2-6AFB188DBC6A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>26E109C9-161E-4B3A-83B2-6AFB188DBC6A.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -250,13 +110,153 @@
 			<key>signature</key>
 			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
 			<key>timeStartedRecording</key>
-			<real>685384550.06202495</real>
+			<real>685386553.92246604</real>
 			<key>timeStoppedRecording</key>
 			<real>63113904000</real>
 			<key>title</key>
 			<string>Build MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>67EC8CA1-1A5E-4969-995C-374C62033FBF</string>
+			<string>26E109C9-161E-4B3A-83B2-6AFB188DBC6A</string>
+		</dict>
+		<key>306F6073-5F5A-4377-84E7-F504B6854081</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>306F6073-5F5A-4377-84E7-F504B6854081.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
+			<key>timeStartedRecording</key>
+			<real>685385999.30853796</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>306F6073-5F5A-4377-84E7-F504B6854081</string>
+		</dict>
+		<key>41499949-9CF3-4B78-8EEA-C1BC2E85E34E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>41499949-9CF3-4B78-8EEA-C1BC2E85E34E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
+			<key>timeStartedRecording</key>
+			<real>685387465.67102301</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>41499949-9CF3-4B78-8EEA-C1BC2E85E34E</string>
+		</dict>
+		<key>82685A10-03CE-46A7-8A3F-DB29E3CFB80D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>82685A10-03CE-46A7-8A3F-DB29E3CFB80D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
+			<key>timeStartedRecording</key>
+			<real>685386077.14607704</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>82685A10-03CE-46A7-8A3F-DB29E3CFB80D</string>
+		</dict>
+		<key>864A985C-8F40-40A0-AF73-C8F1B63B2B9A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>864A985C-8F40-40A0-AF73-C8F1B63B2B9A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
+			<key>timeStartedRecording</key>
+			<real>685385999.30853796</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>864A985C-8F40-40A0-AF73-C8F1B63B2B9A</string>
+		</dict>
+		<key>8E9AE508-84E2-4A0D-AC0F-1FFEBBCA8D10</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>8E9AE508-84E2-4A0D-AC0F-1FFEBBCA8D10.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
+			<key>timeStartedRecording</key>
+			<real>685384867.39380801</real>
+			<key>timeStoppedRecording</key>
+			<real>685384871.09397602</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>8E9AE508-84E2-4A0D-AC0F-1FFEBBCA8D10</string>
 		</dict>
 		<key>8F58718C-DB3F-4960-AC45-C6D2A0C3568C</key>
 		<dict>
@@ -286,7 +286,7 @@
 			<key>uniqueIdentifier</key>
 			<string>8F58718C-DB3F-4960-AC45-C6D2A0C3568C</string>
 		</dict>
-		<key>ACDD56B7-5E2C-4E13-909C-9B11926B5ED6</key>
+		<key>9FA59885-F92F-45F5-91DE-8F8A76457596</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -295,35 +295,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>ACDD56B7-5E2C-4E13-909C-9B11926B5ED6.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
-			<key>timeStartedRecording</key>
-			<real>685384550.06202495</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Build MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>ACDD56B7-5E2C-4E13-909C-9B11926B5ED6</string>
-		</dict>
-		<key>AD4D73DB-60AB-4B74-AE31-BE7745BE962F</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>AD4D73DB-60AB-4B74-AE31-BE7745BE962F.xcactivitylog</string>
+			<string>9FA59885-F92F-45F5-91DE-8F8A76457596.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -334,15 +306,15 @@
 			<key>signature</key>
 			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
 			<key>timeStartedRecording</key>
-			<real>685384848.10810399</real>
+			<real>685386506.09414697</real>
 			<key>timeStoppedRecording</key>
 			<real>63113904000</real>
 			<key>title</key>
 			<string>Build MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>AD4D73DB-60AB-4B74-AE31-BE7745BE962F</string>
+			<string>9FA59885-F92F-45F5-91DE-8F8A76457596</string>
 		</dict>
-		<key>CB9A8F09-F7CA-4B7D-822D-ADE18C46EA8A</key>
+		<key>A7944D78-2334-46E4-ABF6-A631DF9595FE</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -351,35 +323,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>CB9A8F09-F7CA-4B7D-822D-ADE18C46EA8A.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
-			<key>timeStartedRecording</key>
-			<real>685384848.10810399</real>
-			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
-			<key>title</key>
-			<string>Build MusicPlayer</string>
-			<key>uniqueIdentifier</key>
-			<string>CB9A8F09-F7CA-4B7D-822D-ADE18C46EA8A</string>
-		</dict>
-		<key>CFC5A7E0-9E5A-4406-A66C-92E18A656DAD</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>CFC5A7E0-9E5A-4406-A66C-92E18A656DAD.xcactivitylog</string>
+			<string>A7944D78-2334-46E4-ABF6-A631DF9595FE.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -390,15 +334,15 @@
 			<key>signature</key>
 			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
 			<key>timeStartedRecording</key>
-			<real>685384848.10810399</real>
+			<real>685386553.92246604</real>
 			<key>timeStoppedRecording</key>
 			<real>63113904000</real>
 			<key>title</key>
 			<string>Build MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>CFC5A7E0-9E5A-4406-A66C-92E18A656DAD</string>
+			<string>A7944D78-2334-46E4-ABF6-A631DF9595FE</string>
 		</dict>
-		<key>D35827B2-E577-462D-85EF-513068382390</key>
+		<key>B03A378D-9322-4E2D-AD77-686F5CA16357</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -407,7 +351,91 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>D35827B2-E577-462D-85EF-513068382390.xcactivitylog</string>
+			<string>B03A378D-9322-4E2D-AD77-686F5CA16357.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
+			<key>timeStartedRecording</key>
+			<real>685386506.09414697</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>B03A378D-9322-4E2D-AD77-686F5CA16357</string>
+		</dict>
+		<key>B7F99BA1-5845-45F5-AF9C-F0E4A4C218D1</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B7F99BA1-5845-45F5-AF9C-F0E4A4C218D1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
+			<key>timeStartedRecording</key>
+			<real>685386553.92246604</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>B7F99BA1-5845-45F5-AF9C-F0E4A4C218D1</string>
+		</dict>
+		<key>DBDE1882-CB17-4FB8-8FE2-777509070711</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DBDE1882-CB17-4FB8-8FE2-777509070711.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
+			<key>timeStartedRecording</key>
+			<real>685386077.14607704</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>DBDE1882-CB17-4FB8-8FE2-777509070711</string>
+		</dict>
+		<key>E8302AC9-C51B-4A83-A84D-F09F0C31CB57</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E8302AC9-C51B-4A83-A84D-F09F0C31CB57.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -418,15 +446,15 @@
 			<key>signature</key>
 			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
 			<key>timeStartedRecording</key>
-			<real>685384406.11845899</real>
+			<real>685384867.39380801</real>
 			<key>timeStoppedRecording</key>
-			<real>63113904000</real>
+			<real>685384871.09397602</real>
 			<key>title</key>
 			<string>Build MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>D35827B2-E577-462D-85EF-513068382390</string>
+			<string>E8302AC9-C51B-4A83-A84D-F09F0C31CB57</string>
 		</dict>
-		<key>F6261227-8C7E-437E-81BD-F8AF3B59CF55</key>
+		<key>EFBCB933-9708-43D7-9BE0-2BFA6AB38EA3</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -435,7 +463,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>F6261227-8C7E-437E-81BD-F8AF3B59CF55.xcactivitylog</string>
+			<string>EFBCB933-9708-43D7-9BE0-2BFA6AB38EA3.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -444,15 +472,71 @@
 				<string>S</string>
 			</dict>
 			<key>signature</key>
-			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBjbGVhbiJ9</string>
+			<string>eyJ0eXBlIjp7ImJsdWVwcmludFByb3ZpZGVyIjp7fX0sImJsdWVwcmludFByb3ZpZGVyX3Byb3ZpZGVyRmlsZVBhdGhTdHJpbmciOiJcL1VzZXJzXC9TaWx2ZXJoYW5kXC9EZXZlbG9wZXJcL011c2ljUGxheWVyLW1hY09TXC9NdXNpY1BsYXllclwvTXVzaWNQbGF5ZXIueGNvZGVwcm9qIn0=</string>
 			<key>timeStartedRecording</key>
-			<real>685384863.34249103</real>
+			<real>685386506.09414697</real>
 			<key>timeStoppedRecording</key>
-			<real>685384863.47865701</real>
+			<real>63113904000</real>
 			<key>title</key>
-			<string>Clean MusicPlayer</string>
+			<string>Build MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>F6261227-8C7E-437E-81BD-F8AF3B59CF55</string>
+			<string>EFBCB933-9708-43D7-9BE0-2BFA6AB38EA3</string>
+		</dict>
+		<key>F3141CDB-C83B-49BC-AFD8-5949F1502620</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F3141CDB-C83B-49BC-AFD8-5949F1502620.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJ0eXBlIjp7ImJ1aWxkU3lzdGVtVGFzayI6e319LCJidWlsZFN5c3RlbVRhc2tfYnVpbGRUYXNrIjoiUHJlcGFyZSBidWlsZCJ9</string>
+			<key>timeStartedRecording</key>
+			<real>685387465.67102301</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>F3141CDB-C83B-49BC-AFD8-5949F1502620</string>
+		</dict>
+		<key>FC811B26-F679-44AF-9E78-C552FACA090A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FC811B26-F679-44AF-9E78-C552FACA090A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>eyJibHVlcHJpbnRfYmx1ZXByaW50VmFyaWFudCI6eyJnZW5lcmljIjp7fX0sImJsdWVwcmludF9wcm92aWRlckZpbGVQYXRoU3RyaW5nIjoiXC9Vc2Vyc1wvU2lsdmVyaGFuZFwvRGV2ZWxvcGVyXC9NdXNpY1BsYXllci1tYWNPU1wvTXVzaWNQbGF5ZXJcL011c2ljUGxheWVyLnhjb2RlcHJvaiIsInR5cGUiOnsiYmx1ZXByaW50Ijp7fX0sImJsdWVwcmludF9ibHVlcHJpbnRJZGVudGlmaWVyIjoiN0IyQjY2NjkyOERBMTE0MjAwMkM0RTU0In0=</string>
+			<key>timeStartedRecording</key>
+			<real>685385999.30853796</real>
+			<key>timeStoppedRecording</key>
+			<real>63113904000</real>
+			<key>title</key>
+			<string>Build MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>FC811B26-F679-44AF-9E78-C552FACA090A</string>
 		</dict>
 	</dict>
 </dict>

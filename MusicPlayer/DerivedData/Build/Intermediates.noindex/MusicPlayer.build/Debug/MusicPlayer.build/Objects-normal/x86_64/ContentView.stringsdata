@@ -16,10 +16,6 @@
       },
       {
         "comment": "",
-        "key": "Artists"
-      },
-      {
-        "comment": "",
         "key": "Songs"
       },
       {
@@ -28,31 +24,11 @@
       },
       {
         "comment": "",
-        "key": "Home Page"
+        "key": "Browse"
       },
       {
         "comment": "",
-        "key": "begin your journey by make a new connection or select a exisitig connection from the history"
-      },
-      {
-        "comment": "",
-        "key": "Blas"
-      },
-      {
-        "comment": "",
-        "key": "History connection here"
-      },
-      {
-        "comment": "",
-        "key": "History Connection"
-      },
-      {
-        "comment": "",
-        "key": "File Manager"
-      },
-      {
-        "comment": "",
-        "key": "Bla"
+        "key": "Artists"
       }
     ]
   },
