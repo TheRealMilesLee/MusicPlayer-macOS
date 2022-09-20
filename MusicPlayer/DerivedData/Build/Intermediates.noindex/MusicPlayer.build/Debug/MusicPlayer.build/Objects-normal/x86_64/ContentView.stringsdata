@@ -1,0 +1,60 @@
+{
+  "source": "/Users/Silverhand/Developer/MusicPlayer-macOS/MusicPlayer/MusicPlayer/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Welcome"
+      },
+      {
+        "comment": "",
+        "key": "Feed"
+      },
+      {
+        "comment": "",
+        "key": "Library"
+      },
+      {
+        "comment": "",
+        "key": "Artists"
+      },
+      {
+        "comment": "",
+        "key": "Songs"
+      },
+      {
+        "comment": "",
+        "key": "Album"
+      },
+      {
+        "comment": "",
+        "key": "Home Page"
+      },
+      {
+        "comment": "",
+        "key": "begin your journey by make a new connection or select a exisitig connection from the history"
+      },
+      {
+        "comment": "",
+        "key": "Blas"
+      },
+      {
+        "comment": "",
+        "key": "History connection here"
+      },
+      {
+        "comment": "",
+        "key": "History Connection"
+      },
+      {
+        "comment": "",
+        "key": "File Manager"
+      },
+      {
+        "comment": "",
+        "key": "Bla"
+      }
+    ]
+  },
+  "version": 1
+}
