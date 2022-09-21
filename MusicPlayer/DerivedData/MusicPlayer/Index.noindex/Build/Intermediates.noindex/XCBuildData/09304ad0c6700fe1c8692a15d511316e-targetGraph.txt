@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-MusicPlayer in MusicPlayer, no dependencies

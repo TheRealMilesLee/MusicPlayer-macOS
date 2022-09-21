@@ -6,10 +6,10 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>2DBAFB20-A0D4-41FB-8091-57454D3665CA</key>
+		<key>1356C958-9FFE-4FB7-8A81-2E82CF728AC6</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>27BDCEBF-C8FC-4522-9A99-355B6D962168</string>
+			<string>6D3F539A-D892-457B-85BD-0D9624B4C332</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -22,7 +22,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-MusicPlayer-2022.09.20_12-09-13--0500.xcresult</string>
+			<string>Run-MusicPlayer-2022.09.20_19-22-59--0500.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -43,18 +43,18 @@
 			<key>signature</key>
 			<string>Run MusicPlayer</string>
 			<key>timeStartedRecording</key>
-			<real>685386553.92235696</real>
+			<real>685412579.15650904</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>2DBAFB20-A0D4-41FB-8091-57454D3665CA</string>
+			<string>1356C958-9FFE-4FB7-8A81-2E82CF728AC6</string>
 		</dict>
-		<key>4518468E-13A6-4432-9FC8-013F2EDD6ED5</key>
+		<key>140EB6CA-EE9B-4A58-B6CF-E22EE3939087</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>ACFC08E8-86BF-4B83-A96C-E4660DFDEC81</string>
+			<string>835CAB1C-7A26-46C4-B8D9-66FB328EC4A1</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -67,7 +67,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-MusicPlayer-2022.09.20_11-59-59--0500.xcresult</string>
+			<string>Run-MusicPlayer-2022.09.20_21-20-55--0500.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -88,18 +88,18 @@
 			<key>signature</key>
 			<string>Run MusicPlayer</string>
 			<key>timeStartedRecording</key>
-			<real>685385999.30633795</real>
+			<real>685419655.83617496</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>4518468E-13A6-4432-9FC8-013F2EDD6ED5</string>
+			<string>140EB6CA-EE9B-4A58-B6CF-E22EE3939087</string>
 		</dict>
-		<key>4C28CD9D-C1B8-4E2C-9441-2912BEE9741D</key>
+		<key>2A97A4A3-192C-437D-B181-35777A0C7EC9</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>8946C39C-49DE-45B2-9CB5-B2D3F3BFADD7</string>
+			<string>CE84E33D-D757-4A8E-A8C1-76335047613E</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -112,7 +112,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-MusicPlayer-2022.09.20_12-01-17--0500.xcresult</string>
+			<string>Run-MusicPlayer-2022.09.20_20-02-33--0500.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -133,18 +133,18 @@
 			<key>signature</key>
 			<string>Run MusicPlayer</string>
 			<key>timeStartedRecording</key>
-			<real>685386077.14580703</real>
+			<real>685414953.248438</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>4C28CD9D-C1B8-4E2C-9441-2912BEE9741D</string>
+			<string>2A97A4A3-192C-437D-B181-35777A0C7EC9</string>
 		</dict>
-		<key>602174D8-BF63-4198-B2C9-39E758DD18D6</key>
+		<key>5546F013-964E-4513-A8BF-FCD860EA5B1A</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>E76DDDEF-D669-4ACD-929C-A3F1E92A8B40</string>
+			<string>5AA51E31-1C04-43DE-8F9E-DD5DF00C410F</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -157,7 +157,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-MusicPlayer-2022.09.20_11-41-07--0500.xcresult</string>
+			<string>Run-MusicPlayer-2022.09.20_20-46-22--0500.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -178,18 +178,63 @@
 			<key>signature</key>
 			<string>Run MusicPlayer</string>
 			<key>timeStartedRecording</key>
-			<real>685384867.39365995</real>
+			<real>685417582.02504301</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>602174D8-BF63-4198-B2C9-39E758DD18D6</string>
+			<string>5546F013-964E-4513-A8BF-FCD860EA5B1A</string>
 		</dict>
-		<key>E9D0C56D-BC30-406A-B0C1-9024D93D662B</key>
+		<key>6B937D25-76B6-472E-8B33-B71D7D3C9E95</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>941A901E-71F9-4AE7-A79C-2CE0043D89C4</string>
+			<string>89BB5FAE-3594-4AA2-8EB5-63AFF8AAC2E4</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-MusicPlayer-2022.09.20_20-09-45--0500.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685415385.41657102</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>6B937D25-76B6-472E-8B33-B71D7D3C9E95</string>
+		</dict>
+		<key>7722EE07-4CAD-41C7-A200-6B9AE44B98C5</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>6E86EC74-1AB9-4C00-912C-5B206DBB7ED1</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -202,7 +247,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-MusicPlayer-2022.09.20_12-08-26--0500.xcresult</string>
+			<string>Run-MusicPlayer-2022.09.20_20-11-10--0500.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -223,13 +268,193 @@
 			<key>signature</key>
 			<string>Run MusicPlayer</string>
 			<key>timeStartedRecording</key>
-			<real>685386506.09152806</real>
+			<real>685415470.83235502</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run MusicPlayer</string>
 			<key>uniqueIdentifier</key>
-			<string>E9D0C56D-BC30-406A-B0C1-9024D93D662B</string>
+			<string>7722EE07-4CAD-41C7-A200-6B9AE44B98C5</string>
+		</dict>
+		<key>9011B0D1-777D-446A-9167-59DAC9461B29</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>D019075F-E0AC-46F4-8235-A5B91E96BE67</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-MusicPlayer-2022.09.20_20-45-46--0500.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685417546.994712</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>9011B0D1-777D-446A-9167-59DAC9461B29</string>
+		</dict>
+		<key>B7168F43-409A-4740-8397-438504AB602A</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>938A9C79-ED18-45D3-984C-31E4ADD9B715</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-MusicPlayer-2022.09.20_20-46-08--0500.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685417568.03342199</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>B7168F43-409A-4740-8397-438504AB602A</string>
+		</dict>
+		<key>F18AC708-9417-4A8B-8F03-5969C17D8143</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>58935C07-CD9B-4065-9AB6-BDA83F7AFE68</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-MusicPlayer-2022.09.20_20-39-01--0500.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685417141.90599096</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>F18AC708-9417-4A8B-8F03-5969C17D8143</string>
+		</dict>
+		<key>F837F5CF-1293-4253-89ED-BA28336F9B8B</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>2C01574E-33F4-4DE8-909D-2B3754AA2D3D</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-MusicPlayer-2022.09.20_20-38-06--0500.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MusicPlayer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MusicPlayer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run MusicPlayer</string>
+			<key>timeStartedRecording</key>
+			<real>685417086.20968699</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run MusicPlayer</string>
+			<key>uniqueIdentifier</key>
+			<string>F837F5CF-1293-4253-89ED-BA28336F9B8B</string>
 		</dict>
 		<key>F9CF4687-6B75-4E7B-9B20-72D02FAB043C</key>
 		<dict>

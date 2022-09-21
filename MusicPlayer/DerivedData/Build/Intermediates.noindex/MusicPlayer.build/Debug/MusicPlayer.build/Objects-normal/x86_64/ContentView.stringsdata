@@ -16,11 +16,7 @@
       },
       {
         "comment": "",
-        "key": "Songs"
-      },
-      {
-        "comment": "",
-        "key": "Album"
+        "key": "Creep"
       },
       {
         "comment": "",
@@ -29,6 +25,14 @@
       {
         "comment": "",
         "key": "Artists"
+      },
+      {
+        "comment": "",
+        "key": "Songs"
+      },
+      {
+        "comment": "",
+        "key": "Album"
       }
     ]
   },

@@ -7,26 +7,60 @@ import MusicKit
 
 struct ContentView: View
 {
+  @State private var SliderInitialplace = 0.0
   var body: some View
   {
-    NavigationView
-    {
-      VStack
+    VStack {
+      NavigationView
       {
-        List
+        VStack
         {
-          NavigationLink(destination: Feed()){Text("Feed").padding(.all).font(.system(size: 12, weight: .light, design: .serif))}
-          NavigationLink(destination: Library()){Text("Library").padding(.all).font(.system(size: 12, weight: .light, design: .serif))}
-          
-          NavigationLink(destination: Songs()){Text("Songs").padding(.all).font(.system(size: 12, weight: .light, design: .serif))}
-          NavigationLink(destination: Album()){Text("Album").padding(.all).font(.system(size: 12, weight: .light, design: .serif))}
+          List
+          {
+            NavigationLink(destination: Feed()
+              .frame(width: 10.0, height: 10.0)){Label("Feed", systemImage: "dot.radiowaves.left.and.right")}
+            NavigationLink(destination: Library()){Label("Library", systemImage: "square.grid.2x2.fill")}
+          }
         }
-      }
-      VStack
+        VStack
+        {
+          Feed()
+        }
+        
+      } .navigationTitle("Welcome")
+      Divider()
+      HStack
       {
-        Feed()
+        Button(action: {})
+        {
+          HStack
+          {
+            Image("Cover").resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
+            Text("Creep").padding(.leading, 10)
+            Slider(value: $SliderInitialplace,in: 0...100)
+          }
+          
+        }.buttonStyle(PlainButtonStyle())
+        Spacer()
+        HStack
+        {
+          Button(action: {})
+          {
+            Image(systemName: "backward.fill").font(.title3)
+          }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
+          
+          Button(action: {})
+          {
+            Image(systemName: "play.fill").font(.title3)
+          }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
+          
+          Button(action: {})
+          {
+            Image(systemName: "forward.fill").font(.title3)
+          }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
+        }.buttonStyle(PlainButtonStyle())
       }
-    } .navigationTitle("Welcome")
+    }
   }
 }
 
@@ -34,21 +68,16 @@ struct Feed: View
 {
   var body: some View
   {
-    Text("Feed").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
+    Text("Feed").padding(.all).frame(width: 90.0, height: 80.0).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
   }
 }
+
 
 struct Library: View
 {
   var body: some View
   {
     Text("Browse").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
-    List
-    {
-      Text("Artists")
-      Text("Songs")
-      Text("Album")
-    }
   }
 }
 
@@ -74,5 +103,13 @@ struct Album: View
   var body: some View
   {
     Text("Album").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
+  }
+}
+
+struct contentview_preview: PreviewProvider
+{
+  static var previews: some View
+  {
+    ContentView()
   }
 }
