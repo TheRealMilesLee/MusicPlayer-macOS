@@ -68,7 +68,13 @@ struct Feed: View
 {
   var body: some View
   {
-    Text("Feed").padding(.all).frame(width: 90.0, height: 80.0).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
+    Text("Feed").font(.headline).fontWeight(.semibold)
+    let file_list = read_file_from_disk()
+    Section (header: Text("Pick for you"), footer: Text("End"))
+    {
+      Text("Today's list")
+    }
+    
   }
 }
 
@@ -112,4 +118,9 @@ struct contentview_preview: PreviewProvider
   {
     ContentView()
   }
+}
+
+func read_file_from_disk() -> Array<String>
+{
+  return ["H", "E", "L", "L", "O"]
 }
