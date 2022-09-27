@@ -14,7 +14,7 @@ struct Feed: View
   @State var PersonalRadioClick = false
   var body: some View
   {
-
+//TODO: 找个方法用Grid来进行布局
     ZStack
     {
       Text("Feed").fontWeight(.semibold).font(.system(size:20, weight: .bold, design: .serif)).multilineTextAlignment(.leading).padding(.all).position(.init(x: 40, y: 30)).offset(x: /*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
