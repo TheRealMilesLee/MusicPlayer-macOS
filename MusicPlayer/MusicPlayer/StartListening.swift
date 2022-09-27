@@ -12,9 +12,3 @@ struct StartListening: View {
       Text("Listening").foregroundColor(.black)
     }
 }
-
-struct StartListening_Previews: PreviewProvider {
-    static var previews: some View {
-        StartListening()
-    }
-}

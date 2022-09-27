@@ -14,48 +14,54 @@ struct Feed: View
   @State var PersonalRadioClick = false
   var body: some View
   {
-//TODO: 找个方法用Grid来进行布局
+      //TODO: 找个方法用Grid来进行布局
     ZStack
     {
-      Text("Feed").fontWeight(.semibold).font(.system(size:20, weight: .bold, design: .serif)).multilineTextAlignment(.leading).padding(.all).position(.init(x: 40, y: 30)).offset(x: /*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
+      VStack
+      {
 
-      Button("Pick for you")
-      {
-        self.PickClick.toggle()
-      }.padding().offset(x:-200, y: -100)
-      if (PickClick)
-      {
-        PickForYou()
-      }
 
-      Button("Start Listening")
-      {
-        self.StartListeningClick.toggle()
-      }.offset(x:0, y: -100)
-      if (StartListeningClick)
-      {
-        Color.white.edgesIgnoringSafeArea(.all)
-        StartListening()
+        Text("Feed").fontWeight(.semibold).font(.system(size:20, weight: .bold, design: .serif)).padding(.all).position(.init(x: 40, y: 30))
+        HStack
+        {
+          ZStack
+          {
+            Button("Pick for you")
+            {
+              self.PickClick.toggle()
+            }.padding().offset(x:-200, y: -100)
+            if (PickClick)
+            {
+              PickForYou()
+            }
+          }
+          ZStack
+          {
+            Button("Start Listening")
+            {
+              self.StartListeningClick.toggle()
+            }.offset(x:0, y: -100)
+            if (StartListeningClick)
+            {
+              StartListening()
+            }
+          }
+          ZStack
+          {
+            Button("Personal Radio")
+            {
+              self.PersonalRadioClick.toggle()
+            }.offset(x:200, y: -100)
+            if (PersonalRadioClick)
+            {
+              PersonalRadio()
+            }
+          }
+        }
       }
-
-      Button("Personal Radio")
-      {
-        self.PersonalRadioClick.toggle()
-      }.offset(x:200, y: -100)
-      if (PersonalRadioClick)
-      {
-        Color.white.edgesIgnoringSafeArea(.all)
-        PersonalRadio()
-      }
-    }
-    .padding(.all)
+    }.padding(.all)
   }
 }
 
 
 
-struct Feed_Previews: PreviewProvider {
-  static var previews: some View {
-    Feed()
-  }
-}

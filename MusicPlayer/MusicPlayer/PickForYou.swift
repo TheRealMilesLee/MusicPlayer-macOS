@@ -17,10 +17,3 @@ struct PickForYou: View
     }
 }
     
-struct PickForYou_Previews: PreviewProvider
-{
-    static var previews: some View
-    {
-        PickForYou()
-    }
-}

@@ -13,8 +13,3 @@ struct PersonalRadio: View {
     }
 }
 
-struct PersonalRadio_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonalRadio()
-    }
-}
