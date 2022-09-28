@@ -15,7 +15,7 @@ struct Library: View
     ZStack
     {
       Text("Browse").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
-      Button("Load from file")
+      Button("Load playlist from file")
       {
         self.loadFromFile.toggle()
       }.padding().offset(x:-200, y: -100)
@@ -45,5 +45,13 @@ func showOpenPanel() -> URL?
   openPanel.canChooseDirectories = true
   openPanel.canChooseFiles = true
   let response = openPanel.runModal()
-  return response == .OK ? openPanel.url : nil
+
+  if (response == .OK)
+  {
+    return openPanel.url
+  }
+  else
+  {
+    return nil
+  }
 }
