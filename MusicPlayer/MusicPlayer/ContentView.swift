@@ -61,14 +61,6 @@ struct ContentView: View
   }
 }
 
-
-struct Library: View
-{
-  var body: some View
-  {
-    Text("Browse").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
-  }
-}
 struct contentview_preview: PreviewProvider
 {
   static var previews: some View

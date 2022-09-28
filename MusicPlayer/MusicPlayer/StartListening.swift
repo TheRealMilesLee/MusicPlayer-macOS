@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct StartListening: View {
-    var body: some View {
+struct StartListening: View
+{
+    var body: some View
+  {
       Text("Listening").foregroundColor(.black)
     }
 }

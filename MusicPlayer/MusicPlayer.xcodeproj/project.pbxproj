@@ -15,6 +15,8 @@
 		99A0947828E285CA0034433A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947728E285CA0034433A /* Feed.swift */; };
 		99A0947A28E2A3E40034433A /* StartListening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947928E2A3E40034433A /* StartListening.swift */; };
 		99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947B28E2A45A0034433A /* PersonalRadio.swift */; };
+		99A0EA8B28E3D84700448EFB /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0EA8A28E3D84700448EFB /* Library.swift */; };
+		99A0EA8D28E3D8A300448EFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99A0EA8C28E3D8A300448EFB /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		99A0947728E285CA0034433A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		99A0947928E2A3E40034433A /* StartListening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartListening.swift; sourceTree = "<group>"; };
 		99A0947B28E2A45A0034433A /* PersonalRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRadio.swift; sourceTree = "<group>"; };
+		99A0EA8A28E3D84700448EFB /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		99A0EA8C28E3D8A300448EFB /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +70,11 @@
 				99A0947928E2A3E40034433A /* StartListening.swift */,
 				99A0947B28E2A45A0034433A /* PersonalRadio.swift */,
 				99A0947728E285CA0034433A /* Feed.swift */,
+				99A0EA8A28E3D84700448EFB /* Library.swift */,
 				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
 				7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */,
 				7B2B667328DA1145002C4E54 /* Preview Content */,
+				99A0EA8C28E3D8A300448EFB /* MainMenu.xib */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			files = (
 				7B2B667528DA1145002C4E54 /* Preview Assets.xcassets in Resources */,
 				7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */,
+				99A0EA8D28E3D8A300448EFB /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99A0947A28E2A3E40034433A /* StartListening.swift in Sources */,
+				99A0EA8B28E3D84700448EFB /* Library.swift in Sources */,
 				99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */,
 				7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */,
 				99A0947828E285CA0034433A /* Feed.swift in Sources */,
