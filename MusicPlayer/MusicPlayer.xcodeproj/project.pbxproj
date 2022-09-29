@@ -11,8 +11,8 @@
 		7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666F28DA1142002C4E54 /* ContentView.swift */; };
 		7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667128DA1145002C4E54 /* Assets.xcassets */; };
 		7B2B667528DA1145002C4E54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */; };
+		99555D5A28E548ED00F2A484 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99555D5928E548ED00F2A484 /* Connect.swift */; };
 		99A0947628E281020034433A /* PickForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947528E281020034433A /* PickForYou.swift */; };
-		99A0947828E285CA0034433A /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947728E285CA0034433A /* Feed.swift */; };
 		99A0947A28E2A3E40034433A /* StartListening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947928E2A3E40034433A /* StartListening.swift */; };
 		99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947B28E2A45A0034433A /* PersonalRadio.swift */; };
 		99A0EA8B28E3D84700448EFB /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0EA8A28E3D84700448EFB /* Library.swift */; };
@@ -26,8 +26,8 @@
 		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicPlayer.entitlements; sourceTree = "<group>"; };
+		99555D5928E548ED00F2A484 /* Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
 		99A0947528E281020034433A /* PickForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickForYou.swift; sourceTree = "<group>"; };
-		99A0947728E285CA0034433A /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		99A0947928E2A3E40034433A /* StartListening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartListening.swift; sourceTree = "<group>"; };
 		99A0947B28E2A45A0034433A /* PersonalRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRadio.swift; sourceTree = "<group>"; };
 		99A0EA8A28E3D84700448EFB /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 				99A0947528E281020034433A /* PickForYou.swift */,
 				99A0947928E2A3E40034433A /* StartListening.swift */,
 				99A0947B28E2A45A0034433A /* PersonalRadio.swift */,
-				99A0947728E285CA0034433A /* Feed.swift */,
 				99A0EA8A28E3D84700448EFB /* Library.swift */,
+				99555D5928E548ED00F2A484 /* Connect.swift */,
 				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
 				7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */,
 				7B2B667328DA1145002C4E54 /* Preview Content */,
@@ -162,7 +162,7 @@
 				99A0EA8B28E3D84700448EFB /* Library.swift in Sources */,
 				99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */,
 				7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */,
-				99A0947828E285CA0034433A /* Feed.swift in Sources */,
+				99555D5A28E548ED00F2A484 /* Connect.swift in Sources */,
 				99A0947628E281020034433A /* PickForYou.swift in Sources */,
 				7B2B666E28DA1142002C4E54 /* MusicPlayerApp.swift in Sources */,
 			);

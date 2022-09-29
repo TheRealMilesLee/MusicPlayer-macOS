@@ -1,21 +1,20 @@
   //
-  //  PickForYou.swift
+  //  Connect.swift
   //  MusicPlayer
   //
-  //  Created by Silverhand on 2022/9/26.
+  //  Created by Silverhand on 2022/9/28.
   //
 
 import SwiftUI
 
-struct PickForYou: View
+struct Connect: View
 {
   var body: some View
   {
     ZStack
     {
       Color.white.edgesIgnoringSafeArea(.all)
-      Text("Pick").foregroundColor(.black)
+      Text("Connect to Stream").foregroundColor(.black)
     }
   }
 }
-

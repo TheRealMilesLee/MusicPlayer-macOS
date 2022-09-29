@@ -17,46 +17,53 @@ struct ContentView: View
       {
         VStack
         {
+          Label("Feed", systemImage: "wifi.circle.fill")
           List
           {
-            NavigationLink(destination: Feed()){Label("Feed", systemImage: "dot.radiowaves.left.and.right")}
-            NavigationLink(destination: Library()){Label("Library", systemImage: "square.grid.2x2.fill")}
+            NavigationLink(destination: PickForYou()){Label("Pick for you", systemImage: "text.line.first.and.arrowtriangle.forward")}.padding(.bottom)
+            NavigationLink(destination: StartListening()){Label("Start Listening", systemImage: "play.square.fill")}.padding(.bottom)
+            NavigationLink(destination: PersonalRadio()){Label("Personal Radio", systemImage: "dot.radiowaves.left.and.right")}.padding(.bottom)
+          }
+          Label("Library", systemImage: "airport.extreme")
+          List
+          {
+            NavigationLink(destination: Library()){Label("Local Playlist", systemImage: "text.insert")}.padding(.bottom)
+            NavigationLink(destination: Connect()){Label("Connect", systemImage: "music.note.tv")}.padding(.bottom)
           }
         }
-        Feed()
-      } .navigationTitle("Welcome")
-      Divider()
+      }
+    } .navigationTitle("Welcome")
+    Divider()
+    HStack
+    {
+      Button(action: {})
+      {
+        HStack
+        {
+          Image("Cover").resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
+          Text("Creep").padding(.leading, 10)
+          Slider(value: $SliderInitialplace,in: 0...100)
+        }
+
+      }.buttonStyle(PlainButtonStyle())
+      Spacer()
       HStack
       {
         Button(action: {})
         {
-          HStack
-          {
-            Image("Cover").resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
-            Text("Creep").padding(.leading, 10)
-            Slider(value: $SliderInitialplace,in: 0...100)
-          }
+          Image(systemName: "backward.fill").font(.title3)
+        }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
 
-        }.buttonStyle(PlainButtonStyle())
-        Spacer()
-        HStack
+        Button(action: {})
         {
-          Button(action: {})
-          {
-            Image(systemName: "backward.fill").font(.title3)
-          }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
+          Image(systemName: "play.fill").font(.title3)
+        }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
 
-          Button(action: {})
-          {
-            Image(systemName: "play.fill").font(.title3)
-          }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-
-          Button(action: {})
-          {
-            Image(systemName: "forward.fill").font(.title3)
-          }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
-        }.buttonStyle(PlainButtonStyle())
-      }
+        Button(action: {})
+        {
+          Image(systemName: "forward.fill").font(.title3)
+        }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
+      }.buttonStyle(PlainButtonStyle())
     }
   }
 }

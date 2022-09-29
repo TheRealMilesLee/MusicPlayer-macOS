@@ -28,16 +28,6 @@ struct Library: View
 
   }
 }
-
-struct Library_Previews: PreviewProvider
-{
-  static var previews: some View
-  {
-    Library()
-  }
-}
-
-
 func showOpenPanel() -> URL?
 {
   let openPanel = NSOpenPanel()
@@ -53,5 +43,13 @@ func showOpenPanel() -> URL?
   else
   {
     return nil
+  }
+}
+
+struct Library_Previews: PreviewProvider
+{
+  static var previews: some View
+  {
+    Library()
   }
 }
