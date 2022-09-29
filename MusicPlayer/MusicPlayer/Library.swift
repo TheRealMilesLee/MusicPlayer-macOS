@@ -12,9 +12,9 @@ struct Library: View
   @State var loadFromFile = false
   var body: some View
   {
+    Text("Browse").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
     ZStack
     {
-      Text("Browse").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
       Button("Load playlist from file")
       {
         self.loadFromFile.toggle()
