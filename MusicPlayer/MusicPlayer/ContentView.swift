@@ -11,7 +11,7 @@ struct ContentView: View
 {
   @State private var SliderInitialplace = 0.0
   @State var PickClick = false
-  
+  @State var isPlaying : Bool = false
   var body: some View
   {
     VStack
@@ -57,26 +57,36 @@ struct ContentView: View
           Image(systemName: "backward.fill").font(.title3)
         }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
         
-        Button(action:
-        {
-          @State var isPlaying : Bool = false
-
+        Button(action:{
           isPlaying.toggle()
-
           do
           {
             let url = Bundle.main.path(forResource: "Blue", ofType: "mp3")
             audioPlayer =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
             guard let player = audioPlayer else { return }
-            player.prepareToPlay()
-            player.play()
+            if (isPlaying)
+            {
+              player.prepareToPlay()
+              player.play()
+            }
+            else
+            {
+              player.pause()
+            }
           } catch
           {
             print("Error info: \(error)")
           }
         })
         {
-          Image(systemName: "play.fill").font(.title3)
+          if (!isPlaying)
+          {
+            Image(systemName: "play.fill").font(.title3)
+          }
+          else
+          {
+            Image(systemName: "pause.fill").font(.title3)
+          }
         }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
         
         Button(action: {})
