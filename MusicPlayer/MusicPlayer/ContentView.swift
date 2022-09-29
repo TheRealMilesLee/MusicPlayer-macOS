@@ -4,11 +4,14 @@
 import SwiftUI
 import Foundation
 import MusicKit
+import AVFoundation
+var audioPlayer:AVAudioPlayer!
 
 struct ContentView: View
 {
   @State private var SliderInitialplace = 0.0
   @State var PickClick = false
+  
   var body: some View
   {
     VStack
@@ -44,7 +47,7 @@ struct ContentView: View
           Text("Creep").padding(.leading, 10)
           Slider(value: $SliderInitialplace,in: 0...100)
         }
-
+        
       }.buttonStyle(PlainButtonStyle())
       Spacer()
       HStack
@@ -53,19 +56,38 @@ struct ContentView: View
         {
           Image(systemName: "backward.fill").font(.title3)
         }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
+        
+        Button(action:
+        {
+          @State var isPlaying : Bool = false
 
-        Button(action: {})
+          isPlaying.toggle()
+
+          do
+          {
+            let url = Bundle.main.path(forResource: "Blue", ofType: "mp3")
+            audioPlayer =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
+            guard let player = audioPlayer else { return }
+            player.prepareToPlay()
+            player.play()
+          } catch
+          {
+            print("Error info: \(error)")
+          }
+        })
         {
           Image(systemName: "play.fill").font(.title3)
         }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-
+        
         Button(action: {})
         {
           Image(systemName: "forward.fill").font(.title3)
         }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
       }.buttonStyle(PlainButtonStyle())
     }
+    
   }
+  
 }
 
 struct contentview_preview: PreviewProvider
