@@ -63,15 +63,15 @@ struct ContentView: View
           {
             let url = Bundle.main.path(forResource: "Blue", ofType: "mp3")
             audioPlayer =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-            guard let player = audioPlayer else { return }
+            let player = audioPlayer
             if (isPlaying)
             {
-              player.prepareToPlay()
-              player.play()
+              player?.prepareToPlay()
+              player?.play()
             }
             else
             {
-              player.pause()
+              player?.pause()
             }
           } catch
           {
