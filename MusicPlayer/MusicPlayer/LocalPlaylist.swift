@@ -26,6 +26,7 @@ struct LocalPlaylist: View
     Text("Playlists").padding(.all).font(.headline)
     Table(playlists)
     {
+      TableColumn("Number", value: \.id)
       TableColumn("Title", value: \.Title)
       TableColumn("Duration", value: \.Duration)
       TableColumn("Artist", value: \.Artist)
