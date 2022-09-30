@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct StartListening: View
+struct Browse: View
 {
   var body: some View
   {
-    Text("Start Listening").padding(.all).font(.headline)
+    Text("Browse").padding(.all).font(.headline)
   }
 }
