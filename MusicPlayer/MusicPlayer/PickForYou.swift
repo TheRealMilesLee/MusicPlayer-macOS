@@ -11,11 +11,7 @@ struct PickForYou: View
 {
   var body: some View
   {
-    ZStack
-    {
-      Color.white.edgesIgnoringSafeArea(.all)
-      Text("Pick").foregroundColor(.black)
-    }
+    Text("Pick for you").padding(.all).font(.headline)
   }
 }
 

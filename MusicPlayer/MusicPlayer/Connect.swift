@@ -11,10 +11,6 @@ struct Connect: View
 {
   var body: some View
   {
-    ZStack
-    {
-      Color.white.edgesIgnoringSafeArea(.all)
-      Text("Connect to Stream").foregroundColor(.black)
-    }
+    Text("Connect").padding(.all).font(.headline)
   }
 }

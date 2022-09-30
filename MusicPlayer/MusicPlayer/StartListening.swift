@@ -11,10 +11,6 @@ struct StartListening: View
 {
   var body: some View
   {
-    ZStack
-    {
-      Color.white.edgesIgnoringSafeArea(.all)
-      Text("Start Listening").foregroundColor(.black)
-    }
+    Text("Start Listening").padding(.all).font(.headline)
   }
 }

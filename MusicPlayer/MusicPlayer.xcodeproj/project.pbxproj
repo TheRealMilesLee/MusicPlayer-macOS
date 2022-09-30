@@ -11,11 +11,14 @@
 		7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666F28DA1142002C4E54 /* ContentView.swift */; };
 		7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667128DA1145002C4E54 /* Assets.xcassets */; };
 		7B2B667528DA1145002C4E54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */; };
+		9951230B28E67DB200B1207A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230A28E67DB200B1207A /* Artist.swift */; };
+		9951230D28E67DC100B1207A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230C28E67DC100B1207A /* Album.swift */; };
+		9951230F28E67DD000B1207A /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230E28E67DD000B1207A /* Songs.swift */; };
+		9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231028E67E0400B1207A /* LocalPlaylist.swift */; };
 		99555D5A28E548ED00F2A484 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99555D5928E548ED00F2A484 /* Connect.swift */; };
 		99A0947628E281020034433A /* PickForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947528E281020034433A /* PickForYou.swift */; };
 		99A0947A28E2A3E40034433A /* StartListening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947928E2A3E40034433A /* StartListening.swift */; };
 		99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947B28E2A45A0034433A /* PersonalRadio.swift */; };
-		99A0EA8B28E3D84700448EFB /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0EA8A28E3D84700448EFB /* Library.swift */; };
 		99AEA54728E65E1900A0E2F5 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AEA54328E65E1600A0E2F5 /* AVFAudio.framework */; };
 		99AEA54A28E65E1B00A0E2F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AEA54228E65E1600A0E2F5 /* AVFoundation.framework */; };
 		99AEA54C28E65E1C00A0E2F5 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AEA54128E65E1500A0E2F5 /* AVKit.framework */; };
@@ -29,11 +32,14 @@
 		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicPlayer.entitlements; sourceTree = "<group>"; };
+		9951230A28E67DB200B1207A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		9951230C28E67DC100B1207A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		9951230E28E67DD000B1207A /* Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
+		9951231028E67E0400B1207A /* LocalPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlaylist.swift; sourceTree = "<group>"; };
 		99555D5928E548ED00F2A484 /* Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
 		99A0947528E281020034433A /* PickForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickForYou.swift; sourceTree = "<group>"; };
 		99A0947928E2A3E40034433A /* StartListening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartListening.swift; sourceTree = "<group>"; };
 		99A0947B28E2A45A0034433A /* PersonalRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRadio.swift; sourceTree = "<group>"; };
-		99A0EA8A28E3D84700448EFB /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		99AEA54128E65E1500A0E2F5 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		99AEA54228E65E1600A0E2F5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		99AEA54328E65E1600A0E2F5 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
@@ -76,12 +82,15 @@
 			children = (
 				99AEA54E28E6614000A0E2F5 /* Blue.mp3 */,
 				7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */,
+				9951231028E67E0400B1207A /* LocalPlaylist.swift */,
 				7B2B666F28DA1142002C4E54 /* ContentView.swift */,
 				99A0947528E281020034433A /* PickForYou.swift */,
 				99A0947928E2A3E40034433A /* StartListening.swift */,
 				99A0947B28E2A45A0034433A /* PersonalRadio.swift */,
-				99A0EA8A28E3D84700448EFB /* Library.swift */,
 				99555D5928E548ED00F2A484 /* Connect.swift */,
+				9951230A28E67DB200B1207A /* Artist.swift */,
+				9951230C28E67DC100B1207A /* Album.swift */,
+				9951230E28E67DD000B1207A /* Songs.swift */,
 				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
 				7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */,
 				7B2B667328DA1145002C4E54 /* Preview Content */,
@@ -178,12 +187,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9951230F28E67DD000B1207A /* Songs.swift in Sources */,
+				9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */,
 				99A0947A28E2A3E40034433A /* StartListening.swift in Sources */,
-				99A0EA8B28E3D84700448EFB /* Library.swift in Sources */,
 				99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */,
 				7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */,
 				99555D5A28E548ED00F2A484 /* Connect.swift in Sources */,
 				99A0947628E281020034433A /* PickForYou.swift in Sources */,
+				9951230D28E67DC100B1207A /* Album.swift in Sources */,
+				9951230B28E67DB200B1207A /* Artist.swift in Sources */,
 				7B2B666E28DA1142002C4E54 /* MusicPlayerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

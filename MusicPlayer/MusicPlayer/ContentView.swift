@@ -20,19 +20,24 @@ struct ContentView: View
       {
         VStack
         {
+          Spacer()
           Label("Feed", systemImage: "wifi.circle.fill")
           List
           {
-            NavigationLink(destination: PickForYou()){Label("Pick for you", systemImage: "text.line.first.and.arrowtriangle.forward")}.padding(.bottom)
-            NavigationLink(destination: StartListening()){Label("Start Listening", systemImage: "play.square.fill")}.padding(.bottom)
-            NavigationLink(destination: PersonalRadio()){Label("Personal Radio", systemImage: "dot.radiowaves.left.and.right")}.padding(.bottom)
+            NavigationLink(destination: PickForYou()){Label("Pick for you", systemImage: "text.line.first.and.arrowtriangle.forward")}
+            NavigationLink(destination: StartListening()){Label("Start Listening", systemImage: "play.square.fill")}
+            NavigationLink(destination: PersonalRadio()){Label("Personal Radio", systemImage: "dot.radiowaves.left.and.right")}
           }
           Label("Library", systemImage: "airport.extreme")
           List
           {
-            NavigationLink(destination: Library()){Label("Local Playlist", systemImage: "text.insert")}.padding(.bottom)
-            NavigationLink(destination: Connect()){Label("Connect", systemImage: "music.note.tv")}.padding(.bottom)
+            NavigationLink(destination: LocalPlaylist()){Label("Local Playlist", systemImage: "music.note.list")}
+            NavigationLink(destination: Artist()){Label("Artist", systemImage: "person.crop.square")}
+            NavigationLink(destination: Album()){Label("Album", systemImage: "rectangle.stack.fill")}
+            NavigationLink(destination: Songs()){Label("Songs", systemImage: "music.note")}
+            NavigationLink(destination: Connect()){Label("Connect", systemImage: "music.note.tv")}
           }
+
         }
       }
     } .navigationTitle("Welcome")
@@ -95,9 +100,7 @@ struct ContentView: View
         }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
       }.buttonStyle(PlainButtonStyle())
     }
-    
   }
-  
 }
 
 struct contentview_preview: PreviewProvider

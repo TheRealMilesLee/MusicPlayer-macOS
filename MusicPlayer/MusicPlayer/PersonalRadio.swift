@@ -11,11 +11,7 @@ struct PersonalRadio: View
 {
   var body: some View
   {
-    ZStack
-    {
-      Color.white.edgesIgnoringSafeArea(.all)
-      Text("Radio").foregroundColor(.black)
-    }
+    Text("Radio").padding(.all).font(.headline)
   }
 }
 
