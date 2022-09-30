@@ -9,40 +9,19 @@ import SwiftUI
 
 struct Library: View
 {
-  @State var loadFromFile = false
   var body: some View
   {
-    Text("Browse").padding(.all).position(x: 110, y: 50).font(.system(size: 25, weight: .light, design: .serif))
-    ZStack
+    List
     {
-      Button("Load playlist from file")
-      {
-        self.loadFromFile.toggle()
-      }.padding().offset(x:-200, y: -100)
-      if (loadFromFile)
-      {
-        Text(showOpenPanel()?.absoluteString ?? "")
-
-      }
+      Text("My playlists")
+      Divider()
+      Text("Artists")
+      Divider()
+      Text("Album")
+      Divider()
+      Text("Songs")
+      Divider()
     }
-
-  }
-}
-func showOpenPanel() -> URL?
-{
-  let openPanel = NSOpenPanel()
-  openPanel.allowsMultipleSelection = true
-  openPanel.canChooseDirectories = true
-  openPanel.canChooseFiles = true
-  let response = openPanel.runModal()
-
-  if (response == .OK)
-  {
-    return openPanel.url
-  }
-  else
-  {
-    return nil
   }
 }
 
