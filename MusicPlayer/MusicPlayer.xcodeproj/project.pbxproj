@@ -10,7 +10,7 @@
 		7B2B666E28DA1142002C4E54 /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */; };
 		7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666F28DA1142002C4E54 /* ContentView.swift */; };
 		7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667128DA1145002C4E54 /* Assets.xcassets */; };
-		7B2B667528DA1145002C4E54 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */; };
+		990DDA1F28FDB54E005D0CE3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 990DDA1E28FDB54E005D0CE3 /* MainMenu.xib */; };
 		9951230B28E67DB200B1207A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230A28E67DB200B1207A /* Artist.swift */; };
 		9951230D28E67DC100B1207A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230C28E67DC100B1207A /* Album.swift */; };
 		9951230F28E67DD000B1207A /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230E28E67DD000B1207A /* Songs.swift */; };
@@ -20,32 +20,26 @@
 		99A0947628E281020034433A /* PickForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947528E281020034433A /* PickForYou.swift */; };
 		99A0947A28E2A3E40034433A /* Browse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947928E2A3E40034433A /* Browse.swift */; };
 		99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947B28E2A45A0034433A /* PersonalRadio.swift */; };
-		99AEA54728E65E1900A0E2F5 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AEA54328E65E1600A0E2F5 /* AVFAudio.framework */; };
-		99AEA54A28E65E1B00A0E2F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AEA54228E65E1600A0E2F5 /* AVFoundation.framework */; };
-		99AEA54C28E65E1C00A0E2F5 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AEA54128E65E1500A0E2F5 /* AVKit.framework */; };
 		99AEA54F28E6614000A0E2F5 /* Blue.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 99AEA54E28E6614000A0E2F5 /* Blue.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7B2B666A28DA1142002C4E54 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerApp.swift; sourceTree = "<group>"; };
-		7B2B666F28DA1142002C4E54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7B2B666F28DA1142002C4E54 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentView.swift; sourceTree = "<group>"; };
 		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicPlayer.entitlements; sourceTree = "<group>"; };
+		990DDA1E28FDB54E005D0CE3 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		9951230A28E67DB200B1207A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9951230C28E67DC100B1207A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		9951230E28E67DD000B1207A /* Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
 		9951231028E67E0400B1207A /* LocalPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlaylist.swift; sourceTree = "<group>"; };
 		9951231228E68A0F00B1207A /* TodayTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTop.swift; sourceTree = "<group>"; };
 		99555D5928E548ED00F2A484 /* Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
+		996D343D28ECB33500257A5D /* MusicPlayer.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MusicPlayer.entitlements; sourceTree = "<group>"; };
 		99A0947528E281020034433A /* PickForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickForYou.swift; sourceTree = "<group>"; };
 		99A0947928E2A3E40034433A /* Browse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browse.swift; sourceTree = "<group>"; };
 		99A0947B28E2A45A0034433A /* PersonalRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRadio.swift; sourceTree = "<group>"; };
-		99AEA54128E65E1500A0E2F5 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		99AEA54228E65E1600A0E2F5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		99AEA54328E65E1600A0E2F5 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
 		99AEA54E28E6614000A0E2F5 /* Blue.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Blue.mp3; sourceTree = "<group>"; };
+		99BBEFA728F388E500BEC201 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99AEA54728E65E1900A0E2F5 /* AVFAudio.framework in Frameworks */,
-				99AEA54A28E65E1B00A0E2F5 /* AVFoundation.framework in Frameworks */,
-				99AEA54C28E65E1C00A0E2F5 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,22 +57,14 @@
 			isa = PBXGroup;
 			children = (
 				7B2B666C28DA1142002C4E54 /* MusicPlayer */,
-				7B2B666B28DA1142002C4E54 /* Products */,
-				99AEA54028E65E1500A0E2F5 /* Frameworks */,
+				99BBEFA728F388E500BEC201 /* MusicPlayer.app */,
 			);
-			sourceTree = "<group>";
-		};
-		7B2B666B28DA1142002C4E54 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7B2B666A28DA1142002C4E54 /* MusicPlayer.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		7B2B666C28DA1142002C4E54 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				996D343D28ECB33500257A5D /* MusicPlayer.entitlements */,
 				99AEA54E28E6614000A0E2F5 /* Blue.mp3 */,
 				7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */,
 				9951231028E67E0400B1207A /* LocalPlaylist.swift */,
@@ -95,28 +78,9 @@
 				9951230C28E67DC100B1207A /* Album.swift */,
 				9951230E28E67DD000B1207A /* Songs.swift */,
 				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
-				7B2B667628DA1145002C4E54 /* MusicPlayer.entitlements */,
-				7B2B667328DA1145002C4E54 /* Preview Content */,
+				990DDA1E28FDB54E005D0CE3 /* MainMenu.xib */,
 			);
 			path = MusicPlayer;
-			sourceTree = "<group>";
-		};
-		7B2B667328DA1145002C4E54 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				7B2B667428DA1145002C4E54 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		99AEA54028E65E1500A0E2F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				99AEA54328E65E1600A0E2F5 /* AVFAudio.framework */,
-				99AEA54228E65E1600A0E2F5 /* AVFoundation.framework */,
-				99AEA54128E65E1500A0E2F5 /* AVKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +100,7 @@
 			);
 			name = MusicPlayer;
 			productName = MusicPlayer;
-			productReference = 7B2B666A28DA1142002C4E54 /* MusicPlayer.app */;
+			productReference = 99BBEFA728F388E500BEC201 /* MusicPlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -147,7 +111,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					7B2B666928DA1142002C4E54 = {
 						CreatedOnToolsVersion = 14.0;
@@ -163,7 +127,7 @@
 				Base,
 			);
 			mainGroup = 7B2B666128DA1142002C4E54;
-			productRefGroup = 7B2B666B28DA1142002C4E54 /* Products */;
+			productRefGroup = 7B2B666128DA1142002C4E54;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -178,8 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				99AEA54F28E6614000A0E2F5 /* Blue.mp3 in Resources */,
-				7B2B667528DA1145002C4E54 /* Preview Assets.xcassets in Resources */,
 				7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */,
+				990DDA1F28FDB54E005D0CE3 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +203,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -257,10 +222,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Peace - The Music Player";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -299,10 +265,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -311,9 +279,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Peace - The Music Player";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -327,11 +297,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MusicPlayer/MusicPlayer.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "MusicPlayer/Blue.mp3 MusicPlayer/Preview\\ Content";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZR2RHJLP29;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -343,9 +315,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.edu.truman.Hengyi.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -358,11 +332,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MusicPlayer/MusicPlayer.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "MusicPlayer/Blue.mp3 MusicPlayer/Preview\\ Content";
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = ZR2RHJLP29;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -374,10 +350,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.edu.truman.Hengyi.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -393,7 +371,7 @@
 				7B2B667828DA1145002C4E54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		7B2B667928DA1145002C4E54 /* Build configuration list for PBXNativeTarget "MusicPlayer" */ = {
 			isa = XCConfigurationList;
@@ -402,7 +380,7 @@
 				7B2B667B28DA1145002C4E54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

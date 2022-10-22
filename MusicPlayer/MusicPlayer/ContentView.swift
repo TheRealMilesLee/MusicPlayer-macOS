@@ -38,7 +38,7 @@ struct ContentView: View
             NavigationLink(destination: Connect()){Label("Connect", systemImage: "music.note.tv")}
           }.padding(.bottom)
         }
-      }.moveDisabled(false)
+      }
       Divider()
       HStack
       {
@@ -98,6 +98,7 @@ struct ContentView: View
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
         }.buttonStyle(PlainButtonStyle())
       }
+
     }
   }
 }
