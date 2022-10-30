@@ -50,7 +50,7 @@ struct ContentView: View
             Text("Creep").padding(.leading, 10)
             Slider(value: $SliderInitialplace,in: 0...100)
           }
-          
+
         }.buttonStyle(PlainButtonStyle())
         Spacer()
         HStack
@@ -59,7 +59,7 @@ struct ContentView: View
           {
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
-          
+
           Button(action:{
             isPlaying.toggle()
             do
@@ -91,7 +91,7 @@ struct ContentView: View
               Image(systemName: "pause.fill").font(.title3)
             }
           }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-          
+
           Button(action: {})
           {
             Image(systemName: "forward.fill").font(.title3)
