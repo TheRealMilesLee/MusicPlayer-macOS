@@ -19,7 +19,6 @@
 		99A0947628E281020034433A /* PickForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947528E281020034433A /* PickForYou.swift */; };
 		99A0947A28E2A3E40034433A /* Browse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947928E2A3E40034433A /* Browse.swift */; };
 		99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947B28E2A45A0034433A /* PersonalRadio.swift */; };
-		99AEA54F28E6614000A0E2F5 /* Blue.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 99AEA54E28E6614000A0E2F5 /* Blue.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		99A0947528E281020034433A /* PickForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickForYou.swift; sourceTree = "<group>"; };
 		99A0947928E2A3E40034433A /* Browse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browse.swift; sourceTree = "<group>"; };
 		99A0947B28E2A45A0034433A /* PersonalRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRadio.swift; sourceTree = "<group>"; };
-		99AEA54E28E6614000A0E2F5 /* Blue.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Blue.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				996D343D28ECB33500257A5D /* MusicPlayer.entitlements */,
-				99AEA54E28E6614000A0E2F5 /* Blue.mp3 */,
 				7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */,
 				9951231028E67E0400B1207A /* LocalPlaylist.swift */,
 				7B2B666F28DA1142002C4E54 /* ContentView.swift */,
@@ -138,7 +135,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99AEA54F28E6614000A0E2F5 /* Blue.mp3 in Resources */,
 				7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
