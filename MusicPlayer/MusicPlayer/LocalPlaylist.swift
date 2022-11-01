@@ -17,53 +17,34 @@ struct Playlists: Identifiable
 }
 struct LocalPlaylist: View
 {
-  @State private var playlists = [
-    Playlists(id: 1, Title: "Creep", Duration: "3:59", Artist: "Radiohead", Album: "Pablo Honey"),
-    Playlists(id: 2, Title: "Round and Round", Duration: "3:18", Artist: "Imagine Dragons", Album: "Night Visions")
-  ]
   @State var load_file : Bool = false
   var body: some View
   {
     Text("Playlists").padding(.all).font(.headline)
-    Button(action:{
-      load_file.toggle()
-    })
+    Table()
     {
-
-      if (load_file)
-      {
-        let content_of_folder = readFile()
-        Text(content_of_folder[0])
-      }
-      else
-      {
-        Text("load from file")
-      }
-    }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-    Table(playlists)
-    {
-      TableColumn("Title", value: \.Title)
-      TableColumn("Duration", value: \.Duration)
-      TableColumn("Artist", value: \.Artist)
-      TableColumn("Album", value: \.Album)
+      TableColumn("Title", value: "Test tITLE")
+      TableColumn("Duration", value: "tEST Duration")
+      TableColumn("Artist", value: "Test Artist")
+      TableColumn("Album", value: "Test Album")
     }
   }
 }
 
-
-func readFile() -> [String]
+func readFile() -> [Playlists]
 {
-  var formatted_playlists: [String] = []
+  var formatted_playlists: [Playlists] = []
   let FileHandler_user = FileManager.default
   let user_folder = showOpenPanel()
   do
   {
     let contents = try FileHandler_user.contentsOfDirectory(atPath: user_folder!.path)
     print(contents)
-    let index_iter = 0
+    var index_iter = 0
     for content in contents
     {
-      formatted_playlists.append("\(index_iter)"+"\t"+content+"\t"+"3:59"+"\t"+"testArtist"+"\t"+"TestAlbum")
+      formatted_playlists.append(Playlists(id:index_iter, Title: content, Duration: "3:59", Artist: "testArtist", Album: "TestAlbum"))
+      index_iter += 1
     }
   }
   catch
@@ -90,13 +71,5 @@ func showOpenPanel() -> URL?
   else
   {
     return defaultURL
-  }
-}
-
-struct LocalPlaylist_Previews: PreviewProvider
-{
-  static var previews: some View
-  {
-    LocalPlaylist()
   }
 }
