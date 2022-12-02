@@ -3,9 +3,6 @@
  */
 import SwiftUI
 import Foundation
-import MusicKit
-import AVFoundation
-var audioPlayer:AVAudioPlayer!
 
 struct ContentView: View
 {
@@ -24,7 +21,6 @@ struct ContentView: View
           {
             Text("Feed").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
             NavigationLink(destination: PickForYou()){Label("Pick for you", systemImage: "text.line.first.and.arrowtriangle.forward")}
-            NavigationLink(destination: Browse()){Label("Browse", systemImage: "square.split.2x2.fill")}
             NavigationLink(destination: PersonalRadio()){Label("Personal Radio", systemImage: "dot.radiowaves.left.and.right")}
             NavigationLink(destination: TodayTop()){Label("Today Top", systemImage: "arrow.up.right.square")}
           }.frame(height: 150.0)
@@ -62,24 +58,7 @@ struct ContentView: View
 
           Button(action:{
             isPlaying.toggle()
-            do
-            {
-              let url = Bundle.main.path(forResource: "Blue", ofType: "mp3")
-              audioPlayer =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-              let player = audioPlayer
-              if (isPlaying)
-              {
-                player?.prepareToPlay()
-                player?.play()
-              }
-              else
-              {
-                player?.pause()
-              }
-            } catch
-            {
-              print("Error info: \(error)")
-            }
+            play_audio(isPlaying: isPlaying)
           })
           {
             if (!isPlaying)

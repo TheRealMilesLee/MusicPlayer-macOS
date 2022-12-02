@@ -14,11 +14,3 @@ struct Album: View
     Text("Album").padding(.all).font(.headline)
   }
 }
-
-struct Album_Previews: PreviewProvider
-{
-  static var previews: some View
-  {
-    Album()
-  }
-}

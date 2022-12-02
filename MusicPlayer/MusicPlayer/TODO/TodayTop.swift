@@ -15,11 +15,3 @@ struct TodayTop: View
     Text("Today Top").padding(.all).font(.headline)
   }
 }
-
-struct TodayTop_Previews: PreviewProvider
-{
-  static var previews: some View
-  {
-    TodayTop()
-  }
-}
