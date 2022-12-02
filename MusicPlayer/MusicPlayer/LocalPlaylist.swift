@@ -12,6 +12,7 @@ struct LocalPlaylist: View
 {
   @State var load_file : Bool = false
   @State private var AccessFile: [Playlists] = []
+  @State private var selectedSongs = Set<Playlists.ID>()
   var body: some View
   {
     Text("Playlists").padding(.all).font(.headline)
@@ -33,13 +34,14 @@ struct LocalPlaylist: View
         print("Problem on reading folder")
       }
     })
-    Table(AccessFile)
+    Table(AccessFile, selection: $selectedSongs)
     {
       TableColumn("Title", value: \.Title)
       TableColumn("Duration", value: \.Duration)
       TableColumn("Artist", value: \.Artist)
       TableColumn("Album", value: \.Album)
     }
+    Text("\(selectedSongs.description) is selected")
   }
 }
 
