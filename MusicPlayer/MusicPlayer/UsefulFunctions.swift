@@ -17,7 +17,8 @@ func getFileNameArray() -> Array<String>
   let user_folder = showOpenPanel()
   do
   {
-    let contents = try FileHandler_user.contentsOfDirectory(atPath: user_folder!.path)
+    var contents = try FileHandler_user.contentsOfDirectory(atPath: user_folder!.path)
+    contents.append(user_folder!.path)
     return contents
   } catch {
     print("File read error at \(error)")

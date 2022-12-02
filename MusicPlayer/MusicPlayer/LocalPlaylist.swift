@@ -18,11 +18,9 @@ struct LocalPlaylist: View
     Text("Playlists").padding(.all).font(.headline)
     Button("Load from File", action:{
       let contents = getFileNameArray()
-      var index_iter = 0
-      for content in contents
+      for content in 0..<contents.count
       {
-        AccessFile.append(Playlists(id:index_iter, Title: content, Duration: "3:59", Artist: "testArtist", Album: "TestAlbum"))
-        index_iter += 1
+        AccessFile.append(Playlists(id:content, Title: contents[content], Duration: "3:59", Artist: "testArtist", Album: "TestAlbum"))
       }
     })
     Table(AccessFile, selection: $selectedSongs)

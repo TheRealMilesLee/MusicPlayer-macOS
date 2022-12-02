@@ -13,12 +13,7 @@
 		9941925B293A8D2D00D4ADE6 /* UsefulFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941925A293A8D2D00D4ADE6 /* UsefulFunctions.swift */; };
 		9951230B28E67DB200B1207A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230A28E67DB200B1207A /* Artist.swift */; };
 		9951230D28E67DC100B1207A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230C28E67DC100B1207A /* Album.swift */; };
-		9951230F28E67DD000B1207A /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230E28E67DD000B1207A /* Songs.swift */; };
 		9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231028E67E0400B1207A /* LocalPlaylist.swift */; };
-		9951231328E68A0F00B1207A /* TodayTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231228E68A0F00B1207A /* TodayTop.swift */; };
-		99555D5A28E548ED00F2A484 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99555D5928E548ED00F2A484 /* Connect.swift */; };
-		99A0947628E281020034433A /* PickForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947528E281020034433A /* PickForYou.swift */; };
-		99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0947B28E2A45A0034433A /* PersonalRadio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +24,8 @@
 		9941925A293A8D2D00D4ADE6 /* UsefulFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulFunctions.swift; sourceTree = "<group>"; };
 		9951230A28E67DB200B1207A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9951230C28E67DC100B1207A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
-		9951230E28E67DD000B1207A /* Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
 		9951231028E67E0400B1207A /* LocalPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlaylist.swift; sourceTree = "<group>"; };
-		9951231228E68A0F00B1207A /* TodayTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTop.swift; sourceTree = "<group>"; };
-		99555D5928E548ED00F2A484 /* Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
 		996D343D28ECB33500257A5D /* MusicPlayer.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MusicPlayer.entitlements; sourceTree = "<group>"; };
-		99A0947528E281020034433A /* PickForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickForYou.swift; sourceTree = "<group>"; };
-		99A0947B28E2A45A0034433A /* PersonalRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRadio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +64,8 @@
 		9941925C293A8E6500D4ADE6 /* TODO */ = {
 			isa = PBXGroup;
 			children = (
-				99A0947528E281020034433A /* PickForYou.swift */,
-				99A0947B28E2A45A0034433A /* PersonalRadio.swift */,
-				99555D5928E548ED00F2A484 /* Connect.swift */,
-				9951231228E68A0F00B1207A /* TodayTop.swift */,
 				9951230A28E67DB200B1207A /* Artist.swift */,
 				9951230C28E67DC100B1207A /* Album.swift */,
-				9951230E28E67DD000B1207A /* Songs.swift */,
 			);
 			path = TODO;
 			sourceTree = "<group>";
@@ -154,14 +139,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9951230F28E67DD000B1207A /* Songs.swift in Sources */,
 				9941925B293A8D2D00D4ADE6 /* UsefulFunctions.swift in Sources */,
 				9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */,
-				9951231328E68A0F00B1207A /* TodayTop.swift in Sources */,
-				99A0947C28E2A45A0034433A /* PersonalRadio.swift in Sources */,
 				7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */,
-				99555D5A28E548ED00F2A484 /* Connect.swift in Sources */,
-				99A0947628E281020034433A /* PickForYou.swift in Sources */,
 				9951230D28E67DC100B1207A /* Album.swift in Sources */,
 				9951230B28E67DB200B1207A /* Artist.swift in Sources */,
 				7B2B666E28DA1142002C4E54 /* MusicPlayerApp.swift in Sources */,
