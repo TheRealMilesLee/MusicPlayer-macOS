@@ -28,4 +28,30 @@ final class AudioPlayManager: ObservableObject
       print("Error info: \(error)")
     }
   }
+
+  func playPause()
+  {
+    guard let PlayPauseButton = player else
+    {
+      print ("No audio player found")
+      return
+    }
+    if(PlayPauseButton.isPlaying)
+    {
+      PlayPauseButton.pause()
+    }
+    else
+    {
+      PlayPauseButton.play()
+    }
+  }
+  func Stop()
+  {
+    guard let stopButton = player else
+    {
+      print ("No audio player found")
+      return
+    }
+    stopButton.stop()
+  }
 }

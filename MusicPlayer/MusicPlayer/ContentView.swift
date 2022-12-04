@@ -66,25 +66,18 @@ struct ContentView: View
           {
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
+
           Button {
+            playStatusButton = true
             audioPlayManager.startPlayer(Title: "Primo")
+            SliderPlace = 0
           } label: {
             Text("Start the player")
           }
 
           Button(action:{
             playStatusButton.toggle()
-            if let AudioplayerButton = audioPlayManager.player
-            {
-              if(AudioplayerButton.isPlaying)
-              {
-                AudioplayerButton.pause()
-              }
-              else
-              {
-                AudioplayerButton.play()
-              }
-            }
+            audioPlayManager.playPause()
           })
           {
             if (!playStatusButton)
@@ -101,6 +94,18 @@ struct ContentView: View
           {
             Image(systemName: "forward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
+
+          Button {
+            let StopButton = audioPlayManager.player
+            playStatusButton = false
+            audioPlayManager.Stop()
+            SliderPlace = 0
+            StopButton!.currentTime = 0
+
+          } label: {
+            Image(systemName: "stop.fill").font(.title3)
+          }
+
         }.buttonStyle(PlainButtonStyle()) .onReceive(timer) { _ in
           guard let playerStatus = audioPlayManager.player else {return}
           SliderPlace = playerStatus.currentTime
