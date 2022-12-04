@@ -1,13 +1,6 @@
 
 import SwiftUI
-struct Playlists: Identifiable
-{
-  let id: Int
-  let Title: String
-  let Duration: String
-  let Artist: String
-  let Album: String
-}
+
 struct LocalPlaylist: View
 {
   @State var load_file : Bool = false
@@ -20,7 +13,7 @@ struct LocalPlaylist: View
       let contents = getFileNameArray()
       for content in 0..<contents.count
       {
-        AccessFile.append(Playlists(id:content, Title: contents[content], Duration: "3:59", Artist: "testArtist", Album: "TestAlbum"))
+        AccessFile.append(Playlists(Title: contents[content], Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
       }
     })
     Table(AccessFile, selection: $selectedSongs)

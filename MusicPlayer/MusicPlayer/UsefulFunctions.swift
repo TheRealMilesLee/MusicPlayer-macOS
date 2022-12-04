@@ -45,25 +45,3 @@ func showOpenPanel() -> URL?
     return defaultURL
   }
 }
-
-func play_audio(isPlaying: Bool)
-{
-  do
-  {
-    let url = Bundle.main.path(forResource: "Blue", ofType: "mp3")
-    audioPlayer =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url!))
-    let player = audioPlayer
-    if (isPlaying)
-    {
-      player?.prepareToPlay()
-      player?.play()
-    }
-    else
-    {
-      player?.pause()
-    }
-  } catch
-  {
-    print("Error info: \(error)")
-  }
-}

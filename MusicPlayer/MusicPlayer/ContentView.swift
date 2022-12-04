@@ -3,12 +3,14 @@
  */
 import SwiftUI
 import Foundation
-
 struct ContentView: View
 {
-  @State private var SliderInitialplace = 0.0
+  @EnvironmentObject var audioPlayManager: AudioPlayManager
+  @StateObject var MusicViewModel: MusicViewModel
+  @State private var SliderPlace: Double = 0.0
   @State var PickClick = false
-  @State var isPlaying : Bool = false
+  @State var playStatusButton : Bool = false
+  let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
   var body: some View
   {
     VStack
@@ -29,30 +31,63 @@ struct ContentView: View
       Divider()
       HStack
       {
+
         Button(action: {})
         {
           HStack
           {
             Image("Cover").resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
-            Text("Creep").padding(.leading, 10)
-            Slider(value: $SliderInitialplace,in: 0...100)
+            Text(MusicViewModel.MusicPlayerApp.Title).padding(.leading, 10)
+            if let SliderAudioplayer = audioPlayManager.player
+            {
+              HStack
+              {
+                Text(SliderAudioplayer.currentTime.formatted())
+                Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
+                {
+                  editing in
+                  print(editing)
+                  if !editing
+                  {
+                    SliderAudioplayer.currentTime = SliderPlace
+                  }
+                }
+                Spacer()
+                Text(String(SliderAudioplayer.duration - SliderAudioplayer.currentTime))
+              }
+            }
           }
-
         }.buttonStyle(PlainButtonStyle())
         Spacer()
+
         HStack
         {
           Button(action: {})
           {
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
+          Button {
+            audioPlayManager.startPlayer(Title: "Primo")
+          } label: {
+            Text("Start the player")
+          }
 
           Button(action:{
-            isPlaying.toggle()
-            play_audio(isPlaying: isPlaying)
+            playStatusButton.toggle()
+            if let AudioplayerButton = audioPlayManager.player
+            {
+              if(AudioplayerButton.isPlaying)
+              {
+                AudioplayerButton.pause()
+              }
+              else
+              {
+                AudioplayerButton.play()
+              }
+            }
           })
           {
-            if (!isPlaying)
+            if (!playStatusButton)
             {
               Image(systemName: "play.fill").font(.title3)
             }
@@ -66,17 +101,21 @@ struct ContentView: View
           {
             Image(systemName: "forward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
-        }.buttonStyle(PlainButtonStyle())
+        }.buttonStyle(PlainButtonStyle()) .onReceive(timer) { _ in
+          guard let playerStatus = audioPlayManager.player else {return}
+          SliderPlace = playerStatus.currentTime
+        }
       }
-
     }
   }
 }
 
 struct contentview_preview: PreviewProvider
 {
+  static let MusicVM = MusicViewModel(MusicPlayerApp: Playlists.data)
   static var previews: some View
   {
-    ContentView()
+    ContentView(MusicViewModel: MusicVM)
+      .environmentObject(AudioPlayManager())
   }
 }
