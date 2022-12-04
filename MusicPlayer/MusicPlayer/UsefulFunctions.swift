@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import MusicKit
 import AVFoundation
+import AVKit
 var audioPlayer:AVAudioPlayer!
 
 func getFileNameArray() -> Array<String>
