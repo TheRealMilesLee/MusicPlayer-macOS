@@ -11,20 +11,40 @@ import MusicKit
 import AVFoundation
 import AVKit
 var audioPlayer:AVAudioPlayer!
-
+let user_folder = showOpenPanel()
 func getFileNameArray() -> Array<String>
 {
   let FileHandler_user = FileManager.default
-  let user_folder = showOpenPanel()
+  var MusicFileArray: [String] = []
   do
   {
-    var contents = try FileHandler_user.contentsOfDirectory(atPath: user_folder!.path)
-    contents.append(user_folder!.path)
-    return contents
+    let contents = try FileHandler_user.contentsOfDirectory(atPath: user_folder!.path)
+    for iteration in 0..<contents.count
+    {
+      if (contents[iteration] == ".DS_Store")
+      {
+        continue
+      }
+      MusicFileArray.append(contents[iteration])
+    }
   } catch {
     print("File read error at \(error)")
   }
-  return ["Error at reading"]
+
+  return MusicFileArray
+}
+
+func MusicPlayFileArray() -> Array<String>
+{
+  let FileName = getFileNameArray()
+  var MusicFileWithPath: [String] = []
+  for filePath in 0..<FileName.count
+  {
+    let ConcateneteResult = (user_folder?.path())! + FileName[filePath]
+    MusicFileWithPath.append(ConcateneteResult)
+    print(MusicFileWithPath[filePath])
+  }
+  return MusicFileWithPath
 }
 
 func showOpenPanel() -> URL?

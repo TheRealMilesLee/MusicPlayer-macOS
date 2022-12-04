@@ -11,6 +11,7 @@ struct LocalPlaylist: View
     Text("Playlists").padding(.all).font(.headline)
     Button("Load from File", action:{
       let contents = getFileNameArray()
+      let PlaylistArray = MusicPlayFileArray()
       for content in 0..<contents.count
       {
         AccessFile.append(Playlists(Title: contents[content], Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
