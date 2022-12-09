@@ -10,13 +10,14 @@
 		7B2B666E28DA1142002C4E54 /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */; };
 		7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666F28DA1142002C4E54 /* ContentView.swift */; };
 		7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667128DA1145002C4E54 /* Assets.xcassets */; };
-		9941925B293A8D2D00D4ADE6 /* UsefulFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941925A293A8D2D00D4ADE6 /* UsefulFunctions.swift */; };
+		9941925B293A8D2D00D4ADE6 /* FileLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */; };
 		9951230B28E67DB200B1207A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230A28E67DB200B1207A /* Artist.swift */; };
 		9951230D28E67DC100B1207A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230C28E67DC100B1207A /* Album.swift */; };
 		9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231028E67E0400B1207A /* LocalPlaylist.swift */; };
 		9995E435293BE6560023BA2D /* Primo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9995E434293BE6560023BA2D /* Primo.mp3 */; };
 		9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995E436293BEE9E0023BA2D /* MusicViewModel.swift */; };
 		99B03BD1293C0E2900C604EB /* AudioPlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */; };
+		99CF3465293EC3B900FE7A11 /* Primo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99CF3464293EC3B900FE7A11 /* Primo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +25,7 @@
 		7B2B666F28DA1142002C4E54 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentView.swift; sourceTree = "<group>"; };
 		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9904950E2910A93A007DF943 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9941925A293A8D2D00D4ADE6 /* UsefulFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsefulFunctions.swift; sourceTree = "<group>"; };
+		9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoadingManager.swift; sourceTree = "<group>"; };
 		9951230A28E67DB200B1207A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9951230C28E67DC100B1207A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		9951231028E67E0400B1207A /* LocalPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlaylist.swift; sourceTree = "<group>"; };
@@ -32,6 +33,7 @@
 		9995E434293BE6560023BA2D /* Primo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Primo.mp3; sourceTree = "<group>"; };
 		9995E436293BEE9E0023BA2D /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayManager.swift; sourceTree = "<group>"; };
+		99CF3464293EC3B900FE7A11 /* Primo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Primo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +58,10 @@
 		7B2B666C28DA1142002C4E54 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				99CF3464293EC3B900FE7A11 /* Primo.jpg */,
 				9995E434293BE6560023BA2D /* Primo.mp3 */,
 				9941925C293A8E6500D4ADE6 /* TODO */,
-				9941925A293A8D2D00D4ADE6 /* UsefulFunctions.swift */,
+				9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */,
 				996D343D28ECB33500257A5D /* MusicPlayer.entitlements */,
 				7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */,
 				9951231028E67E0400B1207A /* LocalPlaylist.swift */,
@@ -139,6 +142,7 @@
 			files = (
 				9995E435293BE6560023BA2D /* Primo.mp3 in Resources */,
 				7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */,
+				99CF3465293EC3B900FE7A11 /* Primo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9941925B293A8D2D00D4ADE6 /* UsefulFunctions.swift in Sources */,
+				9941925B293A8D2D00D4ADE6 /* FileLoadingManager.swift in Sources */,
 				9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */,
 				9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */,
 				7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */,
@@ -290,7 +294,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MusicPlayer/MusicPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -325,7 +329,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MusicPlayer/MusicPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

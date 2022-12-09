@@ -11,6 +11,7 @@ import AVKit
 final class AudioPlayManager: ObservableObject
 {
   var player: AVAudioPlayer?
+  var AudioAsset: AVAsset?
   func startPlayer(Title: String)
   {
     guard let url = Bundle.main.path(forResource: Title, ofType: "mp3") else
@@ -45,6 +46,7 @@ final class AudioPlayManager: ObservableObject
       PlayPauseButton.play()
     }
   }
+
   func Stop()
   {
     guard let stopButton = player else

@@ -1,17 +1,11 @@
-//
-//  UsefulFunctions.swift
-//  MusicPlayer
-//
-//  Created by Silverhand on 2022/12/2.
-//
-
 import Foundation
 import SwiftUI
 import MusicKit
 import AVFoundation
 import AVKit
-var audioPlayer:AVAudioPlayer!
+var audioPlayer: AVAudioPlayer!
 let user_folder = showOpenPanel()
+
 func getFileNameArray() -> Array<String>
 {
   let FileHandler_user = FileManager.default
@@ -30,7 +24,6 @@ func getFileNameArray() -> Array<String>
   } catch {
     print("File read error at \(error)")
   }
-
   return MusicFileArray
 }
 
