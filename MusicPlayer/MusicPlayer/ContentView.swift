@@ -43,37 +43,35 @@ struct ContentView: View
       Divider()
       HStack
       {
-        Button(action: {})
+        HStack
         {
-          HStack
+          Image(MusicViewModel.MusicPlayerApp.image).resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
+          Text(MusicViewModel.MusicPlayerApp.Title).padding(.leading, 10)
+          if let SliderAudioplayer = audioPlayManager.player
           {
-            Image(MusicViewModel.MusicPlayerApp.image).resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
-            Text(MusicViewModel.MusicPlayerApp.Title).padding(.leading, 10)
-            if let SliderAudioplayer = audioPlayManager.player
+            HStack
             {
-              HStack
+              let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
+              let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
+              let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+              Text(CurrentStringnify)
+              Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
               {
-                let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
-                let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
-                let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-                Text(CurrentStringnify)
-                Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
+                Slide in
+                if (!Slide)
                 {
-                  Slide in
-                  if (!Slide)
-                  {
-                    SliderAudioplayer.currentTime = SliderPlace
-                  }
+                  SliderAudioplayer.currentTime = SliderPlace
                 }
-                Spacer()
-                let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
-                let RoundMinutes = Double(round(100 * ToMinutes) / 100)
-                let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-                Text(Stringnify)
               }
+              Spacer()
+              let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
+              let RoundMinutes = Double(round(100 * ToMinutes) / 100)
+              let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+              Text(Stringnify)
             }
           }
-        }.buttonStyle(PlainButtonStyle())
+        }
+
         Spacer()
 
         HStack
