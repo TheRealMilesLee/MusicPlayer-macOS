@@ -7,9 +7,13 @@ struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @StateObject var MusicViewModel: MusicViewModel
+  @State var selectedSongs: Playlists.ID?
+  @State var AccessFile: Array<Playlists> = Array()
   @State var SliderPlace: Double = 0.0
   @State var PickClick = false
   @State var playStatusButton : Bool = false
+  @State var FileNameContents = getFileNameArray()
+  @State var FileURL = MusicPlayFileArray()
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -22,7 +26,15 @@ struct ContentView: View
           List
           {
             Text("Library").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination: LocalPlaylist(SliderPlace: $SliderPlace, playStatusButton: $playStatusButton)){Label("Local Playlist", systemImage: "music.note.list")}
+            NavigationLink(destination:
+                            LocalPlaylist(
+                              FileNameContents:$FileNameContents ,
+                              FileURL: $FileURL,
+                              SliderPlace: $SliderPlace,
+                              playStatusButton: $playStatusButton,
+                              selectedSongs: $selectedSongs,
+                              AccessFile: $AccessFile
+                            )){Label("Local Playlist", systemImage: "music.note.list")}
             NavigationLink(destination: Artist()){Label("Artist", systemImage: "person.crop.square")}
             NavigationLink(destination: Album()){Label("Album", systemImage: "rectangle.stack.fill")}
           }.padding(.bottom)
@@ -63,9 +75,13 @@ struct ContentView: View
           }
         }.buttonStyle(PlainButtonStyle())
         Spacer()
+
         HStack
         {
-          Button(action: {})
+
+          Button(action: {
+            Backward()
+          })
           {
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
@@ -85,25 +101,106 @@ struct ContentView: View
             }
           }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
 
-          Button(action: {})
+          Button(action: {
+            Forward(AccessFile: AccessFile)
+          })
           {
             Image(systemName: "forward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
 
-          Button
+          if ((audioPlayManager.player?.isPlaying) != nil)
           {
-            let StopButton = audioPlayManager.player
-            playStatusButton = false
-            audioPlayManager.Stop()
-            SliderPlace = 0
-            StopButton!.currentTime = 0
-          } label:
-          {
-            Image(systemName: "stop.fill").font(.title3)
+            Button
+            {
+              let StopButton = audioPlayManager.player
+              playStatusButton = false
+              audioPlayManager.Stop()
+              SliderPlace = 0
+              StopButton!.currentTime = 0
+            } label:
+            {
+              Image(systemName: "stop.fill").font(.title3)
+            }
           }
         }.buttonStyle(PlainButtonStyle()) .onReceive(timer) { _ in
           guard let playerStatus = audioPlayManager.player else {return}
           SliderPlace = playerStatus.currentTime
+        }
+      }
+    }
+  }
+  func Forward(AccessFile: [Playlists])
+  {
+    for IndexForward in 0..<AccessFile.count
+    {
+      if (AccessFile[IndexForward].id == selectedSongs)
+      {
+        if (IndexForward == AccessFile.count)
+        {
+          audioPlayManager.Stop()
+          playStatusButton = false
+          SliderPlace = 0
+          audioPlayManager.player?.currentTime = 0
+          break
+        }
+        else
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.Stop()
+            playStatusButton = false
+            SliderPlace = 0
+            audioPlayManager.player?.currentTime = 0
+          }
+          let newIndex = IndexForward + 1
+          if (newIndex == AccessFile.count)
+          {
+            audioPlayManager.Stop()
+            playStatusButton = false
+            SliderPlace = 0
+            audioPlayManager.player?.currentTime = 0
+            break
+          }
+          selectedSongs = AccessFile[newIndex].id
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: FileURL[newIndex])
+          break
+        }
+      }
+    }
+  }
+
+  func Backward()
+  {
+    for IndexBackward in 0..<AccessFile.count
+    {
+      if (AccessFile[IndexBackward].id == selectedSongs)
+      {
+        if (IndexBackward == 0)
+        {
+          audioPlayManager.Stop()
+          playStatusButton = false
+          SliderPlace = 0
+          audioPlayManager.player?.currentTime = 0
+          break
+        }
+        else
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.Stop()
+            playStatusButton = false
+            SliderPlace = 0
+            audioPlayManager.player?.currentTime = 0
+          }
+          print(IndexBackward)
+          selectedSongs = AccessFile[IndexBackward - 1].id
+          print(IndexBackward - 1)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
+          break
         }
       }
     }

@@ -5,22 +5,22 @@ import AVFAudio
 import AVFoundation
 struct LocalPlaylist: View
 {
-  @EnvironmentObject var audioPlayManager: AudioPlayManager
+  @Binding var FileNameContents: Array<String>
+  @Binding var FileURL: Array<String>
   @Binding var SliderPlace: Double
   @Binding var playStatusButton : Bool
+  @Binding var selectedSongs: Playlists.ID?
+  @Binding var AccessFile: Array<Playlists>
+  @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var load_file : Bool = false
-  @State private var selectedSongs: Playlists.ID?
-  @State private var AccessFile: Array<Playlists> = Array()
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
-
   var body: some View
   {
     Text("Playlists").padding(.all).font(.headline)
     Button("Load from File", action:{
-      let contents = getFileNameArray()
-      for content in 0..<contents.count
+      for content in 0..<FileNameContents.count
       {
-        AccessFile.append(Playlists(Title: contents[content], Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
+        AccessFile.append(Playlists(Title: FileNameContents[content], Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
       }
     })
     Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
@@ -45,7 +45,6 @@ struct LocalPlaylist: View
   }
   func FindTitle(AccessFile: [Playlists]) -> String
   {
-    let FileURL = MusicPlayFileArray()
     for NameIndex in 0..<AccessFile.count
     {
       if (AccessFile[NameIndex].id == selectedSongs)
