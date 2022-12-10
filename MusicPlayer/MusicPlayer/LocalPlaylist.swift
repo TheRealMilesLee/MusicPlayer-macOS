@@ -15,8 +15,6 @@ struct LocalPlaylist: View
 
   var body: some View
   {
-
-
     Text("Playlists").padding(.all).font(.headline)
     Button("Load from File", action:{
       let contents = getFileNameArray()
@@ -34,7 +32,10 @@ struct LocalPlaylist: View
     }.onDoubleClick {
       if (selectedSongs?.description != nil)
       {
-
+        if ((audioPlayManager.player?.isPlaying) != nil)
+        {
+          audioPlayManager.player?.stop()
+        }
         let Result = FindTitle(AccessFile: AccessFile)
         playStatusButton = true
         SliderPlace = 0
