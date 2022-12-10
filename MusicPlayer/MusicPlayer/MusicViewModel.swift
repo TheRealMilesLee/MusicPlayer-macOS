@@ -24,5 +24,5 @@ struct Playlists: Identifiable
   let Artist: String
   let Album: String
   let image: String
-  static let data = Playlists(Title:"Primo", Duration: "3:12", Artist: "Colette Carr", Album: "Skitszo", image:"Primo")
+  static let data = Playlists(Title:"Primo", Duration: "3:12", Artist: "Colette Carr", Album: "Skitszo", image:Bundle.main.path(forResource: "Primo", ofType: "jpg")!)
 }

@@ -41,8 +41,10 @@ struct ContentView: View
         }
       }
       Divider()
+        // Play Display Section
       HStack
       {
+          // This is the Album image, song title and the slide bar
         HStack
         {
           Image(MusicViewModel.MusicPlayerApp.image).resizable().frame(width: 25, height: 25).shadow(radius: 6, x: 0, y: 3).padding(.all)
@@ -71,11 +73,12 @@ struct ContentView: View
             }
           }
         }
-
         Spacer()
 
+          // Here is the button for Backward, forward and Play/Pause
         HStack
         {
+            // Backward button
           Button(action: {
             Backward()
           })
@@ -83,6 +86,7 @@ struct ContentView: View
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
 
+            // Play/Pause button
           Button(action:{
             playStatusButton.toggle()
             audioPlayManager.playPause()
@@ -98,6 +102,7 @@ struct ContentView: View
             }
           }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
 
+            // Forward button
           Button(action: {
             Forward(AccessFile: AccessFile)
           })
@@ -105,6 +110,7 @@ struct ContentView: View
             Image(systemName: "forward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
 
+          // Stop Button, only arrear if is playing
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             Button
@@ -118,14 +124,21 @@ struct ContentView: View
               Image(systemName: "stop.fill").font(.title3)
             }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
           }
-
-        }.buttonStyle(PlainButtonStyle()) .onReceive(timer) { _ in
-          guard let playerStatus = audioPlayManager.player else {return}
-          SliderPlace = playerStatus.currentTime
-        }
+        }.buttonStyle(PlainButtonStyle())
+          // The Slider updater
+          .onReceive(timer)
+          {  _ in
+            guard let playerStatus = audioPlayManager.player else {return}
+            SliderPlace = playerStatus.currentTime
+          }
       }
     }
   }
+
+  /**
+   * @brief This function is to control the audio forward
+   * @param AccessFile is a Array of Playlists
+   */
   func Forward(AccessFile: [Playlists])
   {
     for IndexForward in 0..<AccessFile.count
@@ -168,6 +181,10 @@ struct ContentView: View
     }
   }
 
+  /**
+   * @brief This function is to control the audio backward
+   * @param AccessFile is a Array of Playlists
+   */
   func Backward()
   {
     for IndexBackward in 0..<AccessFile.count
