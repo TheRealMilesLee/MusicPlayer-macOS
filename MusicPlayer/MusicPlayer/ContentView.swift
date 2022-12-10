@@ -78,7 +78,6 @@ struct ContentView: View
 
         HStack
         {
-
           Button(action: {
             Backward()
           })
@@ -106,22 +105,22 @@ struct ContentView: View
           })
           {
             Image(systemName: "forward.fill").font(.title3)
-          }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
+          }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
 
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             Button
             {
-              let StopButton = audioPlayManager.player
               playStatusButton = false
               audioPlayManager.Stop()
               SliderPlace = 0
-              StopButton!.currentTime = 0
+              audioPlayManager.player!.currentTime = 0
             } label:
             {
               Image(systemName: "stop.fill").font(.title3)
-            }
+            }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
           }
+
         }.buttonStyle(PlainButtonStyle()) .onReceive(timer) { _ in
           guard let playerStatus = audioPlayManager.player else {return}
           SliderPlace = playerStatus.currentTime
