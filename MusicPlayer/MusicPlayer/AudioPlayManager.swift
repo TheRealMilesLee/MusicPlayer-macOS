@@ -12,13 +12,8 @@ final class AudioPlayManager: ObservableObject
 {
   var player: AVAudioPlayer?
   var AudioAsset: AVAsset?
-  func startPlayer(Title: String)
+  func startPlayer(url: String)
   {
-    guard let url = Bundle.main.path(forResource: Title, ofType: "mp3") else
-    {
-      print("Problem on looking for file: \(Title)")
-      return
-    }
     do
     {
       player =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))

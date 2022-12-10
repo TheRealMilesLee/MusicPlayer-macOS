@@ -7,7 +7,7 @@ struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @StateObject var MusicViewModel: MusicViewModel
-  @State private var SliderPlace: Double = 0.0
+  @State var SliderPlace: Double = 0.0
   @State var PickClick = false
   @State var playStatusButton : Bool = false
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -22,7 +22,7 @@ struct ContentView: View
           List
           {
             Text("Library").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination: LocalPlaylist()){Label("Local Playlist", systemImage: "music.note.list")}
+            NavigationLink(destination: LocalPlaylist(SliderPlace: $SliderPlace, playStatusButton: $playStatusButton)){Label("Local Playlist", systemImage: "music.note.list")}
             NavigationLink(destination: Artist()){Label("Artist", systemImage: "person.crop.square")}
             NavigationLink(destination: Album()){Label("Album", systemImage: "rectangle.stack.fill")}
           }.padding(.bottom)
@@ -69,14 +69,6 @@ struct ContentView: View
           {
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
-
-          Button {
-            playStatusButton = true
-            audioPlayManager.startPlayer(Title: "Primo")
-            SliderPlace = 0
-          } label: {
-            Text("Start the player")
-          }
 
           Button(action:{
             playStatusButton.toggle()

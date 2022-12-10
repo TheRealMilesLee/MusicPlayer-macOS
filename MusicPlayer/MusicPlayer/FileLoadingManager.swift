@@ -35,7 +35,6 @@ func MusicPlayFileArray() -> Array<String>
   {
     let ConcateneteResult = (user_folder?.path())! + FileName[filePath]
     MusicFileWithPath.append(ConcateneteResult)
-    print(MusicFileWithPath[filePath])
   }
   return MusicFileWithPath
 }

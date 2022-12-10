@@ -5,12 +5,18 @@ import AVFAudio
 import AVFoundation
 struct LocalPlaylist: View
 {
+  @EnvironmentObject var audioPlayManager: AudioPlayManager
+  @Binding var SliderPlace: Double
+  @Binding var playStatusButton : Bool
   @State var load_file : Bool = false
   @State private var selectedSongs: Playlists.ID?
   @State private var AccessFile: Array<Playlists> = Array()
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
+
   var body: some View
   {
+
+
     Text("Playlists").padding(.all).font(.headline)
     Button("Load from File", action:{
       let contents = getFileNameArray()
@@ -25,27 +31,27 @@ struct LocalPlaylist: View
       TableColumn("Duration", value: \.Duration)
       TableColumn("Artist", value: \.Artist)
       TableColumn("Album", value: \.Album)
-    }
+    }.onDoubleClick {
+      if (selectedSongs?.description != nil)
+      {
 
+        let Result = FindTitle(AccessFile: AccessFile)
+        playStatusButton = true
+        SliderPlace = 0
+        audioPlayManager.startPlayer(url: Result)
+      }
+    }
   }
   func FindTitle(AccessFile: [Playlists]) -> String
   {
-    for NameIndex in AccessFile
+    let FileURL = MusicPlayFileArray()
+    for NameIndex in 0..<AccessFile.count
     {
-      if (NameIndex.id == selectedSongs)
+      if (AccessFile[NameIndex].id == selectedSongs)
       {
-        return NameIndex.Title
+        return FileURL[NameIndex]
       }
     }
     return "Null"
   }
 }
-
-
-//if (selectedSongs?.description != nil)
-//{
-//  let Result = FindTitle(AccessFile: AccessFile)
-//  Text(Result)
-//}
-
-
