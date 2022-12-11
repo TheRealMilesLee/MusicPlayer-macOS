@@ -47,7 +47,11 @@ struct ContentView: View
           // This is the Album image, song title and the slide bar
         HStack
         {
-          Image(nsImage: #imageLiteral(resourceName: "Primo.jpg")).resizable().frame(width: 60, height: 60).shadow(radius: 6, x: 0, y: 3).padding(.leading, 10).padding(.bottom, 10)
+          Image(nsImage: #imageLiteral(resourceName: "Primo.jpg"))
+            .resizable()
+            .frame(width: 60, height: 60)
+            .shadow(radius: 6, x: 0, y: 3)
+            .padding(.leading, 10).padding(.bottom, 10)
           Text(MusicViewModel.MusicPlayerApp.Title).padding(.leading, 10)
           if let SliderAudioplayer = audioPlayManager.player
           {
