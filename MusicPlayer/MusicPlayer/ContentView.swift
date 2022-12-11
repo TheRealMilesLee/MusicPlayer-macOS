@@ -52,9 +52,12 @@ struct ContentView: View
             .frame(width: 60, height: 60)
             .shadow(radius: 6, x: 0, y: 3)
             .padding(.leading, 10).padding(.bottom, 10)
-          Text(MusicViewModel.MusicPlayerApp.Title).padding(.leading, 10)
           if let SliderAudioplayer = audioPlayManager.player
           {
+            if ((audioPlayManager.player?.isPlaying) != nil)
+            {
+              Text(getPlayingSongName(AccessFile: AccessFile)).padding(.leading, 10)
+            }
             HStack
             {
               let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
@@ -84,7 +87,7 @@ struct ContentView: View
         {
             // Backward button
           Button(action: {
-            Backward()
+            Backward(AccessFile: AccessFile)
           })
           {
             Image(systemName: "backward.fill").font(.title3)
@@ -189,7 +192,7 @@ struct ContentView: View
    * @brief This function is to control the audio backward
    * @param AccessFile is a Array of Playlists
    */
-  func Backward()
+  func Backward(AccessFile: [Playlists])
   {
     for IndexBackward in 0..<AccessFile.count
     {
@@ -222,6 +225,18 @@ struct ContentView: View
         }
       }
     }
+  }
+
+  func getPlayingSongName(AccessFile: [Playlists]) -> String
+  {
+    for SongNameIndex in 0..<AccessFile.count
+    {
+      if (AccessFile[SongNameIndex].id == selectedSongs)
+      {
+        return AccessFile[SongNameIndex].Title
+      }
+    }
+    return ""
   }
 }
 
