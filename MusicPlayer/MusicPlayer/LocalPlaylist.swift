@@ -20,7 +20,9 @@ struct LocalPlaylist: View
     Button("Load from File", action:{
       for content in 0..<FileNameContents.count
       {
-        AccessFile.append(Playlists(Title: FileNameContents[content], Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
+        let BeforechoppedFileName = FileNameContents[content]
+        let AfterChoppedFileName = BeforechoppedFileName.replacingOccurrences(of: #".mp3"#, with: "").replacingOccurrences(of: #".mp4"#, with: "").replacingOccurrences(of: #".wav"#, with: "").replacingOccurrences(of: #".flac"#, with: "")
+        AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
       }
     })
     Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
