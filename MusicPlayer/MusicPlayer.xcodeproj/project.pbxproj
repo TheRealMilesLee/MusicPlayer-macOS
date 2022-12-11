@@ -15,10 +15,10 @@
 		9951230B28E67DB200B1207A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230A28E67DB200B1207A /* Artist.swift */; };
 		9951230D28E67DC100B1207A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230C28E67DC100B1207A /* Album.swift */; };
 		9951231128E67E0400B1207A /* LocalPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231028E67E0400B1207A /* LocalPlaylist.swift */; };
-		9995E435293BE6560023BA2D /* Primo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9995E434293BE6560023BA2D /* Primo.mp3 */; };
+		9995E435293BE6560023BA2D /* Primo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9995E434293BE6560023BA2D /* Primo.mp3 */; settings = {ASSET_TAGS = ("Default Resources", ); }; };
 		9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995E436293BEE9E0023BA2D /* MusicViewModel.swift */; };
 		99B03BD1293C0E2900C604EB /* AudioPlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */; };
-		99CF3465293EC3B900FE7A11 /* Primo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99CF3464293EC3B900FE7A11 /* Primo.jpg */; };
+		99CF3465293EC3B900FE7A11 /* Primo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99CF3464293EC3B900FE7A11 /* Primo.jpg */; settings = {ASSET_TAGS = ("Default Resources", ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +112,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					"Default Resources",
+				);
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
@@ -298,7 +301,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MusicPlayer/MusicPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -333,7 +336,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = MusicPlayer/MusicPlayer.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
