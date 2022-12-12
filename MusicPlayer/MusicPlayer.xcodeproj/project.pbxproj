@@ -85,6 +85,7 @@
 				9995E436293BEE9E0023BA2D /* MusicViewModel.swift */,
 				99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */,
 				990961E529450C250089F3E8 /* DoubleClick.swift */,
+				9951230A28E67DB200B1207A /* Artist.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -92,7 +93,6 @@
 		9941925C293A8E6500D4ADE6 /* TODO */ = {
 			isa = PBXGroup;
 			children = (
-				9951230A28E67DB200B1207A /* Artist.swift */,
 				9951230C28E67DC100B1207A /* Album.swift */,
 			);
 			path = TODO;
