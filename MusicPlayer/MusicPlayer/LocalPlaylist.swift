@@ -18,11 +18,19 @@ struct LocalPlaylist: View
   {
     Text("Playlists").padding(.all).font(.headline)
     Button("Load from File", action:{
-      for content in 0..<FileNameContents.count
+      Task
       {
-        let BeforechoppedFileName = FileNameContents[content]
-        let AfterChoppedFileName = BeforechoppedFileName.replacingOccurrences(of: #".mp3"#, with: "").replacingOccurrences(of: #".mp4"#, with: "").replacingOccurrences(of: #".wav"#, with: "").replacingOccurrences(of: #".flac"#, with: "")
-        AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: "3:59",  Artist: "testArtist", Album: "TestAlbum", image: "Bah"))
+        await GetAsset()
+        for content in 0..<FileNameContents.count
+        {
+          let BeforechoppedFileName = FileNameContents[content]
+          let AfterChoppedFileName = BeforechoppedFileName.replacingOccurrences(of: #".mp3"#, with: "").replacingOccurrences(of: #".mp4"#, with: "").replacingOccurrences(of: #".wav"#, with: "").replacingOccurrences(of: #".flac"#, with: "")
+          let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
+          let DurationToMinutes = DurationTimeSeconds / 60
+          let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
+          let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+          AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: "Bah"))
+        }
       }
     })
     Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
@@ -31,7 +39,8 @@ struct LocalPlaylist: View
       TableColumn("Duration", value: \.Duration)
       TableColumn("Artist", value: \.Artist)
       TableColumn("Album", value: \.Album)
-    }.onDoubleClick {
+    }.onDoubleClick
+    {
       if (selectedSongs?.description != nil)
       {
         if ((audioPlayManager.player?.isPlaying) != nil)

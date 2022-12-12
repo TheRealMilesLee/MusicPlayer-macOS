@@ -3,9 +3,51 @@ import SwiftUI
 import MusicKit
 import AVFoundation
 import AVKit
+import MediaPlayer
+import AppKit
+
 var audioPlayer: AVAudioPlayer!
 let user_folder = showOpenPanel()
-
+var metaAlbumArray:[String] = []
+var metaArtistArray:[String] = []
+var metaArtwork:[Artwork] = []
+var metaDuration: [CMTime] = []
+func GetAsset() async
+{
+  let getMusicPath = MusicPlayFileArray()
+  for indexArray in getMusicPath
+  {
+    let asset = AVPlayerItem(url: URL(fileURLWithPath: indexArray))
+    do
+    {
+      let metadataList = try await asset.asset.load(.metadata)
+      for item in metadataList
+      {
+        if let key = item.commonKey, let value = try await item.load(.value)
+        {
+          if (key.rawValue == "albumName")
+          {
+            metaAlbumArray.append(((value as? String) ?? "No AlbumName"))
+          }
+          if (key.rawValue == "artist")
+          {
+            metaArtistArray.append(((value as? String) ?? "No Artist name"))
+          }
+          if (key.rawValue == "artwork")
+          {
+            print(type(of: value))
+          }
+        }
+      }
+      let DurationAsset = AVURLAsset(url: URL(fileURLWithPath: indexArray), options: nil)
+      let SongDuration = try await DurationAsset.load(.duration)
+      metaDuration.append(SongDuration)
+    }catch
+    {
+      print(error)
+    }
+  }
+}
 func getFileNameArray() -> Array<String>
 {
   let FileHandler_user = FileManager.default
