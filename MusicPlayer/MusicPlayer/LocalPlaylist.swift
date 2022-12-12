@@ -31,7 +31,7 @@ struct LocalPlaylist: View
           let DurationToMinutes = DurationTimeSeconds / 60
           let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
           let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-          let AlbumImage = NSImage(data: metaArtwork[0] as Data)
+          let AlbumImage = NSImage(data: metaArtwork[content] as Data)
           AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
         }
       }
