@@ -3,6 +3,10 @@
  */
 import SwiftUI
 import Foundation
+import AppKit
+import AVKit
+import AVFoundation
+import Cocoa
 struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
@@ -35,9 +39,24 @@ struct ContentView: View
                               selectedSongs: $selectedSongs,
                               AccessFile: $AccessFile
                             )){Label("Local Playlist", systemImage: "music.note.list")}
-            NavigationLink(destination: Artist()){Label("Artist", systemImage: "person.crop.square")}
-            NavigationLink(destination: Album()){Label("Album", systemImage: "rectangle.stack.fill")}
-          }.padding(.bottom)
+          }.padding(.bottom).onAppear(perform: {
+            Task
+            {
+              await GetAsset()
+              for content in 0..<FileNameContents.count
+              {
+                let BeforechoppedFileName = FileNameContents[content]
+                let AfterChoppedFileName = BeforechoppedFileName.replacingOccurrences(of: #".mp3"#, with: "").replacingOccurrences(of: #".mp4"#, with: "").replacingOccurrences(of: #".wav"#, with: "").replacingOccurrences(of: #".flac"#, with: "")
+                let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
+                let DurationToMinutes = DurationTimeSeconds / 60
+                let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
+                let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+                let AlbumImage = NSImage(data: metaArtwork[content] as Data)
+                AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
+              }
+            }
+          }
+          )
         }
       }
       Divider()

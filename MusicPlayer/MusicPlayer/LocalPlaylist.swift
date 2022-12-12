@@ -18,23 +18,6 @@ struct LocalPlaylist: View
   var body: some View
   {
     Text("Playlists").padding(.all).font(.headline)
-    Button("Load from File", action:{
-      Task
-      {
-        await GetAsset()
-        for content in 0..<FileNameContents.count
-        {
-          let BeforechoppedFileName = FileNameContents[content]
-          let AfterChoppedFileName = BeforechoppedFileName.replacingOccurrences(of: #".mp3"#, with: "").replacingOccurrences(of: #".mp4"#, with: "").replacingOccurrences(of: #".wav"#, with: "").replacingOccurrences(of: #".flac"#, with: "")
-          let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
-          let DurationToMinutes = DurationTimeSeconds / 60
-          let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
-          let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-          let AlbumImage = NSImage(data: metaArtwork[content] as Data)
-          AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
-        }
-      }
-    })
     Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
     {
       TableColumn("Title", value: \.Title)
