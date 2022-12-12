@@ -11,7 +11,6 @@
 		7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666F28DA1142002C4E54 /* ContentView.swift */; };
 		7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667128DA1145002C4E54 /* Assets.xcassets */; };
 		990961E629450C250089F3E8 /* DoubleClick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990961E529450C250089F3E8 /* DoubleClick.swift */; };
-		990961F1294679030089F3E8 /* ID3Edit in Resources */ = {isa = PBXBuildFile; fileRef = 990961F0294679030089F3E8 /* ID3Edit */; };
 		9941925B293A8D2D00D4ADE6 /* FileLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */; };
 		9951230B28E67DB200B1207A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230A28E67DB200B1207A /* Artist.swift */; };
 		9951230D28E67DC100B1207A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951230C28E67DC100B1207A /* Album.swift */; };
@@ -41,7 +40,6 @@
 		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9904950E2910A93A007DF943 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		990961E529450C250089F3E8 /* DoubleClick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleClick.swift; sourceTree = "<group>"; };
-		990961F0294679030089F3E8 /* ID3Edit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ID3Edit; path = ../../ID3Edit/ID3Edit; sourceTree = "<group>"; };
 		9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoadingManager.swift; sourceTree = "<group>"; };
 		9951230A28E67DB200B1207A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9951230C28E67DC100B1207A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 		7B2B666128DA1142002C4E54 = {
 			isa = PBXGroup;
 			children = (
-				990961F0294679030089F3E8 /* ID3Edit */,
 				7B2B666C28DA1142002C4E54 /* MusicPlayer */,
 				9904950E2910A93A007DF943 /* MusicPlayer.app */,
 			);
@@ -164,7 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9995E435293BE6560023BA2D /* Primo.mp3 in Resources */,
-				990961F1294679030089F3E8 /* ID3Edit in Resources */,
 				7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */,
 				99CF3465293EC3B900FE7A11 /* Primo.jpg in Resources */,
 			);

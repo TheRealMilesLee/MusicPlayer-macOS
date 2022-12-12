@@ -10,7 +10,7 @@ var audioPlayer: AVAudioPlayer!
 let user_folder = showOpenPanel()
 var metaAlbumArray:[String] = []
 var metaArtistArray:[String] = []
-var metaArtwork:[Artwork] = []
+var metaArtwork:[NSData] = []
 var metaDuration: [CMTime] = []
 func GetAsset() async
 {
@@ -35,7 +35,7 @@ func GetAsset() async
           }
           if (key.rawValue == "artwork")
           {
-            print(type(of: value))
+            metaArtwork.append(value as! NSData)
           }
         }
       }

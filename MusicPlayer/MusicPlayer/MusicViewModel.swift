@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 final class MusicViewModel: ObservableObject
 {
@@ -23,6 +24,6 @@ struct Playlists: Identifiable
   let Duration: String
   let Artist: String
   let Album: String
-  let image: String
-  static let data = Playlists(Title:"", Duration: "", Artist: "", Album: "", image:"")
+  let image: NSImage?
+  static let data = Playlists(Title:"", Duration: "", Artist: "", Album: "", image: NSImage())
 }

@@ -45,18 +45,18 @@ struct ContentView: View
       HStack
       {
           // This is the Album image, song title and the slide bar
+        AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: selectedSongs)
+          .resizable()
+          .frame(width: 60, height: 60)
+          .shadow(radius: 6, x: 0, y: 3)
+          .padding(.leading, 10).padding(.bottom, 10)
         HStack
         {
-          Image(nsImage: #imageLiteral(resourceName: "Primo.jpg"))
-            .resizable()
-            .frame(width: 60, height: 60)
-            .shadow(radius: 6, x: 0, y: 3)
-            .padding(.leading, 10).padding(.bottom, 10)
           if let SliderAudioplayer = audioPlayManager.player
           {
             if ((audioPlayManager.player?.isPlaying) != nil)
             {
-              Text(getPlayingSongName(AccessFile: AccessFile)).padding(.leading, 10)
+              Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: selectedSongs)).padding(.leading, 10)
             }
             HStack
             {
@@ -117,7 +117,7 @@ struct ContentView: View
             Image(systemName: "forward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
 
-          // Stop Button, only arrear if is playing
+            // Stop Button, only appear if is playing
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             Button
@@ -134,10 +134,10 @@ struct ContentView: View
         }.buttonStyle(PlainButtonStyle())
           // The Slider updater
           .onReceive(timer)
-          {  _ in
-            guard let playerStatus = audioPlayManager.player else {return}
-            SliderPlace = playerStatus.currentTime
-          }
+        {  _ in
+          guard let playerStatus = audioPlayManager.player else {return}
+          SliderPlace = playerStatus.currentTime
+        }
       }
     }
   }
@@ -226,18 +226,29 @@ struct ContentView: View
       }
     }
   }
-
-  func getPlayingSongName(AccessFile: [Playlists]) -> String
+}
+func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> String
+{
+  for SongNameIndex in 0..<AccessFile.count
   {
-    for SongNameIndex in 0..<AccessFile.count
+    if (AccessFile[SongNameIndex].id == selectedSongs)
     {
-      if (AccessFile[SongNameIndex].id == selectedSongs)
-      {
-        return AccessFile[SongNameIndex].Title
-      }
+      return AccessFile[SongNameIndex].Title
     }
-    return ""
   }
+  return ""
+}
+func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> Image
+{
+  for AlbumImageIndex in 0..<AccessFile.count
+  {
+    if (AccessFile[AlbumImageIndex].id == selectedSongs)
+    {
+      print(AlbumImageIndex)
+      return Image(nsImage: AccessFile[AlbumImageIndex].image!)
+    }
+  }
+  return Image(nsImage: #imageLiteral(resourceName: "Primo.jpg"))
 }
 
 struct contentview_preview: PreviewProvider
