@@ -99,7 +99,7 @@ struct ContentView: View
           }
         }
         Spacer()
-        
+
           // Here is the button for Backward, forward and Play/Pause
         HStack
         {
@@ -110,7 +110,7 @@ struct ContentView: View
           {
             Image(systemName: "backward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
-          
+
             // Play/Pause button
           Button(action:{
             playStatusButton.toggle()
@@ -126,7 +126,7 @@ struct ContentView: View
               Image(systemName: "pause.fill").font(.title3)
             }
           }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-          
+
             // Forward button
           Button(action: {
             Forward(AccessFile: AccessFile)
@@ -134,7 +134,7 @@ struct ContentView: View
           {
             Image(systemName: "forward.fill").font(.title3)
           }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
-          
+
             // Stop Button, only appear if is playing
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
@@ -159,7 +159,7 @@ struct ContentView: View
       }
     }
   }
-  
+
   /**
    * @brief This function is to control the audio forward
    * @param AccessFile is a Array of Playlists
@@ -205,7 +205,7 @@ struct ContentView: View
       }
     }
   }
-  
+
   /**
    * @brief This function is to control the audio backward
    * @param AccessFile is a Array of Playlists
