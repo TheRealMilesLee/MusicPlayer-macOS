@@ -20,6 +20,7 @@ var metaAlbumArray:[String] = []
 var metaArtistArray:[String] = []
 var metaArtwork:[NSData] = []
 var metaDuration: [CMTime] = []
+
 func GetAsset() async
 {
   let getMusicPath = MusicPlayFileArray()

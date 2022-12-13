@@ -32,11 +32,12 @@ struct ContentView: View
     {
       NavigationView
       {
+//      Sidebar Navigation
         VStack
         {
           List
           {
-            Text("Library").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
+            Text("Playlists").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
             NavigationLink(destination:
                             LocalPlaylist(
                               FileNameContents:$FileNameContents ,
@@ -53,12 +54,12 @@ struct ContentView: View
                                                RecentFileURL: $RecentFileURL,
                                                playStatusButton: $playStatusButton,
                                                RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
-            NavigationLink(destination:iCloudDrive( AccessFile:$AccessFile,
-                                                    SliderPlace: $SliderPlace,
-                                                    RecentFileURL: $RecentFileURL,
-                                                    playStatusButton: $playStatusButton
-                                                  )){Label("iCloud", systemImage: "cloud")}
+            Spacer()
+            Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
+            NavigationLink(destination: Artist()){Label("Artist", systemImage: "person.crop.rectangle.stack")}
+            NavigationLink(destination: Album()){Label("Album", systemImage: "play.square.stack")}
           }.padding(.bottom).onAppear(perform: {
+//            Load file and asset from the disk
             Task
             {
               await GetAsset()
@@ -339,15 +340,4 @@ func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) ->
     }
   }
   return Image("")
-}
-
-struct contentview_preview: PreviewProvider
-{
-  static let MusicVM = MusicViewModel(MusicPlayerApp: Playlists.data)
-  static let RecentPlayArray: [Playlists] = []
-  static var previews: some View
-  {
-    ContentView(MusicViewModel: MusicVM)
-      .environmentObject(AudioPlayManager())
-  }
 }
