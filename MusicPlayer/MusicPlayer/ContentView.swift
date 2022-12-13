@@ -32,7 +32,7 @@ struct ContentView: View
     {
       NavigationView
       {
-//      Sidebar Navigation
+          //      Sidebar Navigation
         VStack
         {
           List
@@ -49,17 +49,25 @@ struct ContentView: View
                               RecentPlayedArray: $RecentPlayedArray
                             )){Label("Local Playlist", systemImage: "music.note.list")}
             NavigationLink(destination:RecentView( AccessFile:$AccessFile,
-                                               SliderPlace: $SliderPlace,
-                                               selectedSongs: $selectedSongs,
-                                               RecentFileURL: $RecentFileURL,
-                                               playStatusButton: $playStatusButton,
-                                               RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
+                                                   SliderPlace: $SliderPlace,
+                                                   selectedSongs: $selectedSongs,
+                                                   RecentFileURL: $RecentFileURL,
+                                                   playStatusButton: $playStatusButton,
+                                                   RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
             Spacer()
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination: ArtistView()){Label("Artist", systemImage: "person.crop.rectangle.stack")}
-            NavigationLink(destination: AlbumView()){Label("Album", systemImage: "play.square.stack")}
+            NavigationLink(destination: ArtistView( FileURL:$FileURL ,
+                                                    SliderPlace: $SliderPlace ,
+                                                    playStatusButton: $playStatusButton,
+                                                    selectedSongs: $selectedSongs,
+                                                    AccessFile: $AccessFile )){Label("Artist", systemImage: "person.crop.rectangle.stack")}
+            NavigationLink(destination: AlbumView(FileURL:$FileURL ,
+                                                  SliderPlace: $SliderPlace ,
+                                                  playStatusButton: $playStatusButton,
+                                                  selectedSongs: $selectedSongs,
+                                                  AccessFile: $AccessFile)){Label("Album", systemImage: "play.square.stack")}
           }.padding(.bottom).onAppear(perform: {
-//            Load file and asset from the disk
+              //            Load file and asset from the disk
             Task
             {
               await GetAsset()
