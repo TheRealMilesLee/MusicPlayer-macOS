@@ -1,3 +1,11 @@
+/**
+ * @file FileLoadingManager.swift
+ * @author Hengyi Li
+ * @brief This file is the controller for the File load in
+ * @version 1.0
+ * @date 2022-12-12
+ * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
+ */
 import Foundation
 import SwiftUI
 import MusicKit

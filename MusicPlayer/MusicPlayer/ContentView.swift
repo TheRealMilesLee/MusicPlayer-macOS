@@ -1,5 +1,10 @@
 /**
- * This file is the main page for the window
+ * @file ContentView.swift
+ * @author Hengyi Li
+ * @brief This file is the main UI interface for the MusicPlayerApp
+ * @version 1.0
+ * @date 2022-12-12
+ * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
 import Foundation
@@ -310,6 +315,7 @@ struct ContentView: View
     }
   }
 }
+
 func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> String
 {
   for SongNameIndex in 0..<AccessFile.count
@@ -321,6 +327,7 @@ func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -
   }
   return ""
 }
+
 func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> Image
 {
   for AlbumImageIndex in 0..<AccessFile.count

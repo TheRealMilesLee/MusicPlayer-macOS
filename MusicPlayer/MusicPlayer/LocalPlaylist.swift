@@ -1,4 +1,11 @@
-
+/**
+ * @file LocalPlaylist.swift
+ * @author Hengyi Li
+ * @brief This file is the Local playlist view
+ * @version 1.0
+ * @date 2022-12-12
+ * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
+ */
 import SwiftUI
 import AVKit
 import AVFoundation

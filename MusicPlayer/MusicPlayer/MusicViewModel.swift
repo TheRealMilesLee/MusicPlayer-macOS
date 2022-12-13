@@ -1,10 +1,11 @@
-//
-//  MusicViewModel.swift
-//  MusicPlayer
-//
-//  Created by Silverhand on 2022/12/3.
-//
-
+/**
+ * @file MusicViewModel.swift
+ * @author Hengyi Li
+ * @brief This file is the model to access the playlists struct
+ * @version 1.0
+ * @date 2022-12-12
+ * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
+ */
 import Foundation
 import AppKit
 
