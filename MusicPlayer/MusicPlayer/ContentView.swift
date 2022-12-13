@@ -12,12 +12,14 @@ struct ContentView: View
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @StateObject var MusicViewModel: MusicViewModel
   @State var selectedSongs: Playlists.ID?
+  @State var RecentFileURL: Array<String> = Array()
   @State var AccessFile: Array<Playlists> = Array()
   @State var SliderPlace: Double = 0.0
   @State var PickClick = false
   @State var playStatusButton : Bool = false
   @State var FileNameContents = getFileNameArray()
   @State var FileURL = MusicPlayFileArray()
+  @State var RecentPlayedArray: Array<Playlists> = Array()
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -39,6 +41,17 @@ struct ContentView: View
                               selectedSongs: $selectedSongs,
                               AccessFile: $AccessFile
                             )){Label("Local Playlist", systemImage: "music.note.list")}
+            NavigationLink(destination:Recent( AccessFile:$AccessFile,
+                                               SliderPlace: $SliderPlace,
+                                               selectedSongs: $selectedSongs,
+                                               RecentFileURL: $RecentFileURL,
+                                               playStatusButton: $playStatusButton,
+                                               RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
+            NavigationLink(destination:iCloudDrive( AccessFile:$AccessFile,
+                                                    SliderPlace: $SliderPlace,
+                                                    RecentFileURL: $RecentFileURL,
+                                                    playStatusButton: $playStatusButton
+                                                  )){Label("iCloud", systemImage: "cloud")}
           }.padding(.bottom).onAppear(perform: {
             Task
             {
@@ -106,6 +119,7 @@ struct ContentView: View
             // Backward button
           Button(action: {
             Backward(AccessFile: AccessFile)
+            RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
           })
           {
             Image(systemName: "backward.fill").font(.title3)
@@ -130,6 +144,7 @@ struct ContentView: View
             // Forward button
           Button(action: {
             Forward(AccessFile: AccessFile)
+            RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
           })
           {
             Image(systemName: "forward.fill").font(.title3)
@@ -157,6 +172,64 @@ struct ContentView: View
           SliderPlace = playerStatus.currentTime
         }
       }
+    }
+  }
+  func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
+  {
+    if (selectedSongs?.description != nil)
+    {print("IF 1")
+      if (RecentPlayedArray.count > 0)
+      {
+        print("IF 2")
+          //        If found in the Recent Array, swap it with index 0
+        var AppendIndex: Int = 0
+        var StopFlag: Bool = false
+        while (!StopFlag && AppendIndex < RecentPlayedArray.count)
+        {
+          if (RecentPlayedArray[AppendIndex].id == selectedSongs)
+          {
+            RecentPlayedArray.swapAt(AppendIndex, 0)
+            StopFlag = true
+          }
+          AppendIndex += 1
+        }
+          //        If it does not found in Recent Array, append it
+        if (!StopFlag)
+        {
+          var AppendIndexAccess: Int = 0
+          var AppendFinished: Bool = false
+          while (!AppendFinished && AppendIndexAccess < AccessFile.count)
+          {
+            if (AccessFile[AppendIndexAccess].id == selectedSongs)
+            {
+              RecentPlayedArray.append(AccessFile[AppendIndexAccess])
+              AppendFinished = true
+            }
+            AppendIndexAccess += 1
+          }
+        }
+      }
+        //    First Element insert
+      else
+      {
+        print("ELSE 2")
+        var AppendIndexAppend: Int = 0
+        var StopFlagAppend: Bool = false
+        while (!StopFlagAppend)
+        {
+          if (selectedSongs == AccessFile[AppendIndexAppend].id)
+          {
+            RecentPlayedArray.append(AccessFile[AppendIndexAppend])
+            StopFlagAppend = true
+          }
+          AppendIndexAppend += 1
+        }
+      }
+    }
+    else
+    {
+      print("ELSE 1")
+      print("No selection for now")
     }
   }
 
@@ -233,9 +306,7 @@ struct ContentView: View
             SliderPlace = 0
             audioPlayManager.player?.currentTime = 0
           }
-          print(IndexBackward)
           selectedSongs = AccessFile[IndexBackward - 1].id
-          print(IndexBackward - 1)
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
@@ -262,16 +333,16 @@ func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) ->
   {
     if (AccessFile[AlbumImageIndex].id == selectedSongs)
     {
-      print(AlbumImageIndex)
       return Image(nsImage: AccessFile[AlbumImageIndex].image!)
     }
   }
-  return Image(nsImage: #imageLiteral(resourceName: "Primo.jpg"))
+  return Image("")
 }
 
 struct contentview_preview: PreviewProvider
 {
   static let MusicVM = MusicViewModel(MusicPlayerApp: Playlists.data)
+  static let RecentPlayArray: [Playlists] = []
   static var previews: some View
   {
     ContentView(MusicViewModel: MusicVM)

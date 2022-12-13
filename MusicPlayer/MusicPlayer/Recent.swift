@@ -1,25 +1,28 @@
+  //
+  //  Recent.swift
+  //  MusicPlayer
+  //
+  //  Created by Silverhand on 2022/12/12.
+  //
 
 import SwiftUI
-import AVKit
-import AVFoundation
-import AppKit
-import Cocoa
-struct LocalPlaylist: View
+
+struct Recent: View
 {
-  @Binding var FileNameContents: Array<String>
-  @Binding var FileURL: Array<String>
-  @Binding var SliderPlace: Double
-  @Binding var playStatusButton : Bool
-  @Binding var selectedSongs: Playlists.ID?
   @Binding var AccessFile: Array<Playlists>
+  @Binding var SliderPlace: Double
+  @Binding var selectedSongs: Playlists.ID?
+  @Binding var RecentFileURL: Array<String>
+  @Binding var playStatusButton : Bool
+  @Binding var RecentPlayedArray: Array<Playlists>
   @EnvironmentObject var audioPlayManager: AudioPlayManager
-  @State var load_file : Bool = false
+  @State var onSelectedList: Playlists.ID?
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
 
   var body: some View
   {
-    Text("Playlists").padding(.all).font(.headline)
-    Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
+    Text("Recent Played").padding(.all).font(.headline)
+    Table(RecentPlayedArray, selection: $onSelectedList, sortOrder: $sortOrder)
     {
       TableColumn("Title", value: \.Title)
       TableColumn("Duration", value: \.Duration)
@@ -27,7 +30,7 @@ struct LocalPlaylist: View
       TableColumn("Album", value: \.Album)
     }.onDoubleClick
     {
-      if (selectedSongs?.description != nil)
+      if (onSelectedList?.description != nil)
       {
         if ((audioPlayManager.player?.isPlaying) != nil)
         {
@@ -40,15 +43,16 @@ struct LocalPlaylist: View
       }
     }
   }
+
   func FindTitle(AccessFile: [Playlists]) -> String
   {
     for NameIndex in 0..<AccessFile.count
     {
-      if (AccessFile[NameIndex].id == selectedSongs)
+      if (AccessFile[NameIndex].id == onSelectedList)
       {
-        return FileURL[NameIndex]
+        return RecentFileURL[NameIndex]
       }
     }
-    return "Null"
+    return ""
   }
 }

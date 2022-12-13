@@ -12,6 +12,7 @@ final class AudioPlayManager: ObservableObject
 {
   var player: AVAudioPlayer?
   var AudioAsset: AVAsset?
+  
   func startPlayer(url: String)
   {
     do
