@@ -174,13 +174,13 @@ struct ContentView: View
       }
     }
   }
+  
   func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
   {
     if (selectedSongs?.description != nil)
-    {print("IF 1")
+    {
       if (RecentPlayedArray.count > 0)
       {
-        print("IF 2")
           //        If found in the Recent Array, swap it with index 0
         var AppendIndex: Int = 0
         var StopFlag: Bool = false
@@ -212,7 +212,6 @@ struct ContentView: View
         //    First Element insert
       else
       {
-        print("ELSE 2")
         var AppendIndexAppend: Int = 0
         var StopFlagAppend: Bool = false
         while (!StopFlagAppend)
@@ -225,11 +224,6 @@ struct ContentView: View
           AppendIndexAppend += 1
         }
       }
-    }
-    else
-    {
-      print("ELSE 1")
-      print("No selection for now")
     }
   }
 
