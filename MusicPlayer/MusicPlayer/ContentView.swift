@@ -44,7 +44,8 @@ struct ContentView: View
                               SliderPlace: $SliderPlace,
                               playStatusButton: $playStatusButton,
                               selectedSongs: $selectedSongs,
-                              AccessFile: $AccessFile
+                              AccessFile: $AccessFile,
+                              RecentPlayedArray: $RecentPlayedArray
                             )){Label("Local Playlist", systemImage: "music.note.list")}
             NavigationLink(destination:Recent( AccessFile:$AccessFile,
                                                SliderPlace: $SliderPlace,
