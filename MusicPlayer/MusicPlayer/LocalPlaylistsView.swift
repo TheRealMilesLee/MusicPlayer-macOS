@@ -1,5 +1,5 @@
 /**
- * @file LocalPlaylist.swift
+ * @file LocalPlaylistView.swift
  * @author Hengyi Li
  * @brief This file is the Local playlist view
  * @version 1.0
@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import AppKit
 import Cocoa
-struct LocalPlaylist: View
+struct LocalPlaylistView: View
 {
   @Binding var FileNameContents: Array<String>
   @Binding var FileURL: Array<String>

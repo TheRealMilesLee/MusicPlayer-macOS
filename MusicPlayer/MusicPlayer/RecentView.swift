@@ -1,5 +1,5 @@
 /**
- * @file Recent.swift
+ * @file RecentView.swift
  * @author Hengyi Li
  * @brief This file is the Recent played music view
  * @version 1.0
@@ -8,7 +8,7 @@
  */
 import SwiftUI
 
-struct Recent: View
+struct RecentView: View
 {
   @Binding var AccessFile: Array<Playlists>
   @Binding var SliderPlace: Double

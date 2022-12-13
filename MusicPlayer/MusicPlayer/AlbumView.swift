@@ -1,17 +1,17 @@
 /**
- * @file Artist.swift
+ * @file AlbumView.swift
  * @author Hengyi Li
- * @brief This file is the Artist displayed view
+ * @brief This file is the Album view
  * @version 1.0
  * @date 2022-12-13
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
 
-struct Artist: View
+struct AlbumView: View
 {
   var body: some View
   {
-    Text("Artist")
+    Text("Album")
   }
 }

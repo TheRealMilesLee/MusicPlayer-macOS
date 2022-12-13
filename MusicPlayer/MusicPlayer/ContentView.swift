@@ -39,7 +39,7 @@ struct ContentView: View
           {
             Text("Playlists").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
             NavigationLink(destination:
-                            LocalPlaylist(
+                            LocalPlaylistView(
                               FileNameContents:$FileNameContents ,
                               FileURL: $FileURL,
                               SliderPlace: $SliderPlace,
@@ -48,7 +48,7 @@ struct ContentView: View
                               AccessFile: $AccessFile,
                               RecentPlayedArray: $RecentPlayedArray
                             )){Label("Local Playlist", systemImage: "music.note.list")}
-            NavigationLink(destination:Recent( AccessFile:$AccessFile,
+            NavigationLink(destination:RecentView( AccessFile:$AccessFile,
                                                SliderPlace: $SliderPlace,
                                                selectedSongs: $selectedSongs,
                                                RecentFileURL: $RecentFileURL,
@@ -56,8 +56,8 @@ struct ContentView: View
                                                RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
             Spacer()
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination: Artist()){Label("Artist", systemImage: "person.crop.rectangle.stack")}
-            NavigationLink(destination: Album()){Label("Album", systemImage: "play.square.stack")}
+            NavigationLink(destination: ArtistView()){Label("Artist", systemImage: "person.crop.rectangle.stack")}
+            NavigationLink(destination: AlbumView()){Label("Album", systemImage: "play.square.stack")}
           }.padding(.bottom).onAppear(perform: {
 //            Load file and asset from the disk
             Task
