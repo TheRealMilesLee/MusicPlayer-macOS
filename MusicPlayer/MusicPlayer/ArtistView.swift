@@ -7,7 +7,6 @@
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
-
 struct ArtistView: View
 {
   @Binding var FileURL: Array<String>

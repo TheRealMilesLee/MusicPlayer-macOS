@@ -7,9 +7,6 @@
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
-import Foundation
-import Swift
-
 struct AlbumView: View
 {
   @Binding var FileURL: Array<String>

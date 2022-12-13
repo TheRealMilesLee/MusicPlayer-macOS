@@ -54,6 +54,7 @@ struct ContentView: View
                                                    RecentFileURL: $RecentFileURL,
                                                    playStatusButton: $playStatusButton,
                                                    RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
+            NavigationLink(destination: FindMusic()){Label("Find Music", systemImage:"shazam.logo")}
             Spacer()
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
             NavigationLink(destination: ArtistView( FileURL:$FileURL ,

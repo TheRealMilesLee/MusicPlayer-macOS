@@ -15,6 +15,7 @@
 		9951231128E67E0400B1207A /* LocalPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231028E67E0400B1207A /* LocalPlaylistsView.swift */; };
 		9980E27E2949121E0019BFEE /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980E27D2949121E0019BFEE /* ArtistView.swift */; };
 		9980E2802949122E0019BFEE /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980E27F2949122E0019BFEE /* AlbumView.swift */; };
+		9980E28429492B760019BFEE /* FindMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980E28329492B760019BFEE /* FindMusic.swift */; };
 		9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995E436293BEE9E0023BA2D /* MusicViewModel.swift */; };
 		99AA479E2947A01A0083898E /* RecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA479D2947A01A0083898E /* RecentView.swift */; };
 		99B03BD1293C0E2900C604EB /* AudioPlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */; };
@@ -44,6 +45,7 @@
 		996D343D28ECB33500257A5D /* MusicPlayer.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MusicPlayer.entitlements; sourceTree = "<group>"; };
 		9980E27D2949121E0019BFEE /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		9980E27F2949122E0019BFEE /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		9980E28329492B760019BFEE /* FindMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMusic.swift; sourceTree = "<group>"; };
 		9995E436293BEE9E0023BA2D /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		99AA479D2947A01A0083898E /* RecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentView.swift; sourceTree = "<group>"; };
 		99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayManager.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				9980E27D2949121E0019BFEE /* ArtistView.swift */,
 				9980E27F2949122E0019BFEE /* AlbumView.swift */,
 				996D343D28ECB33500257A5D /* MusicPlayer.entitlements */,
+				9980E28329492B760019BFEE /* FindMusic.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				99AA479E2947A01A0083898E /* RecentView.swift in Sources */,
 				9941925B293A8D2D00D4ADE6 /* FileLoadingManager.swift in Sources */,
 				9951231128E67E0400B1207A /* LocalPlaylistsView.swift in Sources */,
+				9980E28429492B760019BFEE /* FindMusic.swift in Sources */,
 				9980E27E2949121E0019BFEE /* ArtistView.swift in Sources */,
 				990961E629450C250089F3E8 /* DoubleClick.swift in Sources */,
 				9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */,
