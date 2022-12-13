@@ -54,14 +54,13 @@ struct ContentView: View
                                                    RecentFileURL: $RecentFileURL,
                                                    playStatusButton: $playStatusButton,
                                                    RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
-            NavigationLink(destination: FindMusic()){Label("Find Music", systemImage:"shazam.logo")}
             Spacer()
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
             NavigationLink(destination: ArtistView( FileURL:$FileURL ,
                                                     SliderPlace: $SliderPlace ,
                                                     playStatusButton: $playStatusButton,
                                                     selectedSongs: $selectedSongs,
-                                                    AccessFile: $AccessFile )){Label("Artist", systemImage: "person.crop.rectangle.stack")}
+                                                    AccessFile: $AccessFile )){Label("Artist", systemImage: "person.and.background.dotted")}
             NavigationLink(destination: AlbumView(FileURL:$FileURL ,
                                                   SliderPlace: $SliderPlace ,
                                                   playStatusButton: $playStatusButton,
