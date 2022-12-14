@@ -20,35 +20,90 @@ struct LocalPlaylistView: View
   @Binding var selectedSongs: Playlists.ID?
   @Binding var AccessFile: Array<Playlists>
   @Binding var RecentPlayedArray: Array<Playlists>
+  @Binding var searchString: String
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var load_file : Bool = false
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
 
   var body: some View
   {
-    Text("Playlists").padding(.all).font(.headline)
-    Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
+    if (searchString == "")
     {
-      TableColumn("Title", value: \.Title)
-      TableColumn("Duration", value: \.Duration)
-      TableColumn("Artist", value: \.Artist)
-      TableColumn("Album", value: \.Album)
-    }.onDoubleClick
-    {
-      if (selectedSongs?.description != nil)
+      Table(AccessFile, selection: $selectedSongs, sortOrder: $sortOrder)
       {
-        if ((audioPlayManager.player?.isPlaying) != nil)
+        TableColumn("Title", value: \.Title)
+        TableColumn("Duration", value: \.Duration)
+        TableColumn("Artist", value: \.Artist)
+        TableColumn("Album", value: \.Album)
+      }.onDoubleClick
+      {
+        if (selectedSongs?.description != nil)
         {
-          audioPlayManager.player?.stop()
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
+          RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
         }
-        let Result = FindTitle(AccessFile: AccessFile)
-        playStatusButton = true
-        SliderPlace = 0
-        audioPlayManager.startPlayer(url: Result)
-        RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
+      }
+    }
+    else
+    {
+      Table(AccessFile.filter {$0.Title.starts(with: searchString)}, selection: $selectedSongs, sortOrder: $sortOrder)
+      {
+        TableColumn("Title", value: \.Title)
+        TableColumn("Duration", value: \.Duration)
+        TableColumn("Artist", value: \.Artist)
+        TableColumn("Album", value: \.Album)
+      }.onDoubleClick
+      {
+        if (selectedSongs?.description != nil)
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
+          RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
+        }
       }
     }
   }
+
+  func searchResult(AccessFile: [Playlists], searchString: String) ->[Playlists]
+  {
+    var ResultArray: [Playlists] = []
+    var SearchIndex: Int = 0
+    var found: Bool = false
+    while(!found && SearchIndex < AccessFile.count)
+    {
+      if (AccessFile[SearchIndex].Title.contains(searchString))
+      {
+        ResultArray.append(AccessFile[SearchIndex])
+        found = true
+      }
+      else if (AccessFile[SearchIndex].Album.contains(searchString))
+      {
+        ResultArray.append(AccessFile[SearchIndex])
+        found = true
+      }
+      else if (AccessFile[SearchIndex].Artist.contains(searchString))
+      {
+        ResultArray.append(AccessFile[SearchIndex])
+        found = true
+      }
+      SearchIndex += 1
+    }
+    return ResultArray
+  }
+  
   func FindTitle(AccessFile: [Playlists]) -> String
   {
     for NameIndex in 0..<AccessFile.count

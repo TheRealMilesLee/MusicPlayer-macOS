@@ -25,6 +25,7 @@ struct ContentView: View
   @State var FileNameContents = getFileNameArray()
   @State var FileURL = MusicPlayFileArray()
   @State var RecentPlayedArray: Array<Playlists> = Array()
+  @State var searchString: String = ""
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -32,42 +33,60 @@ struct ContentView: View
     {
       NavigationView
       {
-          //      Sidebar Navigation
+          // Sidebar Navigation
         VStack
         {
+          Spacer()
+          TextField("Search...", text: $searchString)
+            .disableAutocorrection(true)
+            .cornerRadius(17)
+            .padding(.trailing)
+            .padding(.leading)
           List
           {
             Text("Playlists").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination:
-                            LocalPlaylistView(
-                              FileNameContents:$FileNameContents ,
-                              FileURL: $FileURL,
-                              SliderPlace: $SliderPlace,
-                              playStatusButton: $playStatusButton,
-                              selectedSongs: $selectedSongs,
-                              AccessFile: $AccessFile,
-                              RecentPlayedArray: $RecentPlayedArray
-                            )){Label("Local Playlist", systemImage: "music.note.list")}
+            NavigationLink(destination: LocalPlaylistView(
+                            FileNameContents:$FileNameContents ,
+                            FileURL: $FileURL,
+                            SliderPlace: $SliderPlace,
+                            playStatusButton: $playStatusButton,
+                            selectedSongs: $selectedSongs,
+                            AccessFile: $AccessFile,
+                            RecentPlayedArray: $RecentPlayedArray,
+                            searchString: $searchString
+                          )) {Label("Local Playlist", systemImage: "music.note.list")}
+
             NavigationLink(destination:RecentView( AccessFile:$AccessFile,
                                                    SliderPlace: $SliderPlace,
                                                    selectedSongs: $selectedSongs,
                                                    RecentFileURL: $RecentFileURL,
                                                    playStatusButton: $playStatusButton,
-                                                   RecentPlayedArray: $RecentPlayedArray)){Label("Recent", systemImage: "tray.full")}
+                                                   RecentPlayedArray: $RecentPlayedArray,
+                                                   searchString: $searchString
+                                                 )){Label("Recent", systemImage: "tray.full")}
+
             Spacer()
+
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
+
             NavigationLink(destination: ArtistView( FileURL:$FileURL ,
                                                     SliderPlace: $SliderPlace ,
                                                     playStatusButton: $playStatusButton,
                                                     selectedSongs: $selectedSongs,
-                                                    AccessFile: $AccessFile )){Label("Artist", systemImage: "person.and.background.dotted")}
+                                                    AccessFile: $AccessFile,
+                                                    searchString: $searchString
+                                                  )){Label("Artist", systemImage: "person.and.background.dotted")}
+
             NavigationLink(destination: AlbumView(FileURL:$FileURL ,
                                                   SliderPlace: $SliderPlace ,
                                                   playStatusButton: $playStatusButton,
                                                   selectedSongs: $selectedSongs,
-                                                  AccessFile: $AccessFile)){Label("Album", systemImage: "play.square.stack")}
+                                                  AccessFile: $AccessFile,
+                                                  searchString: $searchString
+                                                 )){Label("Album", systemImage: "play.square.stack")}
+
           }.padding(.bottom).onAppear(perform: {
-              //            Load file and asset from the disk
+              // Load file and asset from the disk
             Task
             {
               await GetAsset()
@@ -86,6 +105,7 @@ struct ContentView: View
           })
         }
       }
+
       Divider()
         // Play Display Section
       HStack

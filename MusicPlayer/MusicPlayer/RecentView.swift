@@ -16,31 +16,57 @@ struct RecentView: View
   @Binding var RecentFileURL: Array<String>
   @Binding var playStatusButton : Bool
   @Binding var RecentPlayedArray: Array<Playlists>
+  @Binding var searchString: String
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var onSelectedList: Playlists.ID?
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
 
   var body: some View
   {
-    Text("Recent Played").padding(.all).font(.headline)
-    Table(RecentPlayedArray, selection: $onSelectedList, sortOrder: $sortOrder)
+    if (searchString == "" || RecentPlayedArray.count == 0)
     {
-      TableColumn("Title", value: \.Title)
-      TableColumn("Duration", value: \.Duration)
-      TableColumn("Artist", value: \.Artist)
-      TableColumn("Album", value: \.Album)
-    }.onDoubleClick
-    {
-      if (onSelectedList?.description != nil)
+      Table(RecentPlayedArray, selection: $onSelectedList, sortOrder: $sortOrder)
       {
-        if ((audioPlayManager.player?.isPlaying) != nil)
+        TableColumn("Title", value: \.Title)
+        TableColumn("Duration", value: \.Duration)
+        TableColumn("Artist", value: \.Artist)
+        TableColumn("Album", value: \.Album)
+      }.onDoubleClick
+      {
+        if (onSelectedList?.description != nil)
         {
-          audioPlayManager.player?.stop()
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
         }
-        let Result = FindTitle(AccessFile: AccessFile)
-        playStatusButton = true
-        SliderPlace = 0
-        audioPlayManager.startPlayer(url: Result)
+      }
+    }
+    else
+    {
+      Table(AccessFile.filter {$0.Title.starts(with: searchString)}, selection: $onSelectedList, sortOrder: $sortOrder)
+      {
+        TableColumn("Title", value: \.Title)
+        TableColumn("Duration", value: \.Duration)
+        TableColumn("Artist", value: \.Artist)
+        TableColumn("Album", value: \.Album)
+      }.onDoubleClick
+      {
+        if (onSelectedList?.description != nil)
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
+        }
       }
     }
   }

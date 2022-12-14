@@ -14,6 +14,7 @@ struct AlbumView: View
   @Binding var playStatusButton : Bool
   @Binding var selectedSongs: Playlists.ID?
   @Binding var AccessFile: Array<Playlists>
+  @Binding var searchString: String
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var selectedAlbum: Playlists.ID?
   @State var load_file : Bool = false
@@ -21,21 +22,44 @@ struct AlbumView: View
 
   var body: some View
   {
-    Table(AccessFile, selection: $selectedAlbum, sortOrder: $sortOrder)
+    if (searchString == "")
     {
-      TableColumn("Album", value: \.Album)
-    }.onDoubleClick
-    {
-      if (selectedSongs?.description != nil)
+      Table(AccessFile, selection: $selectedAlbum, sortOrder: $sortOrder)
       {
-        if ((audioPlayManager.player?.isPlaying) != nil)
+        TableColumn("Album", value: \.Album)
+      }.onDoubleClick
+      {
+        if (selectedSongs?.description != nil)
         {
-          audioPlayManager.player?.stop()
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
         }
-        let Result = FindTitle(AccessFile: AccessFile)
-        playStatusButton = true
-        SliderPlace = 0
-        audioPlayManager.startPlayer(url: Result)
+      }
+    }
+    else
+    {
+      Table(AccessFile.filter {$0.Album.starts(with: searchString)}, selection: $selectedAlbum, sortOrder: $sortOrder)
+      {
+        TableColumn("Album", value: \.Album)
+      }.onDoubleClick
+      {
+        if (selectedSongs?.description != nil)
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
+        }
       }
     }
   }
@@ -50,5 +74,4 @@ struct AlbumView: View
     }
     return "Null"
   }
-
 }

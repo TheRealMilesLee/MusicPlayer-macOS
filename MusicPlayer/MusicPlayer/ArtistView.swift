@@ -14,6 +14,7 @@ struct ArtistView: View
   @Binding var playStatusButton : Bool
   @Binding var selectedSongs: Playlists.ID?
   @Binding var AccessFile: Array<Playlists>
+  @Binding var searchString: String
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var selectedArtist: Playlists.ID?
   @State var load_file : Bool = false
@@ -21,24 +22,49 @@ struct ArtistView: View
 
   var body: some View
   {
-    Table(AccessFile, selection: $selectedArtist, sortOrder: $sortOrder)
+    if (searchString == "")
     {
-      TableColumn("Artist", value: \.Artist)
-    }.onDoubleClick
-    {
-      if (selectedSongs?.description != nil)
+      Table(AccessFile, selection: $selectedArtist, sortOrder: $sortOrder)
       {
-        if ((audioPlayManager.player?.isPlaying) != nil)
+        TableColumn("Artist", value: \.Artist)
+      }.onDoubleClick
+      {
+        if (selectedSongs?.description != nil)
         {
-          audioPlayManager.player?.stop()
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
         }
-        let Result = FindTitle(AccessFile: AccessFile)
-        playStatusButton = true
-        SliderPlace = 0
-        audioPlayManager.startPlayer(url: Result)
+      }
+    }
+    else
+    {
+      Table(AccessFile.filter {$0.Artist.starts(with: searchString)}, selection: $selectedArtist, sortOrder: $sortOrder)
+      {
+        TableColumn("Artist", value: \.Artist)
+      }.onDoubleClick
+      {
+        if (selectedSongs?.description != nil)
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.player?.stop()
+          }
+          let Result = FindTitle(AccessFile: AccessFile)
+          playStatusButton = true
+          SliderPlace = 0
+          audioPlayManager.startPlayer(url: Result)
+        }
       }
     }
   }
+  
+  
   func FindTitle(AccessFile: [Playlists]) -> String
   {
     for NameIndex in 0..<AccessFile.count
