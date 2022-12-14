@@ -17,6 +17,7 @@ struct RecentView: View
   @Binding var playStatusButton : Bool
   @Binding var RecentPlayedArray: Array<Playlists>
   @Binding var searchString: String
+  @Binding var CurrentTableSelection: Playlists.ID?
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var onSelectedList: Playlists.ID?
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
@@ -35,6 +36,7 @@ struct RecentView: View
       {
         if (onSelectedList?.description != nil)
         {
+          CurrentTableSelection = onSelectedList
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             audioPlayManager.player?.stop()
@@ -58,6 +60,7 @@ struct RecentView: View
       {
         if (onSelectedList?.description != nil)
         {
+          CurrentTableSelection = onSelectedList
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             audioPlayManager.player?.stop()
@@ -75,7 +78,7 @@ struct RecentView: View
   {
     for NameIndex in 0..<AccessFile.count
     {
-      if (AccessFile[NameIndex].id == onSelectedList)
+      if (AccessFile[NameIndex].id == CurrentTableSelection)
       {
         return RecentFileURL[NameIndex]
       }

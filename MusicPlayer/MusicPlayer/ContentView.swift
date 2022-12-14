@@ -26,6 +26,7 @@ struct ContentView: View
   @State var FileURL = MusicPlayFileArray()
   @State var RecentPlayedArray: Array<Playlists> = Array()
   @State var searchString: String = ""
+  @State var CurrentTableSelection: Playlists.ID?
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -33,7 +34,7 @@ struct ContentView: View
     {
       NavigationView
       {
-          // Sidebar Navigation
+        // Sidebar Navigation
         VStack
         {
           Spacer()
@@ -45,166 +46,167 @@ struct ContentView: View
           List
           {
             Text("Playlists").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination: LocalPlaylistView(
-                            FileNameContents:$FileNameContents ,
-                            FileURL: $FileURL,
-                            SliderPlace: $SliderPlace,
-                            playStatusButton: $playStatusButton,
-                            selectedSongs: $selectedSongs,
-                            AccessFile: $AccessFile,
-                            RecentPlayedArray: $RecentPlayedArray,
-                            searchString: $searchString
-                          )) {Label("Local Playlist", systemImage: "music.note.list")}
-
+            NavigationLink(destination: LocalPlaylistView( FileNameContents:$FileNameContents ,
+                                                           FileURL: $FileURL,
+                                                           SliderPlace: $SliderPlace,
+                                                           playStatusButton: $playStatusButton,
+                                                           selectedSongs: $selectedSongs,
+                                                           AccessFile: $AccessFile,
+                                                           RecentPlayedArray: $RecentPlayedArray,
+                                                           searchString: $searchString,
+                                                           CurrentTableSelection: $CurrentTableSelection
+                                                         )) {Label("Local Playlist", systemImage: "music.note.list")}
             NavigationLink(destination:RecentView( AccessFile:$AccessFile,
                                                    SliderPlace: $SliderPlace,
                                                    selectedSongs: $selectedSongs,
                                                    RecentFileURL: $RecentFileURL,
                                                    playStatusButton: $playStatusButton,
                                                    RecentPlayedArray: $RecentPlayedArray,
-                                                   searchString: $searchString
+                                                   searchString: $searchString,
+                                                   CurrentTableSelection: $CurrentTableSelection
                                                  )){Label("Recent", systemImage: "tray.full")}
-
             Spacer()
-
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-
             NavigationLink(destination: ArtistView( FileURL:$FileURL ,
                                                     SliderPlace: $SliderPlace ,
                                                     playStatusButton: $playStatusButton,
-                                                    selectedSongs: $selectedSongs,
                                                     AccessFile: $AccessFile,
-                                                    searchString: $searchString
+                                                    searchString: $searchString,
+                                                    CurrentTableSelection: $CurrentTableSelection
                                                   )){Label("Artist", systemImage: "person.and.background.dotted")}
-
             NavigationLink(destination: AlbumView(FileURL:$FileURL ,
                                                   SliderPlace: $SliderPlace ,
                                                   playStatusButton: $playStatusButton,
-                                                  selectedSongs: $selectedSongs,
                                                   AccessFile: $AccessFile,
-                                                  searchString: $searchString
+                                                  searchString: $searchString,
+                                                  CurrentTableSelection: $CurrentTableSelection
                                                  )){Label("Album", systemImage: "play.square.stack")}
-
-          }.padding(.bottom).onAppear(perform: {
-              // Load file and asset from the disk
-            Task
+          }
+          .padding(.bottom)
+            // Load file and asset from the disk
+          .onAppear(perform: {Task { await GetAsset()
+            for content in 0..<FileNameContents.count
             {
-              await GetAsset()
-              for content in 0..<FileNameContents.count
-              {
-                let BeforechoppedFileName = FileNameContents[content]
-                let AfterChoppedFileName = BeforechoppedFileName.replacingOccurrences(of: #".mp3"#, with: "").replacingOccurrences(of: #".mp4"#, with: "").replacingOccurrences(of: #".wav"#, with: "").replacingOccurrences(of: #".flac"#, with: "")
-                let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
-                let DurationToMinutes = DurationTimeSeconds / 60
-                let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
-                let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-                let AlbumImage = NSImage(data: metaArtwork[content] as Data)
-                AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
-              }
+              let BeforechoppedFileName = FileNameContents[content]
+              let AfterChoppedFileName = BeforechoppedFileName
+                .replacingOccurrences(of: #".mp3"#, with: "")
+                .replacingOccurrences(of: #".mp4"#, with: "")
+                .replacingOccurrences(of: #".wav"#, with: "")
+                .replacingOccurrences(of: #".flac"#, with: "")
+              let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
+              let DurationToMinutes = DurationTimeSeconds / 60
+              let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
+              let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+              let AlbumImage = NSImage(data: metaArtwork[content] as Data)
+              AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
             }
-          })
+          }})
         }
       }
-
-      Divider()
-        // Play Display Section
-      HStack
+      Spacer()
+      // Play Display Section
+      if(CurrentTableSelection != nil)
       {
-          // This is the Album image, song title and the slide bar
-        AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: selectedSongs)
-          .resizable()
-          .frame(width: 60, height: 60)
-          .shadow(radius: 6, x: 0, y: 3)
-          .padding(.leading, 10).padding(.bottom, 10)
         HStack
         {
-          if let SliderAudioplayer = audioPlayManager.player
+            // This is the Album image, song title and the slide bar
+          AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
+            .resizable()
+            .frame(width: 60, height: 60)
+            .shadow(radius: 6, x: 0, y: 3)
+            .padding(.leading, 10).padding(.bottom, 10)
+          HStack
           {
+            if let SliderAudioplayer = audioPlayManager.player
+            {
+              if ((audioPlayManager.player?.isPlaying) != nil)
+              {
+                Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding(.leading, 10)
+              }
+              HStack
+              {
+                let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
+                let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
+                let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+                Text(CurrentStringnify)
+                Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
+                {
+                  Slide in
+                  if (!Slide)
+                  {
+                    SliderAudioplayer.currentTime = SliderPlace
+                  }
+                }
+                Spacer()
+                let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
+                let RoundMinutes = Double(round(100 * ToMinutes) / 100)
+                let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+                Text(Stringnify)
+              }
+            }
+          }
+          Spacer()
+
+            // Here is the button for Backward, forward and Play/Pause
+          HStack
+          {
+              // Backward button
+            Button(action: {
+              Backward(AccessFile: AccessFile)
+              CurrentTableSelection = selectedSongs
+              RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+            })
+            {
+              Image(systemName: "backward.fill").font(.title3)
+            }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
+
+              // Play/Pause button
+            Button(action:{
+              playStatusButton.toggle()
+              audioPlayManager.playPause()
+            })
+            {
+              if (!playStatusButton)
+              {
+                Image(systemName: "play.fill").font(.title3)
+              }
+              else
+              {
+                Image(systemName: "pause.fill").font(.title3)
+              }
+            }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
+
+              // Forward button
+            Button(action: {
+              Forward(AccessFile: AccessFile)
+              CurrentTableSelection = selectedSongs
+              RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+            })
+            {
+              Image(systemName: "forward.fill").font(.title3)
+            }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
+
+              // Stop Button, only appear if is playing
             if ((audioPlayManager.player?.isPlaying) != nil)
             {
-              Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: selectedSongs)).padding(.leading, 10)
-            }
-            HStack
-            {
-              let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
-              let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
-              let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-              Text(CurrentStringnify)
-              Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
+              Button
               {
-                Slide in
-                if (!Slide)
-                {
-                  SliderAudioplayer.currentTime = SliderPlace
-                }
-              }
-              Spacer()
-              let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
-              let RoundMinutes = Double(round(100 * ToMinutes) / 100)
-              let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-              Text(Stringnify)
+                playStatusButton = false
+                audioPlayManager.Stop()
+                SliderPlace = 0
+                audioPlayManager.player!.currentTime = 0
+              } label:
+              {
+                Image(systemName: "stop.fill").font(.title3)
+              }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
             }
+          }.buttonStyle(PlainButtonStyle())
+            // The Slider updater
+            .onReceive(timer)
+          {  _ in
+            guard let playerStatus = audioPlayManager.player else {return}
+            SliderPlace = playerStatus.currentTime
           }
-        }
-        Spacer()
-
-          // Here is the button for Backward, forward and Play/Pause
-        HStack
-        {
-            // Backward button
-          Button(action: {
-            Backward(AccessFile: AccessFile)
-            RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
-          })
-          {
-            Image(systemName: "backward.fill").font(.title3)
-          }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
-
-            // Play/Pause button
-          Button(action:{
-            playStatusButton.toggle()
-            audioPlayManager.playPause()
-          })
-          {
-            if (!playStatusButton)
-            {
-              Image(systemName: "play.fill").font(.title3)
-            }
-            else
-            {
-              Image(systemName: "pause.fill").font(.title3)
-            }
-          }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-
-            // Forward button
-          Button(action: {
-            Forward(AccessFile: AccessFile)
-            RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
-          })
-          {
-            Image(systemName: "forward.fill").font(.title3)
-          }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
-
-            // Stop Button, only appear if is playing
-          if ((audioPlayManager.player?.isPlaying) != nil)
-          {
-            Button
-            {
-              playStatusButton = false
-              audioPlayManager.Stop()
-              SliderPlace = 0
-              audioPlayManager.player!.currentTime = 0
-            } label:
-            {
-              Image(systemName: "stop.fill").font(.title3)
-            }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
-          }
-        }.buttonStyle(PlainButtonStyle())
-          // The Slider updater
-          .onReceive(timer)
-        {  _ in
-          guard let playerStatus = audioPlayManager.player else {return}
-          SliderPlace = playerStatus.currentTime
         }
       }
     }

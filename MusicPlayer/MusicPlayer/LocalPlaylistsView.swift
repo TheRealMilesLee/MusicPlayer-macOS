@@ -21,6 +21,7 @@ struct LocalPlaylistView: View
   @Binding var AccessFile: Array<Playlists>
   @Binding var RecentPlayedArray: Array<Playlists>
   @Binding var searchString: String
+  @Binding var CurrentTableSelection: Playlists.ID?
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var load_file : Bool = false
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
@@ -39,6 +40,7 @@ struct LocalPlaylistView: View
       {
         if (selectedSongs?.description != nil)
         {
+          CurrentTableSelection = selectedSongs
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             audioPlayManager.player?.stop()
@@ -47,7 +49,7 @@ struct LocalPlaylistView: View
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: Result)
-          RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
+          RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
         }
       }
     }
@@ -63,6 +65,7 @@ struct LocalPlaylistView: View
       {
         if (selectedSongs?.description != nil)
         {
+          CurrentTableSelection = selectedSongs
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             audioPlayManager.player?.stop()
@@ -71,7 +74,7 @@ struct LocalPlaylistView: View
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: Result)
-          RecentPlayed(AccessFile: AccessFile, selectedSongs: selectedSongs, RecentPlayedArray:&RecentPlayedArray)
+          RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
         }
       }
     }
@@ -108,13 +111,14 @@ struct LocalPlaylistView: View
   {
     for NameIndex in 0..<AccessFile.count
     {
-      if (AccessFile[NameIndex].id == selectedSongs)
+      if (AccessFile[NameIndex].id == CurrentTableSelection)
       {
         return FileURL[NameIndex]
       }
     }
     return "Null"
   }
+  
   func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
   {
     if (selectedSongs?.description != nil)

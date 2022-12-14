@@ -12,9 +12,9 @@ struct AlbumView: View
   @Binding var FileURL: Array<String>
   @Binding var SliderPlace: Double
   @Binding var playStatusButton : Bool
-  @Binding var selectedSongs: Playlists.ID?
   @Binding var AccessFile: Array<Playlists>
   @Binding var searchString: String
+  @Binding var CurrentTableSelection: Playlists.ID?
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var selectedAlbum: Playlists.ID?
   @State var load_file : Bool = false
@@ -29,8 +29,9 @@ struct AlbumView: View
         TableColumn("Album", value: \.Album)
       }.onDoubleClick
       {
-        if (selectedSongs?.description != nil)
+        if (selectedAlbum?.description != nil)
         {
+          CurrentTableSelection = selectedAlbum
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             audioPlayManager.player?.stop()
@@ -49,8 +50,9 @@ struct AlbumView: View
         TableColumn("Album", value: \.Album)
       }.onDoubleClick
       {
-        if (selectedSongs?.description != nil)
+        if (selectedAlbum?.description != nil)
         {
+          CurrentTableSelection = selectedAlbum
           if ((audioPlayManager.player?.isPlaying) != nil)
           {
             audioPlayManager.player?.stop()
@@ -63,11 +65,12 @@ struct AlbumView: View
       }
     }
   }
+
   func FindTitle(AccessFile: [Playlists]) -> String
   {
     for NameIndex in 0..<AccessFile.count
     {
-      if (AccessFile[NameIndex].id == selectedSongs)
+      if (AccessFile[NameIndex].id == CurrentTableSelection)
       {
         return FileURL[NameIndex]
       }
