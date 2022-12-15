@@ -30,8 +30,10 @@ struct ContentView: View
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
+//    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
     VStack
     {
+//      Navigation bar for the page change in different views
       NavigationView
       {
         // Sidebar Navigation
@@ -104,7 +106,7 @@ struct ContentView: View
         }
       }
       Spacer()
-      // Play Display Section
+//       Music Playback controller, only appear if is currently playing
       if(CurrentTableSelection != nil)
       {
         HStack
