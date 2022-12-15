@@ -9,12 +9,12 @@
 import SwiftUI
 struct AlbumView: View
 {
-  @Binding var FileURL: Array<String>
-  @Binding var SliderPlace: Double
-  @Binding var playStatusButton : Bool
   @Binding var AccessFile: Array<Playlists>
-  @Binding var searchString: String
   @Binding var CurrentTableSelection: Playlists.ID?
+  @Binding var FileURL: Array<String>
+  @Binding var playStatusButton : Bool
+  @Binding var searchString: String
+  @Binding var SliderPlace: Double
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var selectedAlbum: Playlists.ID?
   @State var load_file : Bool = false
