@@ -21,6 +21,10 @@ var metaArtistArray:[String] = []
 var metaArtwork:[NSData] = []
 var metaDuration: [CMTime] = []
 
+/**
+ * @brief This function is to get the MP3 asset
+ * @return void
+ */
 func GetAsset() async
 {
   let getMusicPath = MusicPlayFileArray()
@@ -57,6 +61,11 @@ func GetAsset() async
     }
   }
 }
+
+/**
+ * @brief This function is to get the file name from the folder that user specified
+ * @return Array<String>
+ */
 func getFileNameArray() -> Array<String>
 {
   let FileHandler_user = FileManager.default
@@ -78,6 +87,10 @@ func getFileNameArray() -> Array<String>
   return MusicFileArray
 }
 
+/**
+ * @brief This function is to get the file name from the folder that user specified with the path of the folder
+ * @return Array<String>
+ */
 func MusicPlayFileArray() -> Array<String>
 {
   let FileName = getFileNameArray()
@@ -90,6 +103,10 @@ func MusicPlayFileArray() -> Array<String>
   return MusicFileWithPath
 }
 
+/**
+ * @brief This function is to pop up a window for user to choose the folder location
+ * @return URL
+ */
 func showOpenPanel() -> URL?
 {
   let openPanel = NSOpenPanel()
@@ -108,4 +125,34 @@ func showOpenPanel() -> URL?
   {
     return defaultURL
   }
+}
+
+/**
+ * @brief This function is to find the title in corresponding path array
+ * @return String
+ */
+func FindTitle(AccessFile: [Playlists], selectedSongs: Playlists.ID?, URLArray: [String]) -> String
+{
+  for NameIndex in 0..<AccessFile.count
+  {
+    if (AccessFile[NameIndex].id == selectedSongs)
+    {
+      return URLArray[NameIndex]
+    }
+  }
+  return ""
+}
+
+func readInRecentFileURL(RecentArray: [Playlists], selectedRecentSongs: Playlists.ID?) ->String
+{
+  let RecentURL = MusicPlayFileArray()
+
+  for NameIndex in 0..<RecentArray.count
+  {
+    if (RecentArray[NameIndex].id == selectedRecentSongs)
+    {
+      return RecentURL[NameIndex]
+    }
+  }
+  return ""
 }

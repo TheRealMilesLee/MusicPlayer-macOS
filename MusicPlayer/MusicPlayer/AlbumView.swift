@@ -36,7 +36,7 @@ struct AlbumView: View
           {
             audioPlayManager.player?.stop()
           }
-          let Result = FindTitle(AccessFile: AccessFile)
+          let Result = MusicPlayer.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: Result)
@@ -57,24 +57,12 @@ struct AlbumView: View
           {
             audioPlayManager.player?.stop()
           }
-          let Result = FindTitle(AccessFile: AccessFile)
+          let Result = MusicPlayer.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: Result)
         }
       }
     }
-  }
-
-  func FindTitle(AccessFile: [Playlists]) -> String
-  {
-    for NameIndex in 0..<AccessFile.count
-    {
-      if (AccessFile[NameIndex].id == CurrentTableSelection)
-      {
-        return FileURL[NameIndex]
-      }
-    }
-    return "Null"
   }
 }
