@@ -19,12 +19,13 @@ struct ContentView: View
   @State var FileURL = MusicPlayFileArray()
   @State var PickClick = false
   @State var playStatusButton : Bool = false
+  @State var repeatStatusButton : Bool = false
   @State var RecentPlayedArray: Array<Playlists> = Array()
   @State var RecentFileURL: Array<String> = Array()
   @State var selectedSongs: Playlists.ID?
   @State var SliderPlace: Double = 0.0
   @State var searchString: String = ""
-  let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+  let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
   var body: some View
   {
       //    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
@@ -112,22 +113,17 @@ struct ContentView: View
             //             This is the Album image, song title and the slide bar
           AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
             .resizable()
-            .frame(width: 60, height: 60)
+            .frame(width: 70.0, height: 70.0)
             .shadow(radius: 6, x: 0, y: 3)
-            .padding(.leading, 10).padding(.bottom, 10)
-
+            .padding([.top, .leading, .bottom])
+            .multilineTextAlignment(.leading)
             //          Slider control, drag and drop and the current play time
-          HStack
+          VStack
           {
             if let SliderAudioplayer = audioPlayManager.player
             {
-                //              Current playing song name display
-              if ((audioPlayManager.player?.isPlaying) != nil)
-              {
-                Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding(.leading, 10)
-              }
                 //              Playback time control
-              HStack
+              HStack(alignment: .center)
               {
                   //                Current Time
                 let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
@@ -143,81 +139,102 @@ struct ContentView: View
                     SliderAudioplayer.currentTime = SliderPlace
                   }
                 }
+                .padding(.horizontal)
                 Spacer()
                   //                Remain time
                 let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
                 let RoundMinutes = Double(round(100 * ToMinutes) / 100)
                 let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
                 Text(Stringnify)
+              }.padding(.horizontal, 150).multilineTextAlignment(.center)
+                //             Here is the button for Backward, forward and Play/Pause
+              HStack
+              {
+                Button {
+                  repeatStatusButton = true
+                  repeatPlay(AccessFile: AccessFile)
+                } label: {
+                  if (repeatStatusButton)
+                  {
+                    Image(systemName: "infinity.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }
+                  else
+                  {
+                    Image(systemName: "infinity.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }
+
+                }
+
+                  // Backward button
+                Button(action: {
+                  Backward(AccessFile: AccessFile)
+                  CurrentTableSelection = selectedSongs
+                  RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+                })
+                {
+                  Image(systemName: "backward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }.buttonStyle(PlainButtonStyle())
+
+                  // Play/Pause button
+                Button(action:{
+                  playStatusButton.toggle()
+                  audioPlayManager.playPause()
+                })
+                {
+                  if (!playStatusButton)
+                  {
+                    Image(systemName: "play.fill").font(.title3)
+                  }
+                  else
+                  {
+                    Image(systemName: "pause.fill").font(.title3)
+                  }
+                }.buttonStyle(PlainButtonStyle()).padding([.leading, .bottom, .trailing]).multilineTextAlignment(.center)
+
+                  // Forward button
+                Button(action: {
+                  Forward(AccessFile: AccessFile)
+                  CurrentTableSelection = selectedSongs
+                  RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+                })
+                {
+                  Image(systemName: "forward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }.buttonStyle(PlainButtonStyle())
+
+                  // Stop Button, only appear if is playing
+                if ((audioPlayManager.player?.isPlaying) != nil)
+                {
+                  Button
+                  {
+                    playStatusButton = false
+                    audioPlayManager.Stop()
+                    SliderPlace = 0
+                    audioPlayManager.player!.currentTime = 0
+                  } label:
+                  {
+                    Image(systemName: "stop.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }.buttonStyle(PlainButtonStyle())
+                }
+              }.buttonStyle(PlainButtonStyle()).padding(.top, 10)
+                //             The Slider updater
+                .onReceive(timer)
+              {  _ in
+                guard let playerStatus = audioPlayManager.player else {return}
+                SliderPlace = playerStatus.currentTime
+              }
+                //              Current playing song name display
+              if ((audioPlayManager.player?.isPlaying) != nil)
+              {
+                Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding([.leading, .bottom, .trailing])
               }
             }
           }
-          Spacer()
 
-            //             Here is the button for Backward, forward and Play/Pause
-          HStack
-          {
-              // Backward button
-            Button(action: {
-              Backward(AccessFile: AccessFile)
-              CurrentTableSelection = selectedSongs
-              RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
-            })
-            {
-              Image(systemName: "backward.fill").font(.title3)
-            }.buttonStyle(PlainButtonStyle()).padding(.leading, 30)
-
-              // Play/Pause button
-            Button(action:{
-              playStatusButton.toggle()
-              audioPlayManager.playPause()
-            })
-            {
-              if (!playStatusButton)
-              {
-                Image(systemName: "play.fill").font(.title3)
-              }
-              else
-              {
-                Image(systemName: "pause.fill").font(.title3)
-              }
-            }.buttonStyle(PlainButtonStyle()).padding(.horizontal)
-
-              // Forward button
-            Button(action: {
-              Forward(AccessFile: AccessFile)
-              CurrentTableSelection = selectedSongs
-              RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
-            })
-            {
-              Image(systemName: "forward.fill").font(.title3)
-            }.buttonStyle(PlainButtonStyle()).padding(.trailing, 15)
-
-              // Stop Button, only appear if is playing
-            if ((audioPlayManager.player?.isPlaying) != nil)
-            {
-              Button
-              {
-                playStatusButton = false
-                audioPlayManager.Stop()
-                SliderPlace = 0
-                audioPlayManager.player!.currentTime = 0
-              } label:
-              {
-                Image(systemName: "stop.fill").font(.title3)
-              }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
-            }
-          }.buttonStyle(PlainButtonStyle())
-            //             The Slider updater
-            .onReceive(timer)
-          {  _ in
-            guard let playerStatus = audioPlayManager.player else {return}
-            SliderPlace = playerStatus.currentTime
-          }
         }
       }
     }
   }
+
   /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
    * @brief This function is to control the audio forward
@@ -299,6 +316,34 @@ struct ContentView: View
           SliderPlace = 0
           audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
           break
+        }
+      }
+    }
+  }
+
+  /**
+   * @brief This function is to control the audio repeat
+   * @param AccessFile is a Array of Playlists to repeat
+   * @return void
+   */
+  func repeatPlay(AccessFile: [Playlists])
+  {
+    if (repeatStatusButton == true)
+    {
+      if (audioPlayManager.player?.currentTime == audioPlayManager.player?.duration)
+      {
+        audioPlayManager.player?.currentTime = 0
+        SliderPlace = 0
+        for indexRepeat in 0..<AccessFile.count
+        {
+          if (AccessFile[indexRepeat].id == CurrentTableSelection)
+          {
+            print("here")
+            playStatusButton = false
+            audioPlayManager.playPause()
+
+            break
+          }
         }
       }
     }
