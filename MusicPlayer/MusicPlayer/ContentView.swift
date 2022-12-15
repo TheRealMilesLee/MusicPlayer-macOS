@@ -212,6 +212,13 @@ struct ContentView: View
     }
   }
 
+  /**
+   * @brief This function is to detect what song has been played reciently
+   * @param AccessFile is a Array of playlists that contains the name of the song
+   * @param selectedSongs is the id of the current selected songs
+   * @param RecentPlayedArray is the array that stores the name of the current played songs
+   * @return void
+   */
   func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
   {
     if (selectedSongs?.description != nil)
@@ -266,7 +273,8 @@ struct ContentView: View
 
   /**
    * @brief This function is to control the audio forward
-   * @param AccessFile is a Array of Playlists
+   * @param AccessFile is a Array of Playlists to forward
+   * @return void
    */
   func Forward(AccessFile: [Playlists])
   {
@@ -312,7 +320,8 @@ struct ContentView: View
 
   /**
    * @brief This function is to control the audio backward
-   * @param AccessFile is a Array of Playlists
+   * @param AccessFile is a Array of Playlists to backward
+   * @return void
    */
   func Backward(AccessFile: [Playlists])
   {
@@ -348,6 +357,12 @@ struct ContentView: View
   }
 }
 
+/**
+ * @brief This function is to get the name of the song that is current playing
+ * @param AccessFile is an array of Playlist object
+ * @param selectedSongs is the id of the songs that is currently selected
+ * @return String is the name of the playing song
+ */
 func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> String
 {
   for SongNameIndex in 0..<AccessFile.count
@@ -360,6 +375,12 @@ func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -
   return ""
 }
 
+/**
+ * @brief This function is to get the image of the current playing song's album
+ * @param AccessFile is an array of Playlists object
+ * @param selectedSongs is the id of the current playing song
+ * @return Image is the cover of the album
+ */
 func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> Image
 {
   for AlbumImageIndex in 0..<AccessFile.count
