@@ -7,11 +7,8 @@
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
-import Foundation
 import AppKit
 import AVKit
-import AVFoundation
-import Cocoa
 struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
