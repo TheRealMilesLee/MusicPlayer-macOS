@@ -81,7 +81,9 @@ func getFileNameArray() -> Array<String>
       }
       MusicFileArray.append(contents[iteration])
     }
-  } catch {
+  }
+  catch
+  {
     print("File read error at \(error)")
   }
   return MusicFileArray
@@ -114,16 +116,13 @@ func showOpenPanel() -> URL?
   openPanel.canChooseDirectories = true
   openPanel.canChooseFiles = true
   let response = openPanel.runModal()
-  let FileHandler_user = FileManager.default
-  let FileURL = FileHandler_user.urls(for: .musicDirectory, in: .userDomainMask)
-  let defaultURL = FileURL[0] as URL
   if (response == .OK)
   {
     return openPanel.url
   }
   else
   {
-    return defaultURL
+    exit(EXIT_SUCCESS)
   }
 }
 

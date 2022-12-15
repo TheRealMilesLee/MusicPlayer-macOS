@@ -27,22 +27,22 @@ struct ContentView: View
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
-//    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
+      //    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
     VStack
     {
-//      Navigation bar for the page change in different views
+        //      Navigation bar for the page change in different views
       NavigationView
       {
         VStack
         {
           Spacer()
-//          Search Bar for searching the song by name or by artist, album
+            //          Search Bar for searching the song by name or by artist, album
           TextField("Search...", text: $searchString)
             .disableAutocorrection(true)
             .cornerRadius(17)
             .padding(.trailing)
             .padding(.leading)
-//         Sidebar Navigation
+            //         Sidebar Navigation
           List
           {
             Text("Playlists").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
@@ -74,16 +74,16 @@ struct ContentView: View
                                                     searchString: $searchString,
                                                     CurrentTableSelection: $CurrentTableSelection
                                                   )){Label("Artist", systemImage: "person.and.background.dotted")}
-            NavigationLink(destination: AlbumView(FileURL:$FileURL ,
-                                                  SliderPlace: $SliderPlace ,
-                                                  playStatusButton: $playStatusButton,
-                                                  AccessFile: $AccessFile,
-                                                  searchString: $searchString,
-                                                  CurrentTableSelection: $CurrentTableSelection
+            NavigationLink(destination: AlbumView( AccessFile: $AccessFile,
+                                                   CurrentTableSelection: $CurrentTableSelection,
+                                                   FileURL:$FileURL ,
+                                                   playStatusButton: $playStatusButton,
+                                                   searchString: $searchString,
+                                                   SliderPlace: $SliderPlace
                                                  )){Label("Album", systemImage: "play.square.stack")}
           }
           .padding(.bottom)
-//             Load file and asset from the disk
+            //             Load file and asset from the disk
           .onAppear(perform: {Task { await GetAsset()
             for content in 0..<FileNameContents.count
             {
@@ -104,37 +104,37 @@ struct ContentView: View
         }
       }
       Spacer()
-//       Music Playback controller, only appear if is currently playing
+        //       Music Playback controller, only appear if is currently playing
       if(CurrentTableSelection != nil)
       {
         HStack
         {
-//             This is the Album image, song title and the slide bar
+            //             This is the Album image, song title and the slide bar
           AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
             .resizable()
             .frame(width: 60, height: 60)
             .shadow(radius: 6, x: 0, y: 3)
             .padding(.leading, 10).padding(.bottom, 10)
 
-//          Slider control, drag and drop and the current play time
+            //          Slider control, drag and drop and the current play time
           HStack
           {
             if let SliderAudioplayer = audioPlayManager.player
             {
-//              Current playing song name display
+                //              Current playing song name display
               if ((audioPlayManager.player?.isPlaying) != nil)
               {
                 Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding(.leading, 10)
               }
-//              Playback time control
+                //              Playback time control
               HStack
               {
-//                Current Time
+                  //                Current Time
                 let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
                 let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
                 let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
                 Text(CurrentStringnify)
-//                Slider
+                  //                Slider
                 Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
                 {
                   Slide in
@@ -144,7 +144,7 @@ struct ContentView: View
                   }
                 }
                 Spacer()
-//                Remain time
+                  //                Remain time
                 let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
                 let RoundMinutes = Double(round(100 * ToMinutes) / 100)
                 let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
@@ -154,7 +154,7 @@ struct ContentView: View
           }
           Spacer()
 
-//             Here is the button for Backward, forward and Play/Pause
+            //             Here is the button for Backward, forward and Play/Pause
           HStack
           {
               // Backward button
@@ -208,7 +208,7 @@ struct ContentView: View
               }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
             }
           }.buttonStyle(PlainButtonStyle())
-//             The Slider updater
+            //             The Slider updater
             .onReceive(timer)
           {  _ in
             guard let playerStatus = audioPlayManager.player else {return}
@@ -218,7 +218,7 @@ struct ContentView: View
       }
     }
   }
-/*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
+  /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
    * @brief This function is to control the audio forward
    * @param AccessFile is a Array of Playlists to forward

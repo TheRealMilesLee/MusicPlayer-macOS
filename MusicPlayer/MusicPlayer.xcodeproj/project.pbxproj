@@ -71,14 +71,15 @@
 		7B2B666C28DA1142002C4E54 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				9980E282294917010019BFEE /* AssetsAndMediaSettings */,
-				9980E281294916D30019BFEE /* ModelAndFunctions */,
+				9980E27F2949122E0019BFEE /* AlbumView.swift */,
+				9980E27D2949121E0019BFEE /* ArtistView.swift */,
+				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
 				7B2B666F28DA1142002C4E54 /* ContentView.swift */,
 				9951231028E67E0400B1207A /* LocalPlaylistsView.swift */,
-				99AA479D2947A01A0083898E /* RecentView.swift */,
-				9980E27D2949121E0019BFEE /* ArtistView.swift */,
-				9980E27F2949122E0019BFEE /* AlbumView.swift */,
+				9980E281294916D30019BFEE /* ModelAndFunctions */,
 				996D343D28ECB33500257A5D /* MusicPlayer.entitlements */,
+				7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */,
+				99AA479D2947A01A0083898E /* RecentView.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -89,18 +90,9 @@
 				99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */,
 				990961E529450C250089F3E8 /* DoubleClick.swift */,
 				9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */,
-				7B2B666D28DA1142002C4E54 /* MusicPlayerApp.swift */,
 				9995E436293BEE9E0023BA2D /* MusicViewModel.swift */,
 			);
 			path = ModelAndFunctions;
-			sourceTree = "<group>";
-		};
-		9980E282294917010019BFEE /* AssetsAndMediaSettings */ = {
-			isa = PBXGroup;
-			children = (
-				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
-			);
-			path = AssetsAndMediaSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
