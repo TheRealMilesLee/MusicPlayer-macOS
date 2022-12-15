@@ -33,15 +33,16 @@ struct ContentView: View
 //      Navigation bar for the page change in different views
       NavigationView
       {
-        // Sidebar Navigation
         VStack
         {
           Spacer()
+//          Search Bar for searching the song by name or by artist, album
           TextField("Search...", text: $searchString)
             .disableAutocorrection(true)
             .cornerRadius(17)
             .padding(.trailing)
             .padding(.leading)
+//         Sidebar Navigation
           List
           {
             Text("Playlists").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
@@ -82,7 +83,7 @@ struct ContentView: View
                                                  )){Label("Album", systemImage: "play.square.stack")}
           }
           .padding(.bottom)
-            // Load file and asset from the disk
+//             Load file and asset from the disk
           .onAppear(perform: {Task { await GetAsset()
             for content in 0..<FileNameContents.count
             {
@@ -108,26 +109,32 @@ struct ContentView: View
       {
         HStack
         {
-            // This is the Album image, song title and the slide bar
+//             This is the Album image, song title and the slide bar
           AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
             .resizable()
             .frame(width: 60, height: 60)
             .shadow(radius: 6, x: 0, y: 3)
             .padding(.leading, 10).padding(.bottom, 10)
+
+//          Slider control, drag and drop and the current play time
           HStack
           {
             if let SliderAudioplayer = audioPlayManager.player
             {
+//              Current playing song name display
               if ((audioPlayManager.player?.isPlaying) != nil)
               {
                 Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding(.leading, 10)
               }
+//              Playback time control
               HStack
               {
+//                Current Time
                 let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
                 let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
                 let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
                 Text(CurrentStringnify)
+//                Slider
                 Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
                 {
                   Slide in
@@ -137,6 +144,7 @@ struct ContentView: View
                   }
                 }
                 Spacer()
+//                Remain time
                 let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
                 let RoundMinutes = Double(round(100 * ToMinutes) / 100)
                 let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
@@ -146,7 +154,7 @@ struct ContentView: View
           }
           Spacer()
 
-            // Here is the button for Backward, forward and Play/Pause
+//             Here is the button for Backward, forward and Play/Pause
           HStack
           {
               // Backward button
@@ -200,7 +208,7 @@ struct ContentView: View
               }.buttonStyle(PlainButtonStyle()).padding(.trailing, 30)
             }
           }.buttonStyle(PlainButtonStyle())
-            // The Slider updater
+//             The Slider updater
             .onReceive(timer)
           {  _ in
             guard let playerStatus = audioPlayManager.player else {return}
