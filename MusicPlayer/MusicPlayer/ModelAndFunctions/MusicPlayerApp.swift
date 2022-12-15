@@ -10,7 +10,6 @@ import SwiftUI
 struct MusicPlayerApp: App
 {
   static let MusicVM = MusicViewModel(MusicPlayerApp: Playlists.data)
-
   var body: some Scene
   {
     WindowGroup
