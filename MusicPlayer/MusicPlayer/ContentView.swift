@@ -13,17 +13,17 @@ struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @StateObject var MusicViewModel: MusicViewModel
-  @State var selectedSongs: Playlists.ID?
-  @State var RecentFileURL: Array<String> = Array()
   @State var AccessFile: Array<Playlists> = Array()
-  @State var SliderPlace: Double = 0.0
-  @State var PickClick = false
-  @State var playStatusButton : Bool = false
+  @State var CurrentTableSelection: Playlists.ID?
   @State var FileNameContents = getFileNameArray()
   @State var FileURL = MusicPlayFileArray()
+  @State var PickClick = false
+  @State var playStatusButton : Bool = false
   @State var RecentPlayedArray: Array<Playlists> = Array()
+  @State var RecentFileURL: Array<String> = Array()
+  @State var selectedSongs: Playlists.ID?
+  @State var SliderPlace: Double = 0.0
   @State var searchString: String = ""
-  @State var CurrentTableSelection: Playlists.ID?
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
