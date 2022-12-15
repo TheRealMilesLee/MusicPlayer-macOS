@@ -16,8 +16,8 @@ struct AlbumView: View
   @Binding var searchString: String
   @Binding var SliderPlace: Double
   @EnvironmentObject var audioPlayManager: AudioPlayManager
-  @State var selectedAlbum: Playlists.ID?
   @State var load_file : Bool = false
+  @State var selectedAlbum: Playlists.ID?
   @State private var sortOrder = [KeyPathComparator(\Playlists.Album)]
 
   var body: some View
