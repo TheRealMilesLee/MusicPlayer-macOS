@@ -211,66 +211,7 @@ struct ContentView: View
       }
     }
   }
-
-  /**
-   * @brief This function is to detect what song has been played reciently
-   * @param AccessFile is a Array of playlists that contains the name of the song
-   * @param selectedSongs is the id of the current selected songs
-   * @param RecentPlayedArray is the array that stores the name of the current played songs
-   * @return void
-   */
-  func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
-  {
-    if (selectedSongs?.description != nil)
-    {
-      if (RecentPlayedArray.count > 0)
-      {
-          //        If found in the Recent Array, swap it with index 0
-        var AppendIndex: Int = 0
-        var StopFlag: Bool = false
-        while (!StopFlag && AppendIndex < RecentPlayedArray.count)
-        {
-          if (RecentPlayedArray[AppendIndex].id == selectedSongs)
-          {
-            RecentPlayedArray.swapAt(AppendIndex, 0)
-            StopFlag = true
-          }
-          AppendIndex += 1
-        }
-          //        If it does not found in Recent Array, append it
-        if (!StopFlag)
-        {
-          var AppendIndexAccess: Int = 0
-          var AppendFinished: Bool = false
-          while (!AppendFinished && AppendIndexAccess < AccessFile.count)
-          {
-            if (AccessFile[AppendIndexAccess].id == selectedSongs)
-            {
-              RecentPlayedArray.append(AccessFile[AppendIndexAccess])
-              AppendFinished = true
-            }
-            AppendIndexAccess += 1
-          }
-        }
-      }
-        //    First Element insert
-      else
-      {
-        var AppendIndexAppend: Int = 0
-        var StopFlagAppend: Bool = false
-        while (!StopFlagAppend)
-        {
-          if (selectedSongs == AccessFile[AppendIndexAppend].id)
-          {
-            RecentPlayedArray.append(AccessFile[AppendIndexAppend])
-            StopFlagAppend = true
-          }
-          AppendIndexAppend += 1
-        }
-      }
-    }
-  }
-
+/*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
    * @brief This function is to control the audio forward
    * @param AccessFile is a Array of Playlists to forward
@@ -352,6 +293,65 @@ struct ContentView: View
           audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
           break
         }
+      }
+    }
+  }
+}
+
+/**
+ * @brief This function is to detect what song has been played reciently
+ * @param AccessFile is a Array of playlists that contains the name of the song
+ * @param selectedSongs is the id of the current selected songs
+ * @param RecentPlayedArray is the array that stores the name of the current played songs
+ * @return void
+ */
+func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
+{
+  if (selectedSongs?.description != nil)
+  {
+    if (RecentPlayedArray.count > 0)
+    {
+        //        If found in the Recent Array, swap it with index 0
+      var AppendIndex: Int = 0
+      var StopFlag: Bool = false
+      while (!StopFlag && AppendIndex < RecentPlayedArray.count)
+      {
+        if (RecentPlayedArray[AppendIndex].id == selectedSongs)
+        {
+          RecentPlayedArray.swapAt(AppendIndex, 0)
+          StopFlag = true
+        }
+        AppendIndex += 1
+      }
+        //        If it does not found in Recent Array, append it
+      if (!StopFlag)
+      {
+        var AppendIndexAccess: Int = 0
+        var AppendFinished: Bool = false
+        while (!AppendFinished && AppendIndexAccess < AccessFile.count)
+        {
+          if (AccessFile[AppendIndexAccess].id == selectedSongs)
+          {
+            RecentPlayedArray.append(AccessFile[AppendIndexAccess])
+            AppendFinished = true
+          }
+          AppendIndexAccess += 1
+        }
+      }
+    }
+      //    First Element insert
+    else
+    {
+      var AppendIndexAppend: Int = 0
+      var StopFlagAppend: Bool = false
+      while (!StopFlagAppend)
+      {
+        if (selectedSongs == AccessFile[AppendIndexAppend].id)
+        {
+          RecentPlayedArray.append(AccessFile[AppendIndexAppend])
+          StopFlagAppend = true
+        }
+        AppendIndexAppend += 1
       }
     }
   }
