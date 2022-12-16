@@ -56,5 +56,6 @@ final class AudioPlayManager: ObservableObject
       return
     }
     stopButton.stop()
+    player = nil
   }
 }

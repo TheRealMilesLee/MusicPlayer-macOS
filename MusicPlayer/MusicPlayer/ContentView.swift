@@ -122,13 +122,10 @@ struct ContentView: View
           {
             if let SliderAudioplayer = audioPlayManager.player
             {
-
-
                 //              Playback time control
               HStack(alignment: .center)
               {
                   //                Current Time
-
                 Text(CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
                   //                Slider
                 Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
@@ -138,20 +135,20 @@ struct ContentView: View
                   {
                     SliderAudioplayer.currentTime = SliderPlace
                   }
-                }
+
+                }.onChange(of: SliderPlace, perform: { newValue in
+                  repeatPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, repeatStatusButton: repeatStatusButton)
+                })
                 .padding(.horizontal)
                 Spacer()
                   //                Remain time
-
-                Text(DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
+                Text(LeftTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
               }.padding(.horizontal, 150).multilineTextAlignment(.center)
                 //             Here is the button for Backward, forward and Play/Pause
               HStack
               {
                 Button {
                   repeatStatusButton.toggle()
-                  repeatPlay(AccessFile: AccessFile)
-
                 } label: {
                   if (repeatStatusButton)
                   {
@@ -161,8 +158,8 @@ struct ContentView: View
                   {
                     Image(systemName: "infinity.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }
-
                 }
+
                   // Backward button
                 Button(action: {
                   Backward(AccessFile: AccessFile)
@@ -206,8 +203,9 @@ struct ContentView: View
                   {
                     playStatusButton = false
                     audioPlayManager.Stop()
+                    let player = audioPlayManager
                     SliderPlace = 0
-                    audioPlayManager.player!.currentTime = 0
+                    player.player?.currentTime = 0
                   } label:
                   {
                     Image(systemName: "stop.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -219,6 +217,7 @@ struct ContentView: View
               {  _ in
                 guard let playerStatus = audioPlayManager.player else {return}
                 SliderPlace = playerStatus.currentTime
+
               }
                 //              Current playing song name display
               if ((audioPlayManager.player?.isPlaying) != nil)
@@ -324,25 +323,33 @@ struct ContentView: View
    * @param AccessFile is a Array of Playlists to repeat
    * @return void
    */
-  func repeatPlay(AccessFile: [Playlists])
+  func repeatPlay(AccessFile: [Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], repeatStatusButton: Bool)
   {
-    print("here1")
+    let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
+    let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
+
     if (repeatStatusButton == true)
     {
-      print("here2")
-      audioPlayManager.player?.currentTime = 0
-      SliderPlace = 0
-      for indexRepeat in 0..<AccessFile.count
+      print(currentTime)
+      print(duration)
+      if (currentTime == duration)
       {
+        print("here1")
+        playStatusButton = false
+        audioPlayManager.Stop()
         print("here3")
-        if (AccessFile[indexRepeat].id == selectedSongs)
+        for indexPlaylist in 0..<FileURL.count
         {
           print("here4")
-          playStatusButton = false
-          print("here5")
-          audioPlayManager.startPlayer(url: FileURL[indexRepeat])
-          print("here6")
-          break
+          if (AccessFile[indexPlaylist].id == CurrentTableSelection)
+          {
+            print("here5")
+            playStatusButton = true
+            audioPlayManager.startPlayer(url: FileURL[indexPlaylist])
+            SliderPlace = 0
+            audioPlayManager.player!.currentTime = 0
+            break
+          }
         }
       }
     }
@@ -369,12 +376,26 @@ struct ContentView: View
    * @SliderAudioPlayer is the player status
    * @return String is the time stamp in the String format
    */
-  func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+  func LeftTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
   {
     let formatter = DateComponentsFormatter()
     formatter.zeroFormattingBehavior = .pad
     formatter.allowedUnits = [.minute, .second]
     let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - SliderAudioPlayer.currentTime) ?? String(SliderAudioPlayer.duration)
+    return remainFormatter
+  }
+
+  /**
+   * @brief This function is to formatting the duration time
+   * @SliderAudioPlayer is the player status
+   * @return String is the time stamp in the String format
+   */
+  func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+  {
+    let formatter = DateComponentsFormatter()
+    formatter.zeroFormattingBehavior = .pad
+    formatter.allowedUnits = [.minute, .second]
+    let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - 1) ?? String(SliderAudioPlayer.duration)
     return remainFormatter
   }
 }
