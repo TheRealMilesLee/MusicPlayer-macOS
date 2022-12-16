@@ -25,7 +25,7 @@ struct ContentView: View
   @State var selectedSongs: Playlists.ID?
   @State var SliderPlace: Double = 0.0
   @State var searchString: String = ""
-  let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+  let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
       //    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
@@ -122,14 +122,14 @@ struct ContentView: View
           {
             if let SliderAudioplayer = audioPlayManager.player
             {
+
+
                 //              Playback time control
               HStack(alignment: .center)
               {
                   //                Current Time
-                let CurrentToMinutes = Double(SliderAudioplayer.currentTime.formatted())! / 60
-                let CurrentRoundMinutes = Double(round(100 * CurrentToMinutes) / 100)
-                let CurrentStringnify = String(CurrentRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-                Text(CurrentStringnify)
+
+                Text(CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
                   //                Slider
                 Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
                 {
@@ -142,17 +142,16 @@ struct ContentView: View
                 .padding(.horizontal)
                 Spacer()
                   //                Remain time
-                let ToMinutes = (SliderAudioplayer.duration - SliderAudioplayer.currentTime) / 60
-                let RoundMinutes = Double(round(100 * ToMinutes) / 100)
-                let Stringnify = String(RoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-                Text(Stringnify)
+
+                Text(DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
               }.padding(.horizontal, 150).multilineTextAlignment(.center)
                 //             Here is the button for Backward, forward and Play/Pause
               HStack
               {
                 Button {
-                  repeatStatusButton = true
+                  repeatStatusButton.toggle()
                   repeatPlay(AccessFile: AccessFile)
+
                 } label: {
                   if (repeatStatusButton)
                   {
@@ -164,7 +163,6 @@ struct ContentView: View
                   }
 
                 }
-
                   // Backward button
                 Button(action: {
                   Backward(AccessFile: AccessFile)
@@ -328,25 +326,56 @@ struct ContentView: View
    */
   func repeatPlay(AccessFile: [Playlists])
   {
+    print("here1")
     if (repeatStatusButton == true)
     {
-      if (audioPlayManager.player?.currentTime == audioPlayManager.player?.duration)
+      print("here2")
+      audioPlayManager.player?.currentTime = 0
+      SliderPlace = 0
+      for indexRepeat in 0..<AccessFile.count
       {
-        audioPlayManager.player?.currentTime = 0
-        SliderPlace = 0
-        for indexRepeat in 0..<AccessFile.count
+        print("here3")
+        if (AccessFile[indexRepeat].id == selectedSongs)
         {
-          if (AccessFile[indexRepeat].id == CurrentTableSelection)
-          {
-            print("here")
-            playStatusButton = false
-            audioPlayManager.playPause()
-
-            break
-          }
+          print("here4")
+          playStatusButton = false
+          print("here5")
+          audioPlayManager.startPlayer(url: FileURL[indexRepeat])
+          print("here6")
+          break
         }
       }
     }
+  }
+
+  /*---------------------------------------------- Format Function --------------------------------------------------------------------------*/
+
+  /**
+   * @brief This function is to formatting the current playing time
+   * @param SliderAudioPlayer is the player status
+   * @return String is the time stamp in the String format
+   */
+  func CurrentTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+  {
+    let formatter = DateComponentsFormatter()
+    formatter.zeroFormattingBehavior = .pad
+    formatter.allowedUnits = [.minute, .second]
+    let MinutesFormatter = formatter.string(from: SliderAudioPlayer.currentTime) ?? "0:00"
+    return MinutesFormatter
+  }
+
+  /**
+   * @brief This function is to formatting the duration time
+   * @SliderAudioPlayer is the player status
+   * @return String is the time stamp in the String format
+   */
+  func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+  {
+    let formatter = DateComponentsFormatter()
+    formatter.zeroFormattingBehavior = .pad
+    formatter.allowedUnits = [.minute, .second]
+    let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - SliderAudioPlayer.currentTime) ?? String(SliderAudioPlayer.duration)
+    return remainFormatter
   }
 }
 
