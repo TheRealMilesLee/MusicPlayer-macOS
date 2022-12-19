@@ -165,7 +165,7 @@ struct ContentView: View
                 Button(action: {
                   Backward(AccessFile: AccessFile)
                   CurrentTableSelection = selectedSongs
-                  RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+                  RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray: &RecentPlayedArray)
                 })
                 {
                   Image(systemName: "backward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
