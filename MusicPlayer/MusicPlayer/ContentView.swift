@@ -110,18 +110,19 @@ struct ContentView: View
       {
         HStack
         {
-            //             This is the Album image, song title and the slide bar
-          AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
-            .resizable()
-            .frame(width: 70.0, height: 70.0)
-            .shadow(radius: 6, x: 0, y: 3)
-            .padding([.top, .leading, .bottom])
-            .multilineTextAlignment(.leading)
-            //          Slider control, drag and drop and the current play time
-          VStack
+          if let SliderAudioplayer = audioPlayManager.player
           {
-            if let SliderAudioplayer = audioPlayManager.player
+              //             This is the Album image, song title and the slide bar
+            AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
+              .resizable()
+              .frame(width: 70.0, height: 70.0)
+              .shadow(radius: 6, x: 0, y: 3)
+              .padding([.top, .leading, .bottom])
+              .multilineTextAlignment(.leading)
+              //          Slider control, drag and drop and the current play time
+            VStack
             {
+
                 //              Playback time control
               HStack(alignment: .center)
               {
