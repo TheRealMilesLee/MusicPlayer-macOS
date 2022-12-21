@@ -95,7 +95,7 @@ struct LocalPlaylistView: View
       else if (AccessFile[SearchIndex].Album.contains(searchString))
       {
         ResultArray.append(AccessFile[SearchIndex])
-        found = true
+        found = true                      
       }
       else if (AccessFile[SearchIndex].Artist.contains(searchString))
       {
