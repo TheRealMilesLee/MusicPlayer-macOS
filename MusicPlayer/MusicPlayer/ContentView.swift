@@ -122,7 +122,6 @@ struct ContentView: View
               //          Slider control, drag and drop and the current play time
             VStack
             {
-
                 //              Playback time control
               HStack(alignment: .center)
               {
