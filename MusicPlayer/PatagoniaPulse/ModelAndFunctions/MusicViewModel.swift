@@ -11,10 +11,10 @@ import AppKit
 
 final class MusicViewModel: ObservableObject
 {
-  private(set) var MusicPlayerApp: Playlists
-  init(MusicPlayerApp: Playlists)
+  private(set) var PatagoniaPulseApp: Playlists
+  init(PatagoniaPulseApp: Playlists)
   {
-    self.MusicPlayerApp = MusicPlayerApp
+    self.PatagoniaPulseApp = PatagoniaPulseApp
   }
 }
 

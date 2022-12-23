@@ -36,7 +36,7 @@ struct AlbumView: View
           {
             audioPlayManager.player?.stop()
           }
-          let Result = MusicPlayer.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
+          let Result = PatagoniaPulse.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: Result)
@@ -57,7 +57,7 @@ struct AlbumView: View
           {
             audioPlayManager.player?.stop()
           }
-          let Result = MusicPlayer.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
+          let Result = PatagoniaPulse.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
           playStatusButton = true
           SliderPlace = 0
           audioPlayManager.startPlayer(url: Result)

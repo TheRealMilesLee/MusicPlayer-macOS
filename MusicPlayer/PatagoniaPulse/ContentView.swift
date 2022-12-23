@@ -1,7 +1,7 @@
 /**
  * @file ContentView.swift
  * @author Hengyi Li
- * @brief This file is the main UI interface for the MusicPlayerApp
+ * @brief This file is the main UI interface for the PatagoniaPulseApp
  * @version 1.0
  * @date 2022-12-12
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved

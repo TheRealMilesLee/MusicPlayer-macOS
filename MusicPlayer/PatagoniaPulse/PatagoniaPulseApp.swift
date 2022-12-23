@@ -1,5 +1,5 @@
   //
-  //  MusicPlayerApp.swift
+  //  PatagoniaPulseApp.swift
   //  MusicPlayer
   //
   //  Created by Silverhand on 9/20/22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 @main
-struct MusicPlayerApp: App
+struct PatagoniaPulseApp: App
 {
-  static let MusicVM = MusicViewModel(MusicPlayerApp: Playlists.data)
+  static let MusicVM = MusicViewModel(PatagoniaPulseApp: Playlists.data)
   var body: some Scene
   {
     WindowGroup
     {
-      ContentView(MusicViewModel: MusicPlayerApp.MusicVM)
+      ContentView(MusicViewModel: PatagoniaPulseApp.MusicVM)
         .environmentObject(AudioPlayManager())
     }
   }
