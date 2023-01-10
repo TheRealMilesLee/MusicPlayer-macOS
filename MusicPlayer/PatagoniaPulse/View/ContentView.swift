@@ -141,17 +141,24 @@ struct ContentView: View
                 }.onChange(of: SliderPlace, perform: { newValue in
                   let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
                   let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
-                  repeatPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, repeatStatusButton: repeatStatusButton)
                   if (currentTime == duration)
                   {
-                    if (randomPlayStatus)
+                    if (repeatStatusButton)
                     {
+                      randomPlayStatus = false
+                      repeatPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, repeatStatusButton: repeatStatusButton, currentTime: currentTime, duration: duration)
+                    }
+                    else if (randomPlayStatus)
+                    {
+                      repeatStatusButton = false
                       randomPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, randomPlayStatus: randomPlayStatus)
                       CurrentTableSelection = selectedSongs
                       RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
                     }
                     else
                     {
+                      repeatStatusButton = false
+                      randomPlayStatus = false
                       Forward(AccessFile: AccessFile)
                       CurrentTableSelection = selectedSongs
                       RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
@@ -168,6 +175,7 @@ struct ContentView: View
               {
                 Button
                 {
+                  randomPlayStatus = false
                   repeatStatusButton.toggle()
                 } label:
                 {
@@ -236,6 +244,7 @@ struct ContentView: View
                 Button
                 {
                   randomPlayStatus.toggle()
+                  repeatStatusButton = false
                 } label: {
                   if (randomPlayStatus)
                   {
@@ -286,7 +295,6 @@ struct ContentView: View
         {
           audioPlayManager.Stop()
           playStatusButton = false
-          SliderPlace = 0
           audioPlayManager.player?.currentTime = 0
           break
         }
@@ -296,7 +304,6 @@ struct ContentView: View
           {
             audioPlayManager.Stop()
             playStatusButton = false
-            SliderPlace = 0
             audioPlayManager.player?.currentTime = 0
           }
           let newIndex = IndexForward + 1
@@ -304,7 +311,6 @@ struct ContentView: View
           {
             audioPlayManager.Stop()
             playStatusButton = false
-            SliderPlace = 0
             audioPlayManager.player?.currentTime = 0
             break
           }
@@ -312,7 +318,6 @@ struct ContentView: View
           {
             selectedSongs = AccessFile[newIndex].id
             playStatusButton = true
-            SliderPlace = 0
             audioPlayManager.startPlayer(url: FileURL[newIndex])
             break
           }
@@ -336,7 +341,6 @@ struct ContentView: View
         {
           audioPlayManager.Stop()
           playStatusButton = false
-          SliderPlace = 0
           audioPlayManager.player?.currentTime = 0
           break
         }
@@ -346,12 +350,10 @@ struct ContentView: View
           {
             audioPlayManager.Stop()
             playStatusButton = false
-            SliderPlace = 0
             audioPlayManager.player?.currentTime = 0
           }
           selectedSongs = AccessFile[IndexBackward - 1].id
           playStatusButton = true
-          SliderPlace = 0
           audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
           break
         }
@@ -364,30 +366,20 @@ struct ContentView: View
    * @param AccessFile is a Array of Playlists to repeat
    * @return void
    */
-  func repeatPlay(AccessFile: [Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], repeatStatusButton: Bool)
+  func repeatPlay(AccessFile: [Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], repeatStatusButton: Bool, currentTime: String, duration: String)
   {
-    let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
-    let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
-
-    if (repeatStatusButton == true)
+    playStatusButton = false
+    audioPlayManager.Stop()
+    for indexPlaylist in 0..<FileURL.count
     {
-      if (currentTime == duration)
+      if (AccessFile[indexPlaylist].id == CurrentTableSelection)
       {
-        playStatusButton = false
-        audioPlayManager.Stop()
-        for indexPlaylist in 0..<FileURL.count
-        {
-          if (AccessFile[indexPlaylist].id == CurrentTableSelection)
-          {
-            playStatusButton = true
-            audioPlayManager.startPlayer(url: FileURL[indexPlaylist])
-            SliderPlace = 0
-            audioPlayManager.player!.currentTime = 0
-            break
-          }
-        }
+        playStatusButton = true
+        audioPlayManager.startPlayer(url: FileURL[indexPlaylist])
+        break
       }
     }
+
   }
 
   func randomPlay(AccessFile:[Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], randomPlayStatus: Bool)
@@ -397,7 +389,6 @@ struct ContentView: View
     audioPlayManager.Stop()
     selectedSongs = AccessFile[randomIndex].id
     playStatusButton = true
-    SliderPlace = 0
     audioPlayManager.startPlayer(url: FileURL[randomIndex])
   }
 }
