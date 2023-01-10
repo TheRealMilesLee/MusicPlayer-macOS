@@ -71,15 +71,11 @@
 		7B2B666C28DA1142002C4E54 /* PatagoniaPulse */ = {
 			isa = PBXGroup;
 			children = (
-				9980E27F2949122E0019BFEE /* AlbumView.swift */,
-				9980E27D2949121E0019BFEE /* ArtistView.swift */,
-				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
-				7B2B666F28DA1142002C4E54 /* ContentView.swift */,
-				9951231028E67E0400B1207A /* LocalPlaylistsView.swift */,
+				99AD97D3296DE7B900EC49E1 /* View */,
 				9980E281294916D30019BFEE /* ModelAndFunctions */,
 				996D343D28ECB33500257A5D /* PatagoniaPulse.entitlements */,
+				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
 				7B2B666D28DA1142002C4E54 /* PatagoniaPulseApp.swift */,
-				99AA479D2947A01A0083898E /* RecentView.swift */,
 			);
 			path = PatagoniaPulse;
 			sourceTree = "<group>";
@@ -93,6 +89,18 @@
 				9995E436293BEE9E0023BA2D /* MusicViewModel.swift */,
 			);
 			path = ModelAndFunctions;
+			sourceTree = "<group>";
+		};
+		99AD97D3296DE7B900EC49E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9980E27F2949122E0019BFEE /* AlbumView.swift */,
+				9980E27D2949121E0019BFEE /* ArtistView.swift */,
+				7B2B666F28DA1142002C4E54 /* ContentView.swift */,
+				9951231028E67E0400B1207A /* LocalPlaylistsView.swift */,
+				99AA479D2947A01A0083898E /* RecentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +232,7 @@
 				GCC_C_LANGUAGE_STANDARD = c89;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = z;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -283,9 +291,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c89;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = z;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -309,7 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = PatagoniaPulse/PatagoniaPulse.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -345,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = PatagoniaPulse/PatagoniaPulse.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";

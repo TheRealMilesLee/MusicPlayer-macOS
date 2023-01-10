@@ -22,6 +22,7 @@ struct LocalPlaylistView: View
   @Binding var RecentPlayedArray: Array<Playlists>
   @Binding var searchString: String
   @Binding var CurrentTableSelection: Playlists.ID?
+  @Binding var randomPlayStatus: Bool
   @EnvironmentObject var audioPlayManager: AudioPlayManager
   @State var load_file : Bool = false
   @State private var sortOrder = [KeyPathComparator(\Playlists.Title)]
@@ -78,6 +79,7 @@ struct LocalPlaylistView: View
         }
       }
     }
+
   }
 
   func searchResult(AccessFile: [Playlists], searchString: String) ->[Playlists]

@@ -25,6 +25,8 @@ struct ContentView: View
   @State var selectedSongs: Playlists.ID?
   @State var SliderPlace: Double = 0.0
   @State var searchString: String = ""
+  @State var randomPlayStatus: Bool = false
+
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -39,10 +41,9 @@ struct ContentView: View
           Spacer()
             //          Search Bar for searching the song by name or by artist, album
           TextField("Search...", text: $searchString)
-            .disableAutocorrection(true)
             .cornerRadius(17)
-            .padding(.trailing)
-            .padding(.leading)
+            .padding([.trailing, .leading])
+            .textFieldStyle(.roundedBorder)
             //         Sidebar Navigation
           List
           {
@@ -55,7 +56,8 @@ struct ContentView: View
                                                            AccessFile: $AccessFile,
                                                            RecentPlayedArray: $RecentPlayedArray,
                                                            searchString: $searchString,
-                                                           CurrentTableSelection: $CurrentTableSelection
+                                                           CurrentTableSelection: $CurrentTableSelection,
+                                                           randomPlayStatus: $randomPlayStatus
                                                          )) {Label("Local Playlist", systemImage: "music.note.list")}
             NavigationLink(destination:RecentView( AccessFile:$AccessFile,
                                                    SliderPlace: $SliderPlace,
@@ -137,7 +139,24 @@ struct ContentView: View
                   }
 
                 }.onChange(of: SliderPlace, perform: { newValue in
+                  let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
+                  let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
                   repeatPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, repeatStatusButton: repeatStatusButton)
+                  if (currentTime == duration)
+                  {
+                    if (randomPlayStatus)
+                    {
+                      randomPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, randomPlayStatus: randomPlayStatus)
+                      CurrentTableSelection = selectedSongs
+                      RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+                    }
+                    else
+                    {
+                      Forward(AccessFile: AccessFile)
+                      CurrentTableSelection = selectedSongs
+                      RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+                    }
+                  }
                 })
                 .padding(.horizontal)
                 Spacer()
@@ -147,9 +166,11 @@ struct ContentView: View
                 //             Here is the button for Backward, forward and Play/Pause
               HStack
               {
-                Button {
+                Button
+                {
                   repeatStatusButton.toggle()
-                } label: {
+                } label:
+                {
                   if (repeatStatusButton)
                   {
                     Image(systemName: "infinity.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -211,6 +232,21 @@ struct ContentView: View
                     Image(systemName: "stop.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }.buttonStyle(PlainButtonStyle())
                 }
+
+                Button
+                {
+                  randomPlayStatus.toggle()
+                } label: {
+                  if (randomPlayStatus)
+                  {
+                    Image(systemName: "shuffle.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }
+                  else
+                  {
+                    Image(systemName: "shuffle.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }
+                }
+
               }.buttonStyle(PlainButtonStyle()).padding(.top, 10)
                 //             The Slider updater
                 .onReceive(timer)
@@ -226,11 +262,13 @@ struct ContentView: View
               }
             }
           }
-
         }
       }
     }
   }
+
+
+
 
   /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
@@ -270,11 +308,14 @@ struct ContentView: View
             audioPlayManager.player?.currentTime = 0
             break
           }
-          selectedSongs = AccessFile[newIndex].id
-          playStatusButton = true
-          SliderPlace = 0
-          audioPlayManager.startPlayer(url: FileURL[newIndex])
-          break
+          else
+          {
+            selectedSongs = AccessFile[newIndex].id
+            playStatusButton = true
+            SliderPlace = 0
+            audioPlayManager.startPlayer(url: FileURL[newIndex])
+            break
+          }
         }
       }
     }
@@ -330,20 +371,14 @@ struct ContentView: View
 
     if (repeatStatusButton == true)
     {
-      print(currentTime)
-      print(duration)
       if (currentTime == duration)
       {
-        print("here1")
         playStatusButton = false
         audioPlayManager.Stop()
-        print("here3")
         for indexPlaylist in 0..<FileURL.count
         {
-          print("here4")
           if (AccessFile[indexPlaylist].id == CurrentTableSelection)
           {
-            print("here5")
             playStatusButton = true
             audioPlayManager.startPlayer(url: FileURL[indexPlaylist])
             SliderPlace = 0
@@ -355,51 +390,65 @@ struct ContentView: View
     }
   }
 
-  /*---------------------------------------------- Format Function --------------------------------------------------------------------------*/
-
-  /**
-   * @brief This function is to formatting the current playing time
-   * @param SliderAudioPlayer is the player status
-   * @return String is the time stamp in the String format
-   */
-  func CurrentTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+  func randomPlay(AccessFile:[Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], randomPlayStatus: Bool)
   {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    let MinutesFormatter = formatter.string(from: SliderAudioPlayer.currentTime) ?? "0:00"
-    return MinutesFormatter
-  }
-
-  /**
-   * @brief This function is to formatting the duration time
-   * @SliderAudioPlayer is the player status
-   * @return String is the time stamp in the String format
-   */
-  func LeftTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
-  {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - SliderAudioPlayer.currentTime) ?? String(SliderAudioPlayer.duration)
-    return remainFormatter
-  }
-
-  /**
-   * @brief This function is to formatting the duration time
-   * @SliderAudioPlayer is the player status
-   * @return String is the time stamp in the String format
-   */
-  func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
-  {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - 1) ?? String(SliderAudioPlayer.duration)
-    return remainFormatter
+    let randomIndex = Int.random(in: 0..<AccessFile.count)
+    playStatusButton = false
+    audioPlayManager.Stop()
+    selectedSongs = AccessFile[randomIndex].id
+    playStatusButton = true
+    SliderPlace = 0
+    audioPlayManager.startPlayer(url: FileURL[randomIndex])
   }
 }
 
+
+/*---------------------------------------------- Format Function --------------------------------------------------------------------------*/
+
+/**
+ * @brief This function is to formatting the current playing time
+ * @param SliderAudioPlayer is the player status
+ * @return String is the time stamp in the String format
+ */
+func CurrentTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+{
+  let formatter = DateComponentsFormatter()
+  formatter.zeroFormattingBehavior = .pad
+  formatter.allowedUnits = [.minute, .second]
+  let MinutesFormatter = formatter.string(from: SliderAudioPlayer.currentTime) ?? "0:00"
+  return MinutesFormatter
+}
+
+/**
+ * @brief This function is to formatting the duration time
+ * @SliderAudioPlayer is the player status
+ * @return String is the time stamp in the String format
+ */
+func LeftTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+{
+  let formatter = DateComponentsFormatter()
+  formatter.zeroFormattingBehavior = .pad
+  formatter.allowedUnits = [.minute, .second]
+  let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - SliderAudioPlayer.currentTime) ?? String(SliderAudioPlayer.duration)
+  return remainFormatter
+}
+
+/**
+ * @brief This function is to formatting the duration time
+ * @SliderAudioPlayer is the player status
+ * @return String is the time stamp in the String format
+ */
+func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+{
+  let formatter = DateComponentsFormatter()
+  formatter.zeroFormattingBehavior = .pad
+  formatter.allowedUnits = [.minute, .second]
+  let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - 1) ?? String(SliderAudioPlayer.duration)
+  return remainFormatter
+}
+
+
+/*------------------------------------------------------------- History Playlist Function -------------------------------------------------*/
 /**
  * @brief This function is to detect what song has been played reciently
  * @param AccessFile is a Array of playlists that contains the name of the song
