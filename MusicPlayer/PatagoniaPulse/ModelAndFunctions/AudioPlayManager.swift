@@ -20,6 +20,7 @@ final class AudioPlayManager: ObservableObject
     do
     {
       player =  try AVAudioPlayer(contentsOf: URL(fileURLWithPath: url))
+
       player?.prepareToPlay()
       player?.play()
     } catch
