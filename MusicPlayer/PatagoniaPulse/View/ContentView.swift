@@ -270,24 +270,17 @@ struct ContentView: View
   func selectFolderAndProcess() async
   {
     let getmetaDuration = metaDuration
-    while(true)
+    if (getmetaDuration.isEmpty)
     {
-      if (getmetaDuration.isEmpty)
+      let alert = NSAlert()
+      alert.messageText = "Error"
+      alert.informativeText = "The folder you choose does not have any music."
+      alert.alertStyle = .critical
+      alert.addButton(withTitle: "Quit")
+      let response = alert.runModal()
+      if (response == .alertFirstButtonReturn)
       {
-        let alert = NSAlert()
-        alert.messageText = "Error"
-        alert.informativeText = "The folder you choose does not have any music."
-        alert.alertStyle = .critical
-        alert.addButton(withTitle: "Quit")
-        let response = alert.runModal()
-        if (response == .alertFirstButtonReturn)
-        {
-            NSApp.terminate(nil)
-        }
-      }
-      else
-      {
-        break
+        NSApp.terminate(nil)
       }
     }
     for content in 0..<FileNameContents.count
@@ -309,65 +302,35 @@ struct ContentView: View
   }
 
 
-    /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
-    /**
-     * @brief This function is to control the audio forward
-     * @param AccessFile is a Array of Playlists to forward
-     * @return void
-     */
-    func Forward(AccessFile: [Playlists])
+  /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
+  /**
+   * @brief This function is to control the audio forward
+   * @param AccessFile is a Array of Playlists to forward
+   * @return void
+   */
+  func Forward(AccessFile: [Playlists])
+  {
+    for IndexForward in 0..<AccessFile.count
     {
-      for IndexForward in 0..<AccessFile.count
+      if (AccessFile[IndexForward].id == selectedSongs)
       {
-        if (AccessFile[IndexForward].id == selectedSongs)
+        if (IndexForward == AccessFile.count)
         {
-          if (IndexForward == AccessFile.count)
-          {
-            audioPlayManager.Stop()
-            playStatusButton = false
-            audioPlayManager.player?.currentTime = 0
-            break
-          }
-          else
-          {
-            if ((audioPlayManager.player?.isPlaying) != nil)
-            {
-              audioPlayManager.Stop()
-              playStatusButton = false
-              audioPlayManager.player?.currentTime = 0
-            }
-            let newIndex = IndexForward + 1
-            if (newIndex == AccessFile.count)
-            {
-              audioPlayManager.Stop()
-              playStatusButton = false
-              audioPlayManager.player?.currentTime = 0
-              break
-            }
-            else
-            {
-              selectedSongs = AccessFile[newIndex].id
-              playStatusButton = true
-              audioPlayManager.startPlayer(url: FileURL[newIndex])
-              break
-            }
-          }
+          audioPlayManager.Stop()
+          playStatusButton = false
+          audioPlayManager.player?.currentTime = 0
+          break
         }
-      }
-    }
-
-    /**
-     * @brief This function is to control the audio backward
-     * @param AccessFile is a Array of Playlists to backward
-     * @return void
-     */
-    func Backward(AccessFile: [Playlists])
-    {
-      for IndexBackward in 0..<AccessFile.count
-      {
-        if (AccessFile[IndexBackward].id == selectedSongs)
+        else
         {
-          if (IndexBackward == 0)
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.Stop()
+            playStatusButton = false
+            audioPlayManager.player?.currentTime = 0
+          }
+          let newIndex = IndexForward + 1
+          if (newIndex == AccessFile.count)
           {
             audioPlayManager.Stop()
             playStatusButton = false
@@ -376,191 +339,221 @@ struct ContentView: View
           }
           else
           {
-            if ((audioPlayManager.player?.isPlaying) != nil)
-            {
-              audioPlayManager.Stop()
-              playStatusButton = false
-              audioPlayManager.player?.currentTime = 0
-            }
-            selectedSongs = AccessFile[IndexBackward - 1].id
+            selectedSongs = AccessFile[newIndex].id
             playStatusButton = true
-            audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
+            audioPlayManager.startPlayer(url: FileURL[newIndex])
             break
           }
         }
       }
     }
+  }
 
-    /**
-     * @brief This function is to control the audio repeat
-     * @param AccessFile is a Array of Playlists to repeat
-     * @return void
-     */
-    func repeatPlay(AccessFile: [Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], repeatStatusButton: Bool, currentTime: String, duration: String)
+  /**
+   * @brief This function is to control the audio backward
+   * @param AccessFile is a Array of Playlists to backward
+   * @return void
+   */
+  func Backward(AccessFile: [Playlists])
+  {
+    for IndexBackward in 0..<AccessFile.count
     {
-      playStatusButton = false
-      audioPlayManager.Stop()
-      for indexPlaylist in 0..<FileURL.count
+      if (AccessFile[IndexBackward].id == selectedSongs)
       {
-        if (AccessFile[indexPlaylist].id == CurrentTableSelection)
+        if (IndexBackward == 0)
         {
+          audioPlayManager.Stop()
+          playStatusButton = false
+          audioPlayManager.player?.currentTime = 0
+          break
+        }
+        else
+        {
+          if ((audioPlayManager.player?.isPlaying) != nil)
+          {
+            audioPlayManager.Stop()
+            playStatusButton = false
+            audioPlayManager.player?.currentTime = 0
+          }
+          selectedSongs = AccessFile[IndexBackward - 1].id
           playStatusButton = true
-          audioPlayManager.startPlayer(url: FileURL[indexPlaylist])
+          audioPlayManager.startPlayer(url: FileURL[IndexBackward - 1])
           break
         }
       }
-
-    }
-
-    func randomPlay(AccessFile:[Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], randomPlayStatus: Bool)
-    {
-      let randomIndex = Int.random(in: 0..<AccessFile.count)
-      playStatusButton = false
-      audioPlayManager.Stop()
-      selectedSongs = AccessFile[randomIndex].id
-      playStatusButton = true
-      audioPlayManager.startPlayer(url: FileURL[randomIndex])
     }
   }
 
-
-  /*---------------------------------------------- Format Function --------------------------------------------------------------------------*/
-
   /**
-   * @brief This function is to formatting the current playing time
-   * @param SliderAudioPlayer is the player status
-   * @return String is the time stamp in the String format
-   */
-  func CurrentTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
-  {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    let MinutesFormatter = formatter.string(from: SliderAudioPlayer.currentTime) ?? "0:00"
-    return MinutesFormatter
-  }
-
-  /**
-   * @brief This function is to formatting the duration time
-   * @SliderAudioPlayer is the player status
-   * @return String is the time stamp in the String format
-   */
-  func LeftTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
-  {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - SliderAudioPlayer.currentTime) ?? String(SliderAudioPlayer.duration)
-    return remainFormatter
-  }
-
-  /**
-   * @brief This function is to formatting the duration time
-   * @SliderAudioPlayer is the player status
-   * @return String is the time stamp in the String format
-   */
-  func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
-  {
-    let formatter = DateComponentsFormatter()
-    formatter.zeroFormattingBehavior = .pad
-    formatter.allowedUnits = [.minute, .second]
-    let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - 1) ?? String(SliderAudioPlayer.duration)
-    return remainFormatter
-  }
-
-
-  /*------------------------------------------------------------- History Playlist Function -------------------------------------------------*/
-  /**
-   * @brief This function is to detect what song has been played reciently
-   * @param AccessFile is a Array of playlists that contains the name of the song
-   * @param selectedSongs is the id of the current selected songs
-   * @param RecentPlayedArray is the array that stores the name of the current played songs
+   * @brief This function is to control the audio repeat
+   * @param AccessFile is a Array of Playlists to repeat
    * @return void
    */
-  func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
+  func repeatPlay(AccessFile: [Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], repeatStatusButton: Bool, currentTime: String, duration: String)
   {
-    if (selectedSongs?.description != nil)
+    playStatusButton = false
+    audioPlayManager.Stop()
+    for indexPlaylist in 0..<FileURL.count
     {
-      if (RecentPlayedArray.count > 0)
+      if (AccessFile[indexPlaylist].id == CurrentTableSelection)
       {
-          //        If found in the Recent Array, swap it with index 0
-        var AppendIndex: Int = 0
-        var StopFlag: Bool = false
-        while (!StopFlag && AppendIndex < RecentPlayedArray.count)
-        {
-          if (RecentPlayedArray[AppendIndex].id == selectedSongs)
-          {
-            RecentPlayedArray.swapAt(AppendIndex, 0)
-            StopFlag = true
-          }
-          AppendIndex += 1
-        }
-          //        If it does not found in Recent Array, append it
-        if (!StopFlag)
-        {
-          var AppendIndexAccess: Int = 0
-          var AppendFinished: Bool = false
-          while (!AppendFinished && AppendIndexAccess < AccessFile.count)
-          {
-            if (AccessFile[AppendIndexAccess].id == selectedSongs)
-            {
-              RecentPlayedArray.append(AccessFile[AppendIndexAccess])
-              AppendFinished = true
-            }
-            AppendIndexAccess += 1
-          }
-        }
-      }
-        //    First Element insert
-      else
-      {
-        var AppendIndexAppend: Int = 0
-        var StopFlagAppend: Bool = false
-        while (!StopFlagAppend)
-        {
-          if (selectedSongs == AccessFile[AppendIndexAppend].id)
-          {
-            RecentPlayedArray.append(AccessFile[AppendIndexAppend])
-            StopFlagAppend = true
-          }
-          AppendIndexAppend += 1
-        }
+        playStatusButton = true
+        audioPlayManager.startPlayer(url: FileURL[indexPlaylist])
+        break
       }
     }
+
   }
 
-  /**
-   * @brief This function is to get the name of the song that is current playing
-   * @param AccessFile is an array of Playlist object
-   * @param selectedSongs is the id of the songs that is currently selected
-   * @return String is the name of the playing song
-   */
-  func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> String
+  func randomPlay(AccessFile:[Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], randomPlayStatus: Bool)
   {
-    for SongNameIndex in 0..<AccessFile.count
-    {
-      if (AccessFile[SongNameIndex].id == selectedSongs)
-      {
-        return AccessFile[SongNameIndex].Title
-      }
-    }
-    return ""
+    let randomIndex = Int.random(in: 0..<AccessFile.count)
+    playStatusButton = false
+    audioPlayManager.Stop()
+    selectedSongs = AccessFile[randomIndex].id
+    playStatusButton = true
+    audioPlayManager.startPlayer(url: FileURL[randomIndex])
   }
+}
 
-  /**
-   * @brief This function is to get the image of the current playing song's album
-   * @param AccessFile is an array of Playlists object
-   * @param selectedSongs is the id of the current playing song
-   * @return Image is the cover of the album
-   */
-  func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> Image
+
+/*---------------------------------------------- Format Function --------------------------------------------------------------------------*/
+
+/**
+ * @brief This function is to formatting the current playing time
+ * @param SliderAudioPlayer is the player status
+ * @return String is the time stamp in the String format
+ */
+func CurrentTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+{
+  let formatter = DateComponentsFormatter()
+  formatter.zeroFormattingBehavior = .pad
+  formatter.allowedUnits = [.minute, .second]
+  let MinutesFormatter = formatter.string(from: SliderAudioPlayer.currentTime) ?? "0:00"
+  return MinutesFormatter
+}
+
+/**
+ * @brief This function is to formatting the duration time
+ * @SliderAudioPlayer is the player status
+ * @return String is the time stamp in the String format
+ */
+func LeftTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+{
+  let formatter = DateComponentsFormatter()
+  formatter.zeroFormattingBehavior = .pad
+  formatter.allowedUnits = [.minute, .second]
+  let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - SliderAudioPlayer.currentTime) ?? String(SliderAudioPlayer.duration)
+  return remainFormatter
+}
+
+/**
+ * @brief This function is to formatting the duration time
+ * @SliderAudioPlayer is the player status
+ * @return String is the time stamp in the String format
+ */
+func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
+{
+  let formatter = DateComponentsFormatter()
+  formatter.zeroFormattingBehavior = .pad
+  formatter.allowedUnits = [.minute, .second]
+  let remainFormatter = formatter.string(from: SliderAudioPlayer.duration - 1) ?? String(SliderAudioPlayer.duration)
+  return remainFormatter
+}
+
+
+/*------------------------------------------------------------- History Playlist Function -------------------------------------------------*/
+/**
+ * @brief This function is to detect what song has been played reciently
+ * @param AccessFile is a Array of playlists that contains the name of the song
+ * @param selectedSongs is the id of the current selected songs
+ * @param RecentPlayedArray is the array that stores the name of the current played songs
+ * @return void
+ */
+func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
+{
+  if (selectedSongs?.description != nil)
   {
-    for AlbumImageIndex in 0..<AccessFile.count
+    if (RecentPlayedArray.count > 0)
     {
-      if (AccessFile[AlbumImageIndex].id == selectedSongs)
+        //        If found in the Recent Array, swap it with index 0
+      var AppendIndex: Int = 0
+      var StopFlag: Bool = false
+      while (!StopFlag && AppendIndex < RecentPlayedArray.count)
       {
-        return Image(nsImage: AccessFile[AlbumImageIndex].image!)
+        if (RecentPlayedArray[AppendIndex].id == selectedSongs)
+        {
+          RecentPlayedArray.swapAt(AppendIndex, 0)
+          StopFlag = true
+        }
+        AppendIndex += 1
+      }
+        //        If it does not found in Recent Array, append it
+      if (!StopFlag)
+      {
+        var AppendIndexAccess: Int = 0
+        var AppendFinished: Bool = false
+        while (!AppendFinished && AppendIndexAccess < AccessFile.count)
+        {
+          if (AccessFile[AppendIndexAccess].id == selectedSongs)
+          {
+            RecentPlayedArray.append(AccessFile[AppendIndexAccess])
+            AppendFinished = true
+          }
+          AppendIndexAccess += 1
+        }
       }
     }
-    return Image("")
+      //    First Element insert
+    else
+    {
+      var AppendIndexAppend: Int = 0
+      var StopFlagAppend: Bool = false
+      while (!StopFlagAppend)
+      {
+        if (selectedSongs == AccessFile[AppendIndexAppend].id)
+        {
+          RecentPlayedArray.append(AccessFile[AppendIndexAppend])
+          StopFlagAppend = true
+        }
+        AppendIndexAppend += 1
+      }
+    }
   }
+}
+
+/**
+ * @brief This function is to get the name of the song that is current playing
+ * @param AccessFile is an array of Playlist object
+ * @param selectedSongs is the id of the songs that is currently selected
+ * @return String is the name of the playing song
+ */
+func getPlayingSongName(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> String
+{
+  for SongNameIndex in 0..<AccessFile.count
+  {
+    if (AccessFile[SongNameIndex].id == selectedSongs)
+    {
+      return AccessFile[SongNameIndex].Title
+    }
+  }
+  return ""
+}
+
+/**
+ * @brief This function is to get the image of the current playing song's album
+ * @param AccessFile is an array of Playlists object
+ * @param selectedSongs is the id of the current playing song
+ * @return Image is the cover of the album
+ */
+func AlbumImageDisplay(AccessFile: [Playlists], selectedSongs: Playlists.ID?) -> Image
+{
+  for AlbumImageIndex in 0..<AccessFile.count
+  {
+    if (AccessFile[AlbumImageIndex].id == selectedSongs)
+    {
+      return Image(nsImage: AccessFile[AlbumImageIndex].image!)
+    }
+  }
+  return Image("")
+}
