@@ -269,8 +269,7 @@ struct ContentView: View
    */
   func selectFolderAndProcess() async
   {
-    let getmetaDuration = metaDuration
-    if (getmetaDuration.isEmpty)
+    if (metaDuration.isEmpty)
     {
       let alert = NSAlert()
       alert.messageText = "Error"
