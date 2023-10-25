@@ -278,7 +278,7 @@ struct ContentView: View
         alert.messageText = "Error"
         alert.informativeText = "The folder you choose does not have any music."
         alert.alertStyle = .critical
-        alert.addButton(withTitle: "Quit and Relaunch")
+        alert.addButton(withTitle: "Quit")
         let response = alert.runModal()
         if (response == .alertFirstButtonReturn)
         {
