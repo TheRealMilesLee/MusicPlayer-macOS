@@ -66,29 +66,21 @@ func GetAsset() async
  * @brief This function is to get the file name from the folder that user specified
  * @return Array<String>
  */
-func getFileNameArray() -> Array<String>
+func getFileNameArray() -> [String]
 {
-  let FileHandler_user = FileManager.default
-  var MusicFileArray: [String] = []
-  do
-  {
-    let contents = try FileHandler_user.contentsOfDirectory(atPath: user_folder!.path)
-    for iteration in 0..<contents.count
+    let fileManager = FileManager.default
+    do
     {
-      if (contents[iteration] == ".DS_Store")
-      {
-        continue
-      }
-      MusicFileArray.append(contents[iteration])
+        let contents = try fileManager.contentsOfDirectory(atPath: user_folder!.path)
+        let musicFileArray = contents.filter { $0 != ".DS_Store" }
+        return musicFileArray
     }
-  }
-  catch
-  {
-    print("File read error at \(error)")
-  }
-  return MusicFileArray
+    catch
+    {
+        print("File read error: \(error)")
+        return []
+    }
 }
-
 /**
  * @brief This function is to get the file name from the folder that user specified with the path of the folder
  * @return Array<String>
