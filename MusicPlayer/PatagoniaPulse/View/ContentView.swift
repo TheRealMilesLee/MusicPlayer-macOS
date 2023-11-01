@@ -31,7 +31,7 @@ struct ContentView: View
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
-      //    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
+      //    Layout: Upper Part is the Navigation Side View and the content of the navigation Bar.Lower part is the music playback controller
     VStack
     {
         //      Navigation bar for the page change in different views
@@ -440,7 +440,7 @@ func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
 
 /*------------------------------------------------------------- History Playlist Function -------------------------------------------------*/
 /**
- * @brief This function is to detect what song has been played reciently
+ * @brief This function is to detect what song has been played recently
  * @param AccessFile is a Array of playlists that contains the name of the song
  * @param selectedSongs is the id of the current selected songs
  * @param RecentPlayedArray is the array that stores the name of the current played songs
