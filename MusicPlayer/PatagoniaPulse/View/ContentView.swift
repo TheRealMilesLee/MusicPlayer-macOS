@@ -27,7 +27,7 @@ struct ContentView: View
   @State var searchString: String = ""
   @State var randomPlayStatus: Bool = false
   @State var presentPopup = false
-
+  
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -88,7 +88,7 @@ struct ContentView: View
           }
           .padding(.bottom)
             //             Load file and asset from the disk
-          .onAppear(perform: {Task { await GetAsset()
+          .onAppear(perform:{Task{ await GetAsset()
             for content in 0..<FileNameContents.count
             {
               let BeforechoppedFileName = FileNameContents[content]
@@ -104,7 +104,8 @@ struct ContentView: View
               let AlbumImage = NSImage(data: metaArtwork[content] as Data)
               AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
             }
-          }})
+          }
+          })
         }
       }
       Spacer()
@@ -138,7 +139,7 @@ struct ContentView: View
                   {
                     SliderAudioplayer.currentTime = SliderPlace
                   }
-
+                  
                 }.onChange(of: SliderPlace, perform: { newValue in
                   let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
                   let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
@@ -189,7 +190,7 @@ struct ContentView: View
                     Image(systemName: "infinity.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }
                 }
-
+                
                   // Backward button
                 Button(action: {
                   Backward(AccessFile: AccessFile)
@@ -199,7 +200,7 @@ struct ContentView: View
                 {
                   Image(systemName: "backward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }.buttonStyle(PlainButtonStyle())
-
+                
                   // Play/Pause button
                 Button(action:{
                   playStatusButton.toggle()
@@ -215,7 +216,7 @@ struct ContentView: View
                     Image(systemName: "pause.fill").font(.title3)
                   }
                 }.buttonStyle(PlainButtonStyle()).padding([.leading, .bottom, .trailing]).multilineTextAlignment(.center)
-
+                
                   // Forward button
                 Button(action: {
                   Forward(AccessFile: AccessFile)
@@ -225,7 +226,7 @@ struct ContentView: View
                 {
                   Image(systemName: "forward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }.buttonStyle(PlainButtonStyle())
-
+                
                   // Stop Button, only appear if is playing
                 if ((audioPlayManager.player?.isPlaying) != nil)
                 {
@@ -241,7 +242,7 @@ struct ContentView: View
                     Image(systemName: "stop.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }.buttonStyle(PlainButtonStyle())
                 }
-
+                
                 Button
                 {
                   randomPlayStatus.toggle()
@@ -256,14 +257,14 @@ struct ContentView: View
                     Image(systemName: "shuffle.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }
                 }
-
+                
               }.buttonStyle(PlainButtonStyle()).padding(.top, 10)
                 //             The Slider updater
                 .onReceive(timer)
               {  _ in
                 guard let playerStatus = audioPlayManager.player else {return}
                 SliderPlace = playerStatus.currentTime
-
+                
               }
                 //              Current playing song name display
               if ((audioPlayManager.player?.isPlaying) != nil)
@@ -276,7 +277,7 @@ struct ContentView: View
       }
     }
   }
-
+  
     //  /*---------------------------------------------------- Read in empty handling -------------------------------------------------------------------*/
     //  /**
     //   * @brief This function is to handling when the user selected folder does not have any music files
@@ -314,8 +315,8 @@ struct ContentView: View
     //      AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
     //    }
     //  }
-
-
+  
+  
   /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
    * @brief This function is to control the audio forward
@@ -362,7 +363,7 @@ struct ContentView: View
       }
     }
   }
-
+  
   /**
    * @brief This function is to control the audio backward
    * @param AccessFile is a Array of Playlists to backward
@@ -397,7 +398,7 @@ struct ContentView: View
       }
     }
   }
-
+  
   /**
    * @brief This function is to control the audio repeat
    * @param AccessFile is a Array of Playlists to repeat
@@ -416,9 +417,9 @@ struct ContentView: View
         break
       }
     }
-
+    
   }
-
+  
   func randomPlay(AccessFile:[Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], randomPlayStatus: Bool)
   {
     let randomIndex = Int.random(in: 0..<AccessFile.count)
