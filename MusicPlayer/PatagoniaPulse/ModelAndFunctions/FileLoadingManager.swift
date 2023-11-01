@@ -89,8 +89,8 @@ func MusicPlayFileArray() -> Array<String>
   var MusicFileWithPath: [String] = []
   for filePath in 0..<FileName.count
   {
-    let ConcateneteResult = (user_folder?.path())! + FileName[filePath]
-    MusicFileWithPath.append(ConcateneteResult)
+    let ConcatenateResult = (user_folder?.path())! + FileName[filePath]
+    MusicFileWithPath.append(ConcatenateResult)
   }
   return MusicFileWithPath
 }

@@ -31,7 +31,7 @@ struct ContentView: View
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
-      //    Layout: Upper Part is the Navigationn Side View and the content of the navigation Bar.Lower part is the music playback controller
+      //    Layout: Upper Part is the Navigation Side View and the content of the navigation Bar.Lower part is the music playback controller
     VStack
     {
         //      Navigation bar for the page change in different views
@@ -278,45 +278,6 @@ struct ContentView: View
     }
   }
 
-    //  /*---------------------------------------------------- Read in empty handling -------------------------------------------------------------------*/
-    //  /**
-    //   * @brief This function is to handling when the user selected folder does not have any music files
-    //   * @return void
-    //   */
-    //  func selectFolderAndProcess() async
-    //  {
-    //    if (metaDuration.isEmpty)
-    //    {
-    //      let alert = NSAlert()
-    //      alert.messageText = "Error"
-    //      alert.informativeText = "The folder you choose does not have any music."
-    //      alert.alertStyle = .critical
-    //      alert.addButton(withTitle: "Quit")
-    //      let response = alert.runModal()
-    //      if (response == .alertFirstButtonReturn)
-    //      {
-    //        NSApp.terminate(nil)
-    //      }
-    //    }
-    //    for content in 0..<FileNameContents.count
-    //    {
-    //      let BeforechoppedFileName = FileNameContents[content]
-    //      let AfterChoppedFileName = BeforechoppedFileName
-    //        .replacingOccurrences(of: #".mp3"#, with: "")
-    //        .replacingOccurrences(of: #".mp4"#, with: "")
-    //        .replacingOccurrences(of: #".wav"#, with: "")
-    //        .replacingOccurrences(of: #".flac"#, with: "")
-    //        // Check if metaDuration is empty
-    //      let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
-    //      let DurationToMinutes = DurationTimeSeconds / 60
-    //      let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
-    //      let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-    //      let AlbumImage = NSImage(data: metaArtwork[content] as Data)
-    //      AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
-    //    }
-    //  }
-
-
   /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
    * @brief This function is to control the audio forward
@@ -479,7 +440,7 @@ func DurationTimeFormatting(SliderAudioPlayer: AVAudioPlayer) -> String
 
 /*------------------------------------------------------------- History Playlist Function -------------------------------------------------*/
 /**
- * @brief This function is to detect what song has been played reciently
+ * @brief This function is to detect what song has been played recently
  * @param AccessFile is a Array of playlists that contains the name of the song
  * @param selectedSongs is the id of the current selected songs
  * @param RecentPlayedArray is the array that stores the name of the current played songs
