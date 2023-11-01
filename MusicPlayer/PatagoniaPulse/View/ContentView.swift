@@ -105,171 +105,170 @@ struct ContentView: View
               AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
             }
           }})
-
         }
-        Spacer()
-          //       Music Playback controller, only appear if is currently playing
-        if(CurrentTableSelection != nil)
+      }
+      Spacer()
+        //       Music Playback controller, only appear if is currently playing
+      if(CurrentTableSelection != nil)
+      {
+        HStack
         {
-          HStack
+          if let SliderAudioplayer = audioPlayManager.player
           {
-            if let SliderAudioplayer = audioPlayManager.player
+              //             This is the Album image, song title and the slide bar
+            AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
+              .resizable()
+              .frame(width: 70.0, height: 70.0)
+              .shadow(radius: 6, x: 0, y: 3)
+              .padding([.top, .leading, .bottom])
+              .multilineTextAlignment(.leading)
+              //          Slider control, drag and drop and the current play time
+            VStack
             {
-                //             This is the Album image, song title and the slide bar
-              AlbumImageDisplay(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)
-                .resizable()
-                .frame(width: 70.0, height: 70.0)
-                .shadow(radius: 6, x: 0, y: 3)
-                .padding([.top, .leading, .bottom])
-                .multilineTextAlignment(.leading)
-                //          Slider control, drag and drop and the current play time
-              VStack
+                //              Playback time control
+              HStack(alignment: .center)
               {
-                  //              Playback time control
-                HStack(alignment: .center)
+                  //                Current Time
+                Text(CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
+                  //                Slider
+                Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
                 {
-                    //                Current Time
-                  Text(CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
-                    //                Slider
-                  Slider(value: $SliderPlace,in: 0...SliderAudioplayer.duration)
+                  Slide in
+                  if (!Slide)
                   {
-                    Slide in
-                    if (!Slide)
-                    {
-                      SliderAudioplayer.currentTime = SliderPlace
-                    }
+                    SliderAudioplayer.currentTime = SliderPlace
+                  }
 
-                  }.onChange(of: SliderPlace, perform: { newValue in
-                    let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
-                    let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
-                    if (currentTime == duration)
-                    {
-                      if (repeatStatusButton)
-                      {
-                        randomPlayStatus = false
-                        repeatPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, repeatStatusButton: repeatStatusButton, currentTime: currentTime, duration: duration)
-                      }
-                      else if (randomPlayStatus)
-                      {
-                        repeatStatusButton = false
-                        randomPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, randomPlayStatus: randomPlayStatus)
-                        CurrentTableSelection = selectedSongs
-                        RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
-                      }
-                      else
-                      {
-                        repeatStatusButton = false
-                        randomPlayStatus = false
-                        Forward(AccessFile: AccessFile)
-                        CurrentTableSelection = selectedSongs
-                        RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
-                      }
-                    }
-                  })
-                  .padding(.horizontal)
-                  Spacer()
-                    //                Remain time
-                  Text(LeftTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
-                }.padding(.horizontal, 150).multilineTextAlignment(.center)
-                  //             Here is the button for Backward, forward and Play/Pause
-                HStack
-                {
-                  Button
-                  {
-                    randomPlayStatus = false
-                    repeatStatusButton.toggle()
-                  } label:
+                }.onChange(of: SliderPlace, perform: { newValue in
+                  let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
+                  let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
+                  if (currentTime == duration)
                   {
                     if (repeatStatusButton)
                     {
-                      Image(systemName: "infinity.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                      randomPlayStatus = false
+                      repeatPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, repeatStatusButton: repeatStatusButton, currentTime: currentTime, duration: duration)
+                    }
+                    else if (randomPlayStatus)
+                    {
+                      repeatStatusButton = false
+                      randomPlay(AccessFile: AccessFile, SliderAudioplayer: SliderAudioplayer, FileURL: FileURL, randomPlayStatus: randomPlayStatus)
+                      CurrentTableSelection = selectedSongs
+                      RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
                     }
                     else
                     {
-                      Image(systemName: "infinity.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                      repeatStatusButton = false
+                      randomPlayStatus = false
+                      Forward(AccessFile: AccessFile)
+                      CurrentTableSelection = selectedSongs
+                      RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
                     }
                   }
-
-                    // Backward button
-                  Button(action: {
-                    Backward(AccessFile: AccessFile)
-                    CurrentTableSelection = selectedSongs
-                    RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray: &RecentPlayedArray)
-                  })
+                })
+                .padding(.horizontal)
+                Spacer()
+                  //                Remain time
+                Text(LeftTimeFormatting(SliderAudioPlayer: SliderAudioplayer))
+              }.padding(.horizontal, 150).multilineTextAlignment(.center)
+                //             Here is the button for Backward, forward and Play/Pause
+              HStack
+              {
+                Button
+                {
+                  randomPlayStatus = false
+                  repeatStatusButton.toggle()
+                } label:
+                {
+                  if (repeatStatusButton)
                   {
-                    Image(systemName: "backward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                  }.buttonStyle(PlainButtonStyle())
-
-                    // Play/Pause button
-                  Button(action:{
-                    playStatusButton.toggle()
-                    audioPlayManager.playPause()
-                  })
-                  {
-                    if (!playStatusButton)
-                    {
-                      Image(systemName: "play.fill").font(.title3)
-                    }
-                    else
-                    {
-                      Image(systemName: "pause.fill").font(.title3)
-                    }
-                  }.buttonStyle(PlainButtonStyle()).padding([.leading, .bottom, .trailing]).multilineTextAlignment(.center)
-
-                    // Forward button
-                  Button(action: {
-                    Forward(AccessFile: AccessFile)
-                    CurrentTableSelection = selectedSongs
-                    RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
-                  })
-                  {
-                    Image(systemName: "forward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                  }.buttonStyle(PlainButtonStyle())
-
-                    // Stop Button, only appear if is playing
-                  if ((audioPlayManager.player?.isPlaying) != nil)
-                  {
-                    Button
-                    {
-                      playStatusButton = false
-                      audioPlayManager.Stop()
-                      let player = audioPlayManager
-                      SliderPlace = 0
-                      player.player?.currentTime = 0
-                    } label:
-                    {
-                      Image(systemName: "stop.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }.buttonStyle(PlainButtonStyle())
+                    Image(systemName: "infinity.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }
-
-                  Button
+                  else
                   {
-                    randomPlayStatus.toggle()
-                    repeatStatusButton = false
-                  } label: {
-                    if (randomPlayStatus)
-                    {
-                      Image(systemName: "shuffle.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                    else
-                    {
-                      Image(systemName: "shuffle.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
+                    Image(systemName: "infinity.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                   }
-
-                }.buttonStyle(PlainButtonStyle()).padding(.top, 10)
-                  //             The Slider updater
-                  .onReceive(timer)
-                {  _ in
-                  guard let playerStatus = audioPlayManager.player else {return}
-                  SliderPlace = playerStatus.currentTime
-
                 }
-                  //              Current playing song name display
+
+                  // Backward button
+                Button(action: {
+                  Backward(AccessFile: AccessFile)
+                  CurrentTableSelection = selectedSongs
+                  RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray: &RecentPlayedArray)
+                })
+                {
+                  Image(systemName: "backward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }.buttonStyle(PlainButtonStyle())
+
+                  // Play/Pause button
+                Button(action:{
+                  playStatusButton.toggle()
+                  audioPlayManager.playPause()
+                })
+                {
+                  if (!playStatusButton)
+                  {
+                    Image(systemName: "play.fill").font(.title3)
+                  }
+                  else
+                  {
+                    Image(systemName: "pause.fill").font(.title3)
+                  }
+                }.buttonStyle(PlainButtonStyle()).padding([.leading, .bottom, .trailing]).multilineTextAlignment(.center)
+
+                  // Forward button
+                Button(action: {
+                  Forward(AccessFile: AccessFile)
+                  CurrentTableSelection = selectedSongs
+                  RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
+                })
+                {
+                  Image(systemName: "forward.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }.buttonStyle(PlainButtonStyle())
+
+                  // Stop Button, only appear if is playing
                 if ((audioPlayManager.player?.isPlaying) != nil)
                 {
-                  Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding([.leading, .bottom, .trailing])
+                  Button
+                  {
+                    playStatusButton = false
+                    audioPlayManager.Stop()
+                    let player = audioPlayManager
+                    SliderPlace = 0
+                    player.player?.currentTime = 0
+                  } label:
+                  {
+                    Image(systemName: "stop.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }.buttonStyle(PlainButtonStyle())
                 }
+
+                Button
+                {
+                  randomPlayStatus.toggle()
+                  repeatStatusButton = false
+                } label: {
+                  if (randomPlayStatus)
+                  {
+                    Image(systemName: "shuffle.circle.fill").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }
+                  else
+                  {
+                    Image(systemName: "shuffle.circle").font(.title3).padding([.leading, .bottom, .trailing]).multilineTextAlignment(/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  }
+                }
+
+              }.buttonStyle(PlainButtonStyle()).padding(.top, 10)
+                //             The Slider updater
+                .onReceive(timer)
+              {  _ in
+                guard let playerStatus = audioPlayManager.player else {return}
+                SliderPlace = playerStatus.currentTime
+
+              }
+                //              Current playing song name display
+              if ((audioPlayManager.player?.isPlaying) != nil)
+              {
+                Text(getPlayingSongName(AccessFile: AccessFile, selectedSongs: CurrentTableSelection)).padding([.leading, .bottom, .trailing])
               }
             }
           }
@@ -278,43 +277,43 @@ struct ContentView: View
     }
   }
 
-//  /*---------------------------------------------------- Read in empty handling -------------------------------------------------------------------*/
-//  /**
-//   * @brief This function is to handling when the user selected folder does not have any music files
-//   * @return void
-//   */
-//  func selectFolderAndProcess() async
-//  {
-//    if (metaDuration.isEmpty)
-//    {
-//      let alert = NSAlert()
-//      alert.messageText = "Error"
-//      alert.informativeText = "The folder you choose does not have any music."
-//      alert.alertStyle = .critical
-//      alert.addButton(withTitle: "Quit")
-//      let response = alert.runModal()
-//      if (response == .alertFirstButtonReturn)
-//      {
-//        NSApp.terminate(nil)
-//      }
-//    }
-//    for content in 0..<FileNameContents.count
-//    {
-//      let BeforechoppedFileName = FileNameContents[content]
-//      let AfterChoppedFileName = BeforechoppedFileName
-//        .replacingOccurrences(of: #".mp3"#, with: "")
-//        .replacingOccurrences(of: #".mp4"#, with: "")
-//        .replacingOccurrences(of: #".wav"#, with: "")
-//        .replacingOccurrences(of: #".flac"#, with: "")
-//        // Check if metaDuration is empty
-//      let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
-//      let DurationToMinutes = DurationTimeSeconds / 60
-//      let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
-//      let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-//      let AlbumImage = NSImage(data: metaArtwork[content] as Data)
-//      AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
-//    }
-//  }
+    //  /*---------------------------------------------------- Read in empty handling -------------------------------------------------------------------*/
+    //  /**
+    //   * @brief This function is to handling when the user selected folder does not have any music files
+    //   * @return void
+    //   */
+    //  func selectFolderAndProcess() async
+    //  {
+    //    if (metaDuration.isEmpty)
+    //    {
+    //      let alert = NSAlert()
+    //      alert.messageText = "Error"
+    //      alert.informativeText = "The folder you choose does not have any music."
+    //      alert.alertStyle = .critical
+    //      alert.addButton(withTitle: "Quit")
+    //      let response = alert.runModal()
+    //      if (response == .alertFirstButtonReturn)
+    //      {
+    //        NSApp.terminate(nil)
+    //      }
+    //    }
+    //    for content in 0..<FileNameContents.count
+    //    {
+    //      let BeforechoppedFileName = FileNameContents[content]
+    //      let AfterChoppedFileName = BeforechoppedFileName
+    //        .replacingOccurrences(of: #".mp3"#, with: "")
+    //        .replacingOccurrences(of: #".mp4"#, with: "")
+    //        .replacingOccurrences(of: #".wav"#, with: "")
+    //        .replacingOccurrences(of: #".flac"#, with: "")
+    //        // Check if metaDuration is empty
+    //      let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
+    //      let DurationToMinutes = DurationTimeSeconds / 60
+    //      let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
+    //      let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
+    //      let AlbumImage = NSImage(data: metaArtwork[content] as Data)
+    //      AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
+    //    }
+    //  }
 
 
   /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
