@@ -68,20 +68,6 @@ func GetAsset() async
  */
 func getFileNameArray() -> [String]
 {
-<<<<<<< HEAD
-    let fileManager = FileManager.default
-    do
-    {
-        let contents = try fileManager.contentsOfDirectory(atPath: user_folder!.path)
-        let musicFileArray = contents.filter { $0 != ".DS_Store" }
-        return musicFileArray
-    }
-    catch
-    {
-        print("File read error: \(error)")
-        return []
-    }
-=======
   let fileManager = FileManager.default
   do
   {
@@ -92,7 +78,6 @@ func getFileNameArray() -> [String]
     print("File read error: \(error)")
     return []
   }
->>>>>>> 4ff017a (formatting)
 }
 /**
  * @brief This function is to get the file name from the folder that user specified with the path of the folder
