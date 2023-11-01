@@ -78,6 +78,7 @@ struct RecentView: View
   
   func RecentPlayed(AccessFile: [Playlists], selectedSongs: Playlists.ID?, RecentPlayedArray: inout [Playlists])
   {
+    print(RecentPlayedArray.count)
     if (selectedSongs?.description != nil)
     {
       if (RecentPlayedArray.count > 0)
