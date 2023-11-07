@@ -11,12 +11,17 @@ on:
 
 jobs:
   build:
+      runs-on: macOS-latest
 
-    runs-on: macos-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+          xcode-version: 13  # Change to your desired Xcode version
+
+      - name: Build macOS app
+        run: |
+          xcodebuild -project PatagoniaPulse.xcodeproj -scheme PatagoniaPulse -configuration Release
