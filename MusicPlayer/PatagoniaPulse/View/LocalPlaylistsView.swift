@@ -8,9 +8,7 @@
  */
 import SwiftUI
 import AVKit
-import AVFoundation
 import AppKit
-import Cocoa
 struct LocalPlaylistView: View
 {
   @Binding var FileNameContents: Array<String>

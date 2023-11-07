@@ -6,12 +6,10 @@
  * @date 2022-12-12
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
-import Foundation
+
 import SwiftUI
 import MusicKit
-import AVFoundation
 import AVKit
-import MediaPlayer
 import AppKit
 
 var audioPlayer: AVAudioPlayer!
