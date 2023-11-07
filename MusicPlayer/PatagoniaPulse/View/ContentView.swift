@@ -378,7 +378,6 @@ struct ContentView: View
         break
       }
     }
-
   }
 
   func randomPlay(AccessFile:[Playlists], SliderAudioplayer: AVAudioPlayer, FileURL: [String], randomPlayStatus: Bool)
