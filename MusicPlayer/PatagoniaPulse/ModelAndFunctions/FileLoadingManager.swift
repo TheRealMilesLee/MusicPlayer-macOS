@@ -133,7 +133,6 @@ func FindTitle(AccessFile: [Playlists], selectedSongs: Playlists.ID?, URLArray: 
 func readInRecentFileURL(RecentArray: [Playlists], selectedRecentSongs: Playlists.ID?) ->String
 {
   let RecentURL = MusicPlayFileArray()
-
   for NameIndex in 0..<RecentArray.count
   {
     if (RecentArray[NameIndex].id == selectedRecentSongs)
