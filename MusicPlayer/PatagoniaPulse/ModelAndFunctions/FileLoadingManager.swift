@@ -8,7 +8,7 @@
  */
 
 import SwiftUI
-import MusicKit
+//import MusicKit
 import AVKit
 import AppKit
 
