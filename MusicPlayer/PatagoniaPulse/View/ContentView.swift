@@ -43,23 +43,23 @@ struct ContentView: View
           Spacer()
             //          Search Bar for searching the song by name or by artist, album
           TextField("Search...", text: $searchString) //TODO: Searchbar would report NSSecureCoding and NSXPCDecoder error
-//            .cornerRadius(17)
-//            .padding([.trailing, .leading])
-//            .textFieldStyle(.roundedBorder)
-//            .onChange(of: searchString, {
-//              if (!validate(searchString: searchString))
-//              {
-//                let alert = NSAlert()
-//                alert.messageText = "Invalid song name"
-//                alert.informativeText = "Please search a valid song"
-//                alert.addButton(withTitle: "OK")
-//                let response = alert.runModal()
-//                if response == .alertFirstButtonReturn 
-//                {
-//                  searchString = ""
-//                }
-//              }
-//            })
+            .cornerRadius(17)
+            .padding([.trailing, .leading])
+            .textFieldStyle(.roundedBorder)
+            .onChange(of: searchString, {
+              if (!validate(searchString: searchString))
+              {
+                let alert = NSAlert()
+                alert.messageText = "Invalid song name"
+                alert.informativeText = "Please search a valid song"
+                alert.addButton(withTitle: "OK")
+                let response = alert.runModal()
+                if response == .alertFirstButtonReturn 
+                {
+                  searchString = ""
+                }
+              }
+            })
             //         Sidebar Navigation
           List
           {
