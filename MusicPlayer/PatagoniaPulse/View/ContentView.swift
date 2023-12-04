@@ -28,6 +28,7 @@ struct ContentView: View
   @State var searchString: String = ""
   @State var randomPlayStatus: Bool = false
   @State var presentPopup = false
+  @AppStorage("hasLaunchedBefore") var hasLaunchedBefore: Bool = false
 
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
@@ -54,7 +55,7 @@ struct ContentView: View
                 alert.informativeText = "Please search a valid song"
                 alert.addButton(withTitle: "OK")
                 let response = alert.runModal()
-                if response == .alertFirstButtonReturn 
+                if response == .alertFirstButtonReturn
                 {
                   searchString = ""
                 }
@@ -103,7 +104,10 @@ struct ContentView: View
           }
           .padding(.bottom)
             //             Load file and asset from the disk
-          .onAppear(perform:{Task{ await GetAsset()
+          .onAppear(perform:{Task{
+                        if (!hasLaunchedBefore)
+            {
+ await GetAsset()
             for content in 0..<FileNameContents.count
             {
               let BeforechoppedFileName = FileNameContents[content]
@@ -119,6 +123,9 @@ struct ContentView: View
               let AlbumImage = NSImage(data: metaArtwork[content] as Data)
               AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
             }
+            hasLaunchedBefore = true
+            }
+
           }
           })
         }
