@@ -40,7 +40,7 @@ class DoubleClickListeningView: NSView
     super.init(frame: .zero)
   }
 
-  required init?(coder: NSCoder)
+  required init?(coder: NSSecureEncoding)
   {
     fatalError("init(coder:) has not been implemented")
   }
