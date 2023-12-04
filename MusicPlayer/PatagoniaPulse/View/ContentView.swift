@@ -28,7 +28,7 @@ struct ContentView: View
   @State var searchString: String = ""
   @State var randomPlayStatus: Bool = false
   @State var presentPopup = false
-  @AppStorage("hasLaunchedBefore") var hasLaunchedBefore: Bool = false
+  @State var hasLaunchedBefore: Bool = false
 
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
