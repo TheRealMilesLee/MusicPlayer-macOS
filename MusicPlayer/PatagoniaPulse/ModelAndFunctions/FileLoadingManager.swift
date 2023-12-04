@@ -25,73 +25,39 @@ var metaDuration: [CMTime] = []
  */
 func GetAsset() async
 {
-    let getMusicPath = MusicPlayFileArray()
-    var tasks: [Task<Void, Error>] = []
-
-    for indexArray in getMusicPath
+  let getMusicPath = MusicPlayFileArray()
+  for indexArray in getMusicPath
+  {
+    let asset = AVPlayerItem(url: URL(fileURLWithPath: indexArray))
+    do
     {
-        let task = Task
+      let metadataList = try await asset.asset.load(.metadata)
+      for item in metadataList
+      {
+        if let key = item.commonKey, let value = try await item.load(.value)
         {
-            do
-            {
-                let asset = AVPlayerItem(url: URL(fileURLWithPath: indexArray))
-                let metadataList = try await asset.asset.load(.metadata)
-                var metaAlbum: String = "No AlbumName"
-                var metaArtist: String = "No Artist name"
-                var metaArtworkData: NSData?
-
-                for item in metadataList
-                {
-                    if let key = item.commonKey, let value = try await item.load(.value)
-                    {
-                        switch key.rawValue
-                        {
-                            case "albumName":
-                                metaAlbum = value as? String ?? "No AlbumName"
-                            case "artist":
-                                metaArtist = value as? String ?? "No Artist name"
-                            case "artwork":
-                                metaArtworkData = value as? NSData
-                            default:
-                                break
-                        }
-                    }
-                }
-
-                let durationAsset = AVURLAsset(url: URL(fileURLWithPath: indexArray), options: nil)
-                let songDuration = try await durationAsset.load(.duration)
-
-                // Update UI or store data (using concurrent-safe storage mechanisms) with the obtained metadata
-                updateMetadata(album: metaAlbum, artist: metaArtist, artworkData: metaArtworkData, duration: songDuration)
-
-            } catch {
-                print(error)
-            }
+          if (key.rawValue == "albumName")
+          {
+            metaAlbumArray.append(((value as? String) ?? "No AlbumName"))
+          }
+          if (key.rawValue == "artist")
+          {
+            metaArtistArray.append(((value as? String) ?? "No Artist name"))
+          }
+          if (key.rawValue == "artwork")
+          {
+            metaArtwork.append(value as! NSData)
+          }
         }
-
-        tasks.append(task)
+      }
+      let DurationAsset = AVURLAsset(url: URL(fileURLWithPath: indexArray), options: nil)
+      let SongDuration = try await DurationAsset.load(.duration)
+      metaDuration.append(SongDuration)
+    }catch
+    {
+      print(error)
     }
-
-    do {
-        // Wait for all tasks to complete
-        try await Task.withGroup(resultType: Void.self) { group in
-            for task in tasks
-            {
-                await group.add { try await task.value() }
-            }
-        }
-    } catch {
-        print(error)
-    }
-}
-
-// Function to handle the obtained metadata (You can modify it based on your use-case)
-func updateMetadata(album: String, artist: String, artworkData: NSData?, duration: CMTime)
-{
-    metaAlbumArray.append(album)
-    metaArtistArray.append(artist)
-    metaArtwork.append(artworkData)
-    metaDuration.append(duration)
+  }
 }
 
 /**
