@@ -9,6 +9,7 @@
 import SwiftUI
 import AppKit
 import AVKit
+import Cocoa
 struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
@@ -41,10 +42,24 @@ struct ContentView: View
         {
           Spacer()
             //          Search Bar for searching the song by name or by artist, album
-          TextField("Search...", text: $searchString)
+          TextField("Search...", text: $searchString) //TODO: Searchbar would report NSSecureCoding and NSXPCDecoder error
             .cornerRadius(17)
             .padding([.trailing, .leading])
             .textFieldStyle(.roundedBorder)
+            .onChange(of: searchString, {
+              if (!validate(searchString: searchString))
+              {
+                let alert = NSAlert()
+                alert.messageText = "Invalid song name"
+                alert.informativeText = "Please search a valid song"
+                alert.addButton(withTitle: "OK")
+                let response = alert.runModal()
+                if response == .alertFirstButtonReturn 
+                {
+                  searchString = ""
+                }
+              }
+            })
             //         Sidebar Navigation
           List
           {
@@ -140,7 +155,7 @@ struct ContentView: View
                     SliderAudioplayer.currentTime = SliderPlace
                   }
 
-                }.onChange(of: SliderPlace, perform: { newValue in
+                }.onChange(of: SliderPlace, {
                   let currentTime = CurrentTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
                   let duration = DurationTimeFormatting(SliderAudioPlayer: SliderAudioplayer)
                   if (currentTime == duration)
@@ -278,6 +293,22 @@ struct ContentView: View
     }
   }
 
+
+
+  /*---------------------------------------------------- Validate Function ---------------------------------------------------------------------*/
+  func validate(searchString: String)->Bool
+  {
+      // Define your validation criteria here
+    let allowedCharacters = CharacterSet.alphanumerics
+    let disallowedCharacters = CharacterSet(charactersIn: "!@#$%^&*()_+[]{}|;':\",.<>?/~`-=")
+      // Check if the searchString contains only allowed characters
+    let containsOnlyAllowedCharacters = searchString.rangeOfCharacter(from: allowedCharacters.inverted) == nil
+      // Check if the searchString does not contain disallowed characters
+    let doesNotContainDisallowedCharacters = searchString.rangeOfCharacter(from: disallowedCharacters) == nil
+      // Combine the validation criteria
+    let isValid = containsOnlyAllowedCharacters && doesNotContainDisallowedCharacters
+    return isValid
+  }
   /*---------------------------------------------------- Playback Function -------------------------------------------------------------------*/
   /**
    * @brief This function is to control the audio forward

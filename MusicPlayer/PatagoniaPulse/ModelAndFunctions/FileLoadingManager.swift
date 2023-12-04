@@ -6,12 +6,10 @@
  * @date 2022-12-12
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
-import Foundation
+
 import SwiftUI
-import MusicKit
-import AVFoundation
+//import MusicKit
 import AVKit
-import MediaPlayer
 import AppKit
 
 var audioPlayer: AVAudioPlayer!
@@ -135,7 +133,6 @@ func FindTitle(AccessFile: [Playlists], selectedSongs: Playlists.ID?, URLArray: 
 func readInRecentFileURL(RecentArray: [Playlists], selectedRecentSongs: Playlists.ID?) ->String
 {
   let RecentURL = MusicPlayFileArray()
-
   for NameIndex in 0..<RecentArray.count
   {
     if (RecentArray[NameIndex].id == selectedRecentSongs)
