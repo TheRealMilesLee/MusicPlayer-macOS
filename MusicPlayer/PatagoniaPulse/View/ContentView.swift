@@ -29,7 +29,7 @@ struct ContentView: View
   @State var randomPlayStatus: Bool = false
   @State var presentPopup = false
   @State var hasLaunchedBefore: Bool = false
-
+  @Environment(\.controlActiveState) private var controlActiveState
   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   var body: some View
   {
@@ -125,9 +125,19 @@ struct ContentView: View
               }
               hasLaunchedBefore = true
             }
-
           }
           })
+          .onChange(of: controlActiveState) { oldValue, newValue in
+            switch newValue
+            {
+              case .key, .active:
+                break
+              case .inactive:
+                NSApplication.shared.terminate(nil)
+              @unknown default:
+                fatalError("Error, cannnot close")
+            }
+          }
         }
       }
       Spacer()
@@ -305,7 +315,7 @@ struct ContentView: View
   /*---------------------------------------------------- Validate Function ---------------------------------------------------------------------*/
   func validate(searchString: String)->Bool
   {
-      // Define your validation criteria here
+      // Define validation criteria here
     let allowedCharacters = CharacterSet.alphanumerics
     let disallowedCharacters = CharacterSet(charactersIn: "!@#$%^&*()_+[]{}|;':\",.<>?/~`-=")
       // Check if the searchString contains only allowed characters
