@@ -1,0 +1,27 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+      runs-on: macOS-latest
+
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+          xcode-version: 13  # Change to your desired Xcode version
+
+      - name: Build macOS app
+        run: |
+          xcodebuild -project PatagoniaPulse.xcodeproj -scheme PatagoniaPulse -configuration Release

@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B2B666E28DA1142002C4E54 /* PatagoniaPulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666D28DA1142002C4E54 /* PatagoniaPulseApp.swift */; };
+		7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2B666F28DA1142002C4E54 /* ContentView.swift */; };
+		7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B2B667128DA1145002C4E54 /* Assets.xcassets */; };
+		990961E629450C250089F3E8 /* DoubleClick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990961E529450C250089F3E8 /* DoubleClick.swift */; };
+		9941925B293A8D2D00D4ADE6 /* FileLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */; };
+		9951231128E67E0400B1207A /* LocalPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951231028E67E0400B1207A /* LocalPlaylistsView.swift */; };
+		9980E27E2949121E0019BFEE /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980E27D2949121E0019BFEE /* ArtistView.swift */; };
+		9980E2802949122E0019BFEE /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9980E27F2949122E0019BFEE /* AlbumView.swift */; };
+		9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995E436293BEE9E0023BA2D /* MusicViewModel.swift */; };
+		99AA479E2947A01A0083898E /* RecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA479D2947A01A0083898E /* RecentView.swift */; };
+		99B03BD1293C0E2900C604EB /* AudioPlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		990961EB294676640089F3E8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7B2B666D28DA1142002C4E54 /* PatagoniaPulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatagoniaPulseApp.swift; sourceTree = "<group>"; };
+		7B2B666F28DA1142002C4E54 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentView.swift; sourceTree = "<group>"; };
+		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		990961E529450C250089F3E8 /* DoubleClick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleClick.swift; sourceTree = "<group>"; };
+		9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoadingManager.swift; sourceTree = "<group>"; };
+		9946C1C22AFAC4B400AA516E /* PatagoniaPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PatagoniaPulse.app; path = "/Users/Silverhand/Developer/SourceRepostory/MusicPlayer-macOS/MusicPlayer/build/Debug/PatagoniaPulse.app"; sourceTree = "<absolute>"; };
+		9951231028E67E0400B1207A /* LocalPlaylistsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlaylistsView.swift; sourceTree = "<group>"; };
+		996D343D28ECB33500257A5D /* PatagoniaPulse.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = PatagoniaPulse.entitlements; sourceTree = "<group>"; };
+		9980E27D2949121E0019BFEE /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
+		9980E27F2949122E0019BFEE /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		9995E436293BEE9E0023BA2D /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		99AA479D2947A01A0083898E /* RecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentView.swift; sourceTree = "<group>"; };
+		99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B2B666728DA1142002C4E54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B2B666128DA1142002C4E54 = {
+			isa = PBXGroup;
+			children = (
+				7B2B666C28DA1142002C4E54 /* PatagoniaPulse */,
+			);
+			sourceTree = "<group>";
+		};
+		7B2B666C28DA1142002C4E54 /* PatagoniaPulse */ = {
+			isa = PBXGroup;
+			children = (
+				99AD97D3296DE7B900EC49E1 /* View */,
+				9980E281294916D30019BFEE /* ModelAndFunctions */,
+				996D343D28ECB33500257A5D /* PatagoniaPulse.entitlements */,
+				7B2B667128DA1145002C4E54 /* Assets.xcassets */,
+				7B2B666D28DA1142002C4E54 /* PatagoniaPulseApp.swift */,
+			);
+			path = PatagoniaPulse;
+			sourceTree = "<group>";
+		};
+		9980E281294916D30019BFEE /* ModelAndFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				99B03BD0293C0E2900C604EB /* AudioPlayManager.swift */,
+				990961E529450C250089F3E8 /* DoubleClick.swift */,
+				9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */,
+				9995E436293BEE9E0023BA2D /* MusicViewModel.swift */,
+			);
+			path = ModelAndFunctions;
+			sourceTree = "<group>";
+		};
+		99AD97D3296DE7B900EC49E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9980E27F2949122E0019BFEE /* AlbumView.swift */,
+				9980E27D2949121E0019BFEE /* ArtistView.swift */,
+				7B2B666F28DA1142002C4E54 /* ContentView.swift */,
+				9951231028E67E0400B1207A /* LocalPlaylistsView.swift */,
+				99AA479D2947A01A0083898E /* RecentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B2B666928DA1142002C4E54 /* PatagoniaPulse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B2B667928DA1145002C4E54 /* Build configuration list for PBXNativeTarget "PatagoniaPulse" */;
+			buildPhases = (
+				7B2B666628DA1142002C4E54 /* Sources */,
+				7B2B666728DA1142002C4E54 /* Frameworks */,
+				7B2B666828DA1142002C4E54 /* Resources */,
+				990961EB294676640089F3E8 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatagoniaPulse;
+			productName = MusicPlayer;
+			productReference = 9946C1C22AFAC4B400AA516E /* PatagoniaPulse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B2B666228DA1142002C4E54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					"Default Resources",
+				);
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					7B2B666928DA1142002C4E54 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 7B2B666528DA1142002C4E54 /* Build configuration list for PBXProject "PatagoniaPulse" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B2B666128DA1142002C4E54;
+			productRefGroup = 7B2B666128DA1142002C4E54;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B2B666928DA1142002C4E54 /* PatagoniaPulse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B2B666828DA1142002C4E54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B2B667228DA1145002C4E54 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B2B666628DA1142002C4E54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99AA479E2947A01A0083898E /* RecentView.swift in Sources */,
+				9941925B293A8D2D00D4ADE6 /* FileLoadingManager.swift in Sources */,
+				9951231128E67E0400B1207A /* LocalPlaylistsView.swift in Sources */,
+				9980E27E2949121E0019BFEE /* ArtistView.swift in Sources */,
+				990961E629450C250089F3E8 /* DoubleClick.swift in Sources */,
+				9995E437293BEE9E0023BA2D /* MusicViewModel.swift in Sources */,
+				7B2B667028DA1142002C4E54 /* ContentView.swift in Sources */,
+				99B03BD1293C0E2900C604EB /* AudioPlayManager.swift in Sources */,
+				7B2B666E28DA1142002C4E54 /* PatagoniaPulseApp.swift in Sources */,
+				9980E2802949122E0019BFEE /* AlbumView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7B2B667728DA1145002C4E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = c89;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = z;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = PatagoniaPulse;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B2B667828DA1145002C4E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = c89;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = z;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = PatagoniaPulse;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		7B2B667A28DA1145002C4E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_ENTITLEMENTS = PatagoniaPulse/PatagoniaPulse.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: grandtheftauto710@outlook.com (8HY8WY6JP8)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = ZR2RHJLP29;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PatagoniaPulse;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "(c) Copyright 2023. Hengyi Li";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edu.ucdavis.Hengyi.Patagonia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7B2B667B28DA1145002C4E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_ENTITLEMENTS = PatagoniaPulse/PatagoniaPulse.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development: grandtheftauto710@outlook.com (8HY8WY6JP8)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = ZR2RHJLP29;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PatagoniaPulse;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "(c) Copyright 2023. Hengyi Li";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.5;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edu.ucdavis.Hengyi.Patagonia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B2B666528DA1142002C4E54 /* Build configuration list for PBXProject "PatagoniaPulse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2B667728DA1145002C4E54 /* Debug */,
+				7B2B667828DA1145002C4E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B2B667928DA1145002C4E54 /* Build configuration list for PBXNativeTarget "PatagoniaPulse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2B667A28DA1145002C4E54 /* Debug */,
+				7B2B667B28DA1145002C4E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B2B666228DA1142002C4E54 /* Project object */;
+}

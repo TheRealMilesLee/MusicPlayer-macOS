@@ -6686,3 +6686,5 @@ Contribution: 2024-11-19 20:15
 
 Contribution: 2024-11-19 20:16
 
+# MusicPlayer-MacOS
+This is a music player application that running on macOS
