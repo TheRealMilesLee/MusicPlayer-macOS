@@ -10,6 +10,8 @@ import SwiftUI
 import AppKit
 import AVKit
 import Cocoa
+import AVFoundation
+
 struct ContentView: View
 {
   @EnvironmentObject var audioPlayManager: AudioPlayManager
@@ -107,21 +109,34 @@ struct ContentView: View
           .onAppear(perform:{Task{
             if (!hasLaunchedBefore)
             {
-              await GetAsset()
-              for content in 0..<FileNameContents.count
-              {
-                let BeforechoppedFileName = FileNameContents[content]
-                let AfterChoppedFileName = BeforechoppedFileName
-                  .replacingOccurrences(of: #".mp3"#, with: "")
-                  .replacingOccurrences(of: #".mp4"#, with: "")
-                  .replacingOccurrences(of: #".wav"#, with: "")
-                  .replacingOccurrences(of: #".flac"#, with: "")
-                let DurationTimeSeconds = CMTimeGetSeconds(metaDuration[content])
-                let DurationToMinutes = DurationTimeSeconds / 60
-                let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
-                let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: #"."#, with: ":")
-                let AlbumImage = NSImage(data: metaArtwork[content] as Data)
-                AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify,  Artist: metaArtistArray[content], Album: metaAlbumArray[content], image: AlbumImage))
+              // Per-file async metadata loading approach:
+              // For each file in FileURL, load metadata asynchronously using loadSongMetadata(for:).
+              // Build and append Playlists object with extracted metadata or placeholders if extraction fails.
+              AccessFile = []
+              for (content, filePath) in FileURL.enumerated() {
+                  let fileURL = URL(fileURLWithPath: filePath)
+                  do {
+                      let metadata = try await loadSongMetadata(for: fileURL)
+                      let AfterChoppedFileName = FileNameContents[content]
+                          .replacingOccurrences(of: ".mp3", with: "")
+                          .replacingOccurrences(of: ".mp4", with: "")
+                          .replacingOccurrences(of: ".wav", with: "")
+                          .replacingOccurrences(of: ".flac", with: "")
+                      let DurationTimeSeconds = CMTimeGetSeconds(metadata.duration)
+                      let DurationToMinutes = DurationTimeSeconds / 60
+                      let DurationRoundMinutes = Double(round(100 * DurationToMinutes) / 100)
+                      let DurationStringnify = String(DurationRoundMinutes).replacingOccurrences(of: ".", with: ":")
+                      let AlbumImage = metadata.artwork.flatMap { NSImage(data: $0 as Data) }
+                      AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: DurationStringnify, Artist: metadata.artist, Album: metadata.album, image: AlbumImage))
+                  } catch {
+                      // Use placeholders on failure
+                      let AfterChoppedFileName = FileNameContents[content]
+                          .replacingOccurrences(of: ".mp3", with: "")
+                          .replacingOccurrences(of: ".mp4", with: "")
+                          .replacingOccurrences(of: ".wav", with: "")
+                          .replacingOccurrences(of: ".flac", with: "")
+                      AccessFile.append(Playlists(Title: AfterChoppedFileName, Duration: "--:--", Artist: "Unknown", Album: "Unknown", image: nil))
+                  }
               }
               hasLaunchedBefore = true
             }

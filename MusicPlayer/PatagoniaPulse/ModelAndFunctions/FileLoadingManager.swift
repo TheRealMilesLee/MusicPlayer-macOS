@@ -14,54 +14,43 @@ import AppKit
 
 var audioPlayer: AVAudioPlayer!
 let user_folder = showOpenPanel()
-var metaAlbumArray:[String] = []
-var metaArtistArray:[String] = []
-var metaArtwork:[NSData] = []
-var metaDuration: [CMTime] = []
 
 /**
- * @brief This function is to get the MP3 asset
- * @return void
+ * @brief This function loads the metadata for a single song file.
+ * @param fileURL URL of the audio file
+ * @return A tuple containing album name, artist name, optional artwork, and duration of the song
+ * @throws Rethrows any errors encountered during metadata loading
  */
-func GetAsset() async
-{
-  let getMusicPath = MusicPlayFileArray()
-  for indexArray in getMusicPath
-  {
-    let asset = AVPlayerItem(url: URL(fileURLWithPath: indexArray))
-    do
-    {
-      let metadataList = try await asset.asset.load(.metadata)
-      for item in metadataList
-      {
-        if let key = item.commonKey, let value = try await item.load(.value)
-        {
-          if (key.rawValue == "albumName")
-          {
-            metaAlbumArray.append(((value as? String) ?? "No AlbumName"))
-          }
-          if (key.rawValue == "artist")
-          {
-            metaArtistArray.append(((value as? String) ?? "No Artist name"))
-          }
-          if (key.rawValue == "artwork")
-          {
-            metaArtwork.append(value as! NSData)
-          }
+func loadSongMetadata(for fileURL: URL) async throws -> (album: String, artist: String, artwork: NSData?, duration: CMTime) {
+    let asset = AVPlayerItem(url: fileURL)
+    var albumName = "No AlbumName"
+    var artistName = "No Artist name"
+    var artworkData: NSData? = nil
+    do {
+        let metadataList = try await asset.asset.load(.metadata)
+        for item in metadataList {
+            if let key = item.commonKey, let value = try await item.load(.value) {
+                if key.rawValue == "albumName" {
+                    albumName = (value as? String) ?? albumName
+                }
+                if key.rawValue == "artist" {
+                    artistName = (value as? String) ?? artistName
+                }
+                if key.rawValue == "artwork" {
+                    artworkData = value as? NSData
+                }
+            }
         }
-      }
-      let DurationAsset = AVURLAsset(url: URL(fileURLWithPath: indexArray), options: nil)
-      let SongDuration = try await DurationAsset.load(.duration)
-      metaDuration.append(SongDuration)
-    }catch
-    {
-      print(error)
+        let durationAsset = AVURLAsset(url: fileURL, options: nil)
+        let songDuration = try await durationAsset.load(.duration)
+        return (albumName, artistName, artworkData, songDuration)
+    } catch {
+        throw error
     }
-  }
 }
 
 /**
- * @brief This function is to get the file name from the folder that user specified
+ * @brief This function is to get the file name from the folder that user specified. Only file names are loaded initially.
  * @return Array<String>
  */
 func getFileNameArray() -> [String]
