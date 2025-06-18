@@ -34,12 +34,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B0759E72E027FB100EB9C07 /* PatagoniaPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatagoniaPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B2B666D28DA1142002C4E54 /* PatagoniaPulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatagoniaPulseApp.swift; sourceTree = "<group>"; };
 		7B2B666F28DA1142002C4E54 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContentView.swift; sourceTree = "<group>"; };
 		7B2B667128DA1145002C4E54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		990961E529450C250089F3E8 /* DoubleClick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleClick.swift; sourceTree = "<group>"; };
 		9941925A293A8D2D00D4ADE6 /* FileLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoadingManager.swift; sourceTree = "<group>"; };
-		9946C1C22AFAC4B400AA516E /* PatagoniaPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PatagoniaPulse.app; path = "/Users/Silverhand/Developer/SourceRepostory/MusicPlayer-macOS/MusicPlayer/build/Debug/PatagoniaPulse.app"; sourceTree = "<absolute>"; };
 		9951231028E67E0400B1207A /* LocalPlaylistsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPlaylistsView.swift; sourceTree = "<group>"; };
 		996D343D28ECB33500257A5D /* PatagoniaPulse.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = PatagoniaPulse.entitlements; sourceTree = "<group>"; };
 		9980E27D2949121E0019BFEE /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
@@ -64,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				7B2B666C28DA1142002C4E54 /* PatagoniaPulse */,
+				7B0759E72E027FB100EB9C07 /* PatagoniaPulse.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,7 +121,7 @@
 			);
 			name = PatagoniaPulse;
 			productName = MusicPlayer;
-			productReference = 9946C1C22AFAC4B400AA516E /* PatagoniaPulse.app */;
+			productReference = 7B0759E72E027FB100EB9C07 /* PatagoniaPulse.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +135,7 @@
 					"Default Resources",
 				);
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					7B2B666928DA1142002C4E54 = {
 						CreatedOnToolsVersion = 14.0;
@@ -227,6 +228,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZR2RHJLP29;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -251,6 +253,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PatagoniaPulse;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -292,6 +295,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZR2RHJLP29;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -312,6 +316,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PatagoniaPulse;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -332,9 +337,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = ZR2RHJLP29;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MOVIES_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = PatagoniaPulse;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
@@ -369,9 +379,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = ZR2RHJLP29;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MOVIES_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = PatagoniaPulse;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
