@@ -323,6 +323,7 @@ struct ContentView: View
         }
       }
     }
+    .background(.ultraThinMaterial)
   }
 
 

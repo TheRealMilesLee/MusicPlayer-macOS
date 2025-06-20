@@ -29,14 +29,15 @@ struct AlbumView: View {
   var body: some View {
     Table(filteredAccessFile, selection: $currentTableSelection, sortOrder: $sortOrder) {
       TableColumn("Album", value: \.Album)
-    }
+    }.scrollContentBackground(.hidden)
     .onDoubleClick {
       handleDoubleClick()
     }
+    .background(.ultraThinMaterial)
   }
 
   private func handleDoubleClick() {
-    guard let selection = currentTableSelection else { return }
+    guard currentTableSelection != nil else { return }
 
     // 安全停止当前播放
     if let player = audioPlayManager.player, player.isPlaying {

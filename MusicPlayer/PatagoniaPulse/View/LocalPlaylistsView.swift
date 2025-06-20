@@ -51,6 +51,8 @@ struct LocalPlaylistView: View
           RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
         }
       }
+      .scrollContentBackground(.hidden)
+      .background(.ultraThinMaterial)
     }
     else
     {
@@ -76,8 +78,9 @@ struct LocalPlaylistView: View
           RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
         }
       }
+      .scrollContentBackground(.hidden)
+      .background(.ultraThinMaterial)
     }
-
   }
 
   func searchResult(AccessFile: [Playlists], searchString: String) ->[Playlists]
@@ -161,3 +164,4 @@ struct LocalPlaylistView: View
     }
   }
 }
+

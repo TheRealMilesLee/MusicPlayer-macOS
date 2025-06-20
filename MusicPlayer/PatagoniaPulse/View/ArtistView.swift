@@ -28,10 +28,11 @@ struct ArtistView: View {
   var body: some View {
     Table(filteredAccessFile, selection: $currentTableSelection, sortOrder: $sortOrder) {
       TableColumn("Artist", value: \.Artist)
-    }
+    }.scrollContentBackground(.hidden)
     .onDoubleClick {
       handleDoubleClick()
     }
+    .background(.ultraThinMaterial)
   }
 
   private func handleDoubleClick() {

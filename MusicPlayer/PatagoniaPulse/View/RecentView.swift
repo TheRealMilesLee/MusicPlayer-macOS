@@ -48,6 +48,8 @@ struct RecentView: View
           RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
         }
       }
+      .scrollContentBackground(.hidden)
+      .background(.ultraThinMaterial)
     }
     else
     {
@@ -73,6 +75,8 @@ struct RecentView: View
           RecentPlayed(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, RecentPlayedArray:&RecentPlayedArray)
         }
       }
+      .scrollContentBackground(.hidden)
+      .background(.ultraThinMaterial)
     }
   }
 
