@@ -96,12 +96,12 @@ struct ContentView: View
                                                     searchString: $searchString,
                                                     CurrentTableSelection: $CurrentTableSelection
                                                   )){Label("Artist", systemImage: "person.and.background.dotted")}
-            NavigationLink(destination: AlbumView( AccessFile: $AccessFile,
-                                                   CurrentTableSelection: $CurrentTableSelection,
-                                                   FileURL:$FileURL ,
+            NavigationLink(destination: AlbumView( accessFile: $AccessFile,
+                                                   currentTableSelection: $CurrentTableSelection,
+                                                   fileURL:$FileURL ,
                                                    playStatusButton: $playStatusButton,
                                                    searchString: $searchString,
-                                                   SliderPlace: $SliderPlace
+                                                   sliderPlace: $SliderPlace
                                                  )){Label("Album", systemImage: "play.square.stack")}
           }
           .padding(.bottom)

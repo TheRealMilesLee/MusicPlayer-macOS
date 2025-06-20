@@ -7,62 +7,52 @@
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
-struct AlbumView: View
-{
-  @Binding var AccessFile: Array<Playlists>
-  @Binding var CurrentTableSelection: Playlists.ID?
-  @Binding var FileURL: Array<String>
-  @Binding var playStatusButton : Bool
+
+struct AlbumView: View {
+  @Binding var accessFile: [Playlists]
+  @Binding var currentTableSelection: Playlists.ID?
+  @Binding var fileURL: [String]
+  @Binding var playStatusButton: Bool
   @Binding var searchString: String
-  @Binding var SliderPlace: Double
+  @Binding var sliderPlace: Double
+
   @EnvironmentObject var audioPlayManager: AudioPlayManager
-  @State var load_file : Bool = false
-  @State var selectedAlbum: Playlists.ID?
   @State private var sortOrder = [KeyPathComparator(\Playlists.Album)]
 
-  var body: some View
-  {
-    if (searchString == "")
-    {
-      Table(AccessFile, selection: $selectedAlbum, sortOrder: $sortOrder)
-      {
-        TableColumn("Album", value: \.Album)
-      }.onDoubleClick
-      {
-        if (selectedAlbum?.description != nil)
-        {
-          CurrentTableSelection = selectedAlbum
-          if ((audioPlayManager.player?.isPlaying) != nil)
-          {
-            audioPlayManager.player?.stop()
-          }
-          let Result = PatagoniaPulse.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
-          playStatusButton = true
-          SliderPlace = 0
-          audioPlayManager.startPlayer(url: Result)
-        }
-      }
+  // 过滤后的数据
+  var filteredAccessFile: [Playlists] {
+    searchString.isEmpty
+    ? accessFile
+    : accessFile.filter { $0.Album.starts(with: searchString) }
+  }
+
+  var body: some View {
+    Table(filteredAccessFile, selection: $currentTableSelection, sortOrder: $sortOrder) {
+      TableColumn("Album", value: \.Album)
     }
-    else
-    {
-      Table(AccessFile.filter {$0.Album.starts(with: searchString)}, selection: $selectedAlbum, sortOrder: $sortOrder)
-      {
-        TableColumn("Album", value: \.Album)
-      }.onDoubleClick
-      {
-        if (selectedAlbum?.description != nil)
-        {
-          CurrentTableSelection = selectedAlbum
-          if ((audioPlayManager.player?.isPlaying) != nil)
-          {
-            audioPlayManager.player?.stop()
-          }
-          let Result = PatagoniaPulse.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
-          playStatusButton = true
-          SliderPlace = 0
-          audioPlayManager.startPlayer(url: Result)
-        }
-      }
+    .onDoubleClick {
+      handleDoubleClick()
     }
+  }
+
+  private func handleDoubleClick() {
+    guard let selection = currentTableSelection else { return }
+
+    // 安全停止当前播放
+    if let player = audioPlayManager.player, player.isPlaying {
+      player.stop()
+    }
+
+    // 查找歌曲URL
+    let result = PatagoniaPulse.FindTitle(
+      AccessFile: accessFile,
+      selectedSongs: currentTableSelection,
+      URLArray: fileURL
+    )
+    guard !result.isEmpty else { return }
+
+    playStatusButton = true
+    sliderPlace = 0
+    audioPlayManager.startPlayer(url: result)
   }
 }
