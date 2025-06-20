@@ -7,74 +7,54 @@
  * @copyright Copyright (c) 2022. Hengyi Li, All rights reserved
  */
 import SwiftUI
-struct ArtistView: View
-{
-  @Binding var FileURL: Array<String>
-  @Binding var SliderPlace: Double
-  @Binding var playStatusButton : Bool
-  @Binding var AccessFile: Array<Playlists>
+
+struct ArtistView: View {
+  @Binding var fileURL: [String]
+  @Binding var sliderPlace: Double
+  @Binding var playStatusButton: Bool
+  @Binding var accessFile: [Playlists]
   @Binding var searchString: String
-  @Binding var CurrentTableSelection: Playlists.ID?
+  @Binding var currentTableSelection: Playlists.ID?
   @EnvironmentObject var audioPlayManager: AudioPlayManager
-  @State var selectedArtist: Playlists.ID?
-  @State var load_file : Bool = false
   @State private var sortOrder = [KeyPathComparator(\Playlists.Artist)]
 
-  var body: some View
-  {
-    if (searchString == "")
-    {
-      Table(AccessFile, selection: $selectedArtist, sortOrder: $sortOrder)
-      {
-        TableColumn("Artist", value: \.Artist)
-      }.onDoubleClick
-      {
-        if (selectedArtist?.description != nil)
-        {
-          CurrentTableSelection = selectedArtist
-          if ((audioPlayManager.player?.isPlaying) != nil)
-          {
-            audioPlayManager.player?.stop()
-          }
-          let Result = PatagoniaPulse.FindTitle(AccessFile: AccessFile, selectedSongs: CurrentTableSelection, URLArray: FileURL)
-          playStatusButton = true
-          SliderPlace = 0
-          audioPlayManager.startPlayer(url: Result)
-        }
-      }
+  // 过滤后数据
+  var filteredAccessFile: [Playlists] {
+    searchString.isEmpty
+    ? accessFile
+    : accessFile.filter { $0.Artist.starts(with: searchString) }
+  }
+
+  var body: some View {
+    Table(filteredAccessFile, selection: $currentTableSelection, sortOrder: $sortOrder) {
+      TableColumn("Artist", value: \.Artist)
     }
-    else
-    {
-      Table(AccessFile.filter {$0.Artist.starts(with: searchString)}, selection: $selectedArtist, sortOrder: $sortOrder)
-      {
-        TableColumn("Artist", value: \.Artist)
-      }.onDoubleClick
-      {
-        if (selectedArtist?.description != nil)
-        {
-          CurrentTableSelection = selectedArtist
-          if ((audioPlayManager.player?.isPlaying) != nil)
-          {
-            audioPlayManager.player?.stop()
-          }
-          let Result = FindTitle(AccessFile: AccessFile)
-          playStatusButton = true
-          SliderPlace = 0
-          audioPlayManager.startPlayer(url: Result)
-        }
-      }
+    .onDoubleClick {
+      handleDoubleClick()
     }
   }
-  
-  
-  func FindTitle(AccessFile: [Playlists]) -> String
-  {
-    for NameIndex in 0..<AccessFile.count
-    {
-      if (AccessFile[NameIndex].id == CurrentTableSelection)
-      {
-        return FileURL[NameIndex]
-      }
+
+  private func handleDoubleClick() {
+    guard let selection = currentTableSelection else { return }
+
+    // 停止当前播放
+    if let player = audioPlayManager.player, player.isPlaying {
+      player.stop()
+    }
+
+    // 查找歌曲URL
+    let result = findTitle(for: selection)
+    guard !result.isEmpty && result != "Null" else { return }
+
+    playStatusButton = true
+    sliderPlace = 0
+    audioPlayManager.startPlayer(url: result)
+  }
+
+  /// 查找选中歌曲的URL
+  private func findTitle(for id: Playlists.ID) -> String {
+    if let idx = accessFile.firstIndex(where: { $0.id == id }), idx < fileURL.count {
+      return fileURL[idx]
     }
     return "Null"
   }

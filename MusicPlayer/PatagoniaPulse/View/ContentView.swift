@@ -89,12 +89,12 @@ struct ContentView: View
                                                  )){Label("Recent", systemImage: "tray.full")}
             Spacer()
             Text("Categories").font(.footnote).foregroundColor(Color.gray).multilineTextAlignment(.leading)
-            NavigationLink(destination: ArtistView( FileURL:$FileURL ,
-                                                    SliderPlace: $SliderPlace ,
+            NavigationLink(destination: ArtistView( fileURL:$FileURL ,
+                                                    sliderPlace: $SliderPlace ,
                                                     playStatusButton: $playStatusButton,
-                                                    AccessFile: $AccessFile,
+                                                    accessFile: $AccessFile,
                                                     searchString: $searchString,
-                                                    CurrentTableSelection: $CurrentTableSelection
+                                                    currentTableSelection: $CurrentTableSelection
                                                   )){Label("Artist", systemImage: "person.and.background.dotted")}
             NavigationLink(destination: AlbumView( accessFile: $AccessFile,
                                                    currentTableSelection: $CurrentTableSelection,
